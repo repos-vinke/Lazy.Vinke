@@ -6,10 +6,10 @@
 		<Description>Lazy Vinke</Description>
 		<Authors>Vinke</Authors>
 		<Version>1.0.0</Version>
-		<PackageLicenseFile>LICENSE</PackageLicenseFile>
 		<RepositoryUrl>https://github.com/repos-vinke/Lazy.Vinke</RepositoryUrl>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+		<PackageLicenseFile>LICENSE</PackageLicenseFile>
 		<PackageOutputPath>$(SolutionDir)..\..\..\Packages\</PackageOutputPath>
 	</PropertyGroup>
 
