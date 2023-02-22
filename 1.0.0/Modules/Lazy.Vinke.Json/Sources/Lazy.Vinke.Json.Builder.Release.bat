@@ -1,0 +1,3 @@
+dotnet clean >> nul
+echo Building Lazy.Vinke.Json...
+dotnet build --configuration Release >> nul
