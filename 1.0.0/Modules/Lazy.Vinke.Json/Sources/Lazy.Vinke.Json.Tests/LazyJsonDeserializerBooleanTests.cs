@@ -47,22 +47,7 @@ namespace Lazy.Vinke.Json.Tests
         }
 
         [TestMethod]
-        public void TestDeserializerBooleanDataTypeNull()
-        {
-            // Arrange
-            Object resBoolean = null;
-            LazyJsonProperty jsonProperty = new LazyJsonProperty("Prop", new LazyJsonBoolean(true));
-            LazyJsonDeserializerBoolean deserializerBoolean = new LazyJsonDeserializerBoolean();
-
-            // Act
-            resBoolean = deserializerBoolean.Deserialize(jsonProperty, null);
-
-            // Assert
-            Assert.IsNull(resBoolean);
-        }
-
-        [TestMethod]
-        public void TestDeserializerBooleanJsonTypeNull()
+        public void TestDeserializerBooleanTokenTypeNull()
         {
             // Arrange
             Type typeBoolean = typeof(Boolean);
@@ -88,7 +73,22 @@ namespace Lazy.Vinke.Json.Tests
         }
 
         [TestMethod]
-        public void TestDeserializerBooleanJsonTypeBoolean()
+        public void TestDeserializerBooleanDataTypeNull()
+        {
+            // Arrange
+            Object resBoolean = null;
+            LazyJsonProperty jsonProperty = new LazyJsonProperty("Prop", new LazyJsonBoolean(true));
+            LazyJsonDeserializerBoolean deserializerBoolean = new LazyJsonDeserializerBoolean();
+
+            // Act
+            resBoolean = deserializerBoolean.Deserialize(jsonProperty, null);
+
+            // Assert
+            Assert.IsNull(resBoolean);
+        }
+
+        [TestMethod]
+        public void TestDeserializerBoolean()
         {
             // Arrange
             Type typeBoolean = typeof(Boolean);
