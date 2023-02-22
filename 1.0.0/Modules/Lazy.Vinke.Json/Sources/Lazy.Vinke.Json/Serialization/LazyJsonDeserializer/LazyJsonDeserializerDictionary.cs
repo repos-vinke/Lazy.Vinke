@@ -33,12 +33,12 @@ namespace Lazy.Vinke.Json
         /// <param name="dataType">The type of the desired object</param>
         /// <param name="deserializerOptions">The json deserializer options</param>
         /// <returns>The desired object instance</returns>
-        public override Object Deserialize(LazyJsonProperty jsonProperty, Type dataType, LazyJsonDeserializerOptions deserializerOptions = null)
+        public override Object Deserialize(LazyJsonProperty jsonProperty, Type dataType)
         {
             if (jsonProperty == null)
                 return null;
 
-            return Deserialize(jsonProperty.Token, dataType, deserializerOptions);
+            return Deserialize(jsonProperty.Token, dataType);
         }
 
         /// <summary>
@@ -48,7 +48,7 @@ namespace Lazy.Vinke.Json
         /// <param name="dataType">The type of the desired object</param>
         /// <param name="deserializerOptions">The json deserializer options</param>
         /// <returns>The desired object instance</returns>
-        public override Object Deserialize(LazyJsonToken jsonToken, Type dataType, LazyJsonDeserializerOptions deserializerOptions = null)
+        public override Object Deserialize(LazyJsonToken jsonToken, Type dataType)
         {
             if (jsonToken == null || jsonToken.Type != LazyJsonType.Array || dataType == null || dataType.IsGenericType == false || dataType.GetGenericTypeDefinition() != typeof(Dictionary<,>))
                 return null;
@@ -94,20 +94,20 @@ namespace Lazy.Vinke.Json
 
                 if (jsonDeserializerKey != null)
                 {
-                    key = jsonDeserializerKey.Deserialize(jsonArrayKeyValuePair.TokenList[0], dataType.GenericTypeArguments[0], deserializerOptions);
+                    key = jsonDeserializerKey.Deserialize(jsonArrayKeyValuePair.TokenList[0], dataType.GenericTypeArguments[0]);
                 }
                 else
                 {
-                    key = LazyJsonDeserializer.DeserializeToken(jsonArrayKeyValuePair.TokenList[0], dataType.GenericTypeArguments[0], deserializerOptions);
+                    key = LazyJsonDeserializer.DeserializeToken(jsonArrayKeyValuePair.TokenList[0], dataType.GenericTypeArguments[0]);
                 }
 
                 if (jsonDeserializerValue != null)
                 {
-                    value = jsonDeserializerValue.Deserialize(jsonArrayKeyValuePair.TokenList[1], dataType.GenericTypeArguments[1], deserializerOptions);
+                    value = jsonDeserializerValue.Deserialize(jsonArrayKeyValuePair.TokenList[1], dataType.GenericTypeArguments[1]);
                 }
                 else
                 {
-                    value = LazyJsonDeserializer.DeserializeToken(jsonArrayKeyValuePair.TokenList[1], dataType.GenericTypeArguments[1], deserializerOptions);
+                    value = LazyJsonDeserializer.DeserializeToken(jsonArrayKeyValuePair.TokenList[1], dataType.GenericTypeArguments[1]);
                 }
 
                 methodAdd.Invoke(dictionary, new Object[] { key, value });

@@ -31,12 +31,12 @@ namespace Lazy.Vinke.Json
         /// <param name="dataType">The type of the desired object</param>
         /// <param name="deserializerOptions">The json deserializer options</param>
         /// <returns>The desired object instance</returns>
-        public override Object Deserialize(LazyJsonProperty jsonProperty, Type dataType, LazyJsonDeserializerOptions deserializerOptions = null)
+        public override Object Deserialize(LazyJsonProperty jsonProperty, Type dataType)
         {
             if (jsonProperty == null)
                 return null;
 
-            return Deserialize(jsonProperty.Token, dataType, deserializerOptions);
+            return Deserialize(jsonProperty.Token, dataType);
         }
 
         /// <summary>
@@ -46,7 +46,7 @@ namespace Lazy.Vinke.Json
         /// <param name="dataType">The type of the desired object</param>
         /// <param name="deserializerOptions">The json deserializer options</param>
         /// <returns>The desired object instance</returns>
-        public override Object Deserialize(LazyJsonToken jsonToken, Type dataType, LazyJsonDeserializerOptions deserializerOptions = null)
+        public override Object Deserialize(LazyJsonToken jsonToken, Type dataType)
         {
             if (jsonToken == null || jsonToken.Type != LazyJsonType.Object || dataType == null || dataType != typeof(DataSet))
                 return null;
@@ -66,7 +66,7 @@ namespace Lazy.Vinke.Json
 
                 foreach (LazyJsonProperty jsonPropertyDataSetTable in jsonObjectDataSetTables.PropertyList)
                 {
-                    DataTable dataTable = jsonDeserializerDataTable.Deserialize<DataTable>(jsonPropertyDataSetTable, deserializerOptions);
+                    DataTable dataTable = jsonDeserializerDataTable.Deserialize<DataTable>(jsonPropertyDataSetTable);
 
                     if (dataTable != null)
                         dataSet.Tables.Add(dataTable);

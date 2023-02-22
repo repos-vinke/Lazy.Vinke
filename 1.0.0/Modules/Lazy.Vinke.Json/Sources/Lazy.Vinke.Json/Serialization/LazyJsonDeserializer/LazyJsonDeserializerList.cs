@@ -33,12 +33,12 @@ namespace Lazy.Vinke.Json
         /// <param name="dataType">The type of the desired object</param>
         /// <param name="deserializerOptions">The json deserializer options</param>
         /// <returns>The desired object instance</returns>
-        public override Object Deserialize(LazyJsonProperty jsonProperty, Type dataType, LazyJsonDeserializerOptions deserializerOptions = null)
+        public override Object Deserialize(LazyJsonProperty jsonProperty, Type dataType)
         {
             if (jsonProperty == null)
                 return null;
 
-            return Deserialize(jsonProperty.Token, dataType, deserializerOptions);
+            return Deserialize(jsonProperty.Token, dataType);
         }
 
         /// <summary>
@@ -48,7 +48,7 @@ namespace Lazy.Vinke.Json
         /// <param name="dataType">The type of the desired object</param>
         /// <param name="deserializerOptions">The json deserializer options</param>
         /// <returns>The desired object instance</returns>
-        public override Object Deserialize(LazyJsonToken jsonToken, Type dataType, LazyJsonDeserializerOptions deserializerOptions = null)
+        public override Object Deserialize(LazyJsonToken jsonToken, Type dataType)
         {
             if (jsonToken == null || jsonToken.Type != LazyJsonType.Array || dataType == null || dataType.IsGenericType == false || dataType.GetGenericTypeDefinition() != typeof(List<>))
                 return null;
@@ -67,12 +67,12 @@ namespace Lazy.Vinke.Json
                 LazyJsonDeserializerBase jsonDeserializer = (LazyJsonDeserializerBase)Activator.CreateInstance(jsonDeserializerType);
 
                 for (int index = 0; index < jsonArray.Count; index++)
-                    methodAdd.Invoke(list, new Object[] { jsonDeserializer.Deserialize(jsonArray.TokenList[index], dataType.GenericTypeArguments[0], deserializerOptions) });
+                    methodAdd.Invoke(list, new Object[] { jsonDeserializer.Deserialize(jsonArray.TokenList[index], dataType.GenericTypeArguments[0]) });
             }
             else
             {
                 for (int index = 0; index < jsonArray.Count; index++)
-                    methodAdd.Invoke(list, new Object[] { LazyJsonDeserializer.DeserializeToken(jsonArray.TokenList[index], dataType.GenericTypeArguments[0], deserializerOptions) });
+                    methodAdd.Invoke(list, new Object[] { LazyJsonDeserializer.DeserializeToken(jsonArray.TokenList[index], dataType.GenericTypeArguments[0]) });
             }
             
             return list;

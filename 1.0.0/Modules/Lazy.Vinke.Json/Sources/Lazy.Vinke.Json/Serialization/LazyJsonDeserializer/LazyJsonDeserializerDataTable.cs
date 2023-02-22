@@ -31,7 +31,7 @@ namespace Lazy.Vinke.Json
         /// <param name="dataType">The type of the desired object</param>
         /// <param name="deserializerOptions">The json deserializer options</param>
         /// <returns>The desired object instance</returns>
-        public override Object Deserialize(LazyJsonProperty jsonProperty, Type dataType, LazyJsonDeserializerOptions deserializerOptions = null)
+        public override Object Deserialize(LazyJsonProperty jsonProperty, Type dataType)
         {
             if (jsonProperty == null || jsonProperty.Token == null || jsonProperty.Token.Type != LazyJsonType.Object || dataType == null || dataType != typeof(DataTable))
                 return null;
@@ -48,7 +48,7 @@ namespace Lazy.Vinke.Json
                 foreach (LazyJsonToken jsonTokenDataTableRow in jsonArrayDataTableRows.TokenList)
                 {
                     if (jsonTokenDataTableRow.Type == LazyJsonType.Object)
-                        jsonDeserializerDataRow.Deserialize(jsonTokenDataTableRow, dataTable, deserializerOptions);
+                        jsonDeserializerDataRow.Deserialize(jsonTokenDataTableRow, dataTable);
                 }
             }
 
@@ -62,7 +62,7 @@ namespace Lazy.Vinke.Json
         /// <param name="dataType">The type of the desired object</param>
         /// <param name="deserializerOptions">The json deserializer options</param>
         /// <returns>The desired object instance</returns>
-        public override Object Deserialize(LazyJsonToken jsonToken, Type dataType, LazyJsonDeserializerOptions deserializerOptions = null)
+        public override Object Deserialize(LazyJsonToken jsonToken, Type dataType)
         {
             /* Unable to retrieve the data table column types from deserializer options at this call because the table name is unknown */
 
@@ -81,7 +81,7 @@ namespace Lazy.Vinke.Json
                 foreach (LazyJsonToken jsonTokenDataTableRow in jsonArrayDataTableRows.TokenList)
                 {
                     if (jsonTokenDataTableRow.Type == LazyJsonType.Object)
-                        jsonDeserializerDataRow.Deserialize(jsonTokenDataTableRow, dataTable, deserializerOptions);
+                        jsonDeserializerDataRow.Deserialize(jsonTokenDataTableRow, dataTable);
                 }
             }
 
@@ -109,7 +109,7 @@ namespace Lazy.Vinke.Json
         /// </summary>
         /// <param name="jsonToken">The json datarow token</param>
         /// <param name="dataTable">The datatable</param>
-        public void Deserialize(LazyJsonToken jsonToken, DataTable dataTable, LazyJsonDeserializerOptions deserializerOptions = null)
+        public void Deserialize(LazyJsonToken jsonToken, DataTable dataTable)
         {
             LazyJsonObject jsonObjectDataRow = (LazyJsonObject)jsonToken;
             DataRow dataRow = dataTable.NewRow();
@@ -139,14 +139,14 @@ namespace Lazy.Vinke.Json
                 if (dataRowState == DataRowState.Modified)
                 {
                     if (jsonObjectDataRowValues["Original"] != null && jsonObjectDataRowValues["Original"].Token.Type == LazyJsonType.Object)
-                        DeserializeDataRow((LazyJsonObject)jsonObjectDataRowValues["Original"].Token, dataRow, deserializerOptions);
+                        DeserializeDataRow((LazyJsonObject)jsonObjectDataRowValues["Original"].Token, dataRow);
 
                     dataRow.AcceptChanges();
                 }
 
                 // Values Current
                 if (jsonObjectDataRowValues["Current"] != null && jsonObjectDataRowValues["Current"].Token.Type == LazyJsonType.Object)
-                    DeserializeDataRow((LazyJsonObject)jsonObjectDataRowValues["Current"].Token, dataRow, deserializerOptions);
+                    DeserializeDataRow((LazyJsonObject)jsonObjectDataRowValues["Current"].Token, dataRow);
             }
 
             switch (dataRowState)
@@ -162,26 +162,11 @@ namespace Lazy.Vinke.Json
         /// </summary>
         /// <param name="jsonObjectDataRowColumns">The json datarow object</param>
         /// <param name="dataRow">The datarow</param>
-        private void DeserializeDataRow(LazyJsonObject jsonObjectDataRowColumns, DataRow dataRow, LazyJsonDeserializerOptions deserializerOptions = null)
+        private void DeserializeDataRow(LazyJsonObject jsonObjectDataRowColumns, DataRow dataRow)
         {
-            Dictionary<String, LazyJsonDeserializerColumnDataOptions> columnDictionary = null;
-            if (deserializerOptions?.dataTableOptions?.dataTableDictionary?.ContainsKey(dataRow.Table.TableName) == true)
-                columnDictionary = deserializerOptions.dataTableOptions.dataTableDictionary[dataRow.Table.TableName].columnCollectionOptions?.columnDictionary;
-
             foreach (LazyJsonProperty jsonPropertyDataRowColumn in jsonObjectDataRowColumns.PropertyList)
             {
-                if (columnDictionary != null && columnDictionary.ContainsKey(jsonPropertyDataRowColumn.Name))
-                {
-                    Type dataType = columnDictionary[jsonPropertyDataRowColumn.Name].Type;
-
-                    if (dataRow.Table.Columns.Contains(jsonPropertyDataRowColumn.Name) == false)
-                        dataRow.Table.Columns.Add(jsonPropertyDataRowColumn.Name, dataType);
-
-                    Object value = LazyJsonDeserializer.DeserializeToken(jsonPropertyDataRowColumn.Token, dataType, deserializerOptions);
-
-                    dataRow[jsonPropertyDataRowColumn.Name] = value != null ? value : DBNull.Value;
-                }
-                else if (jsonPropertyDataRowColumn.Token.Type == LazyJsonType.Null)
+                if (jsonPropertyDataRowColumn.Token.Type == LazyJsonType.Null)
                 {
                     if (dataRow.Table.Columns.Contains(jsonPropertyDataRowColumn.Name) == false)
                         dataRow.Table.Columns.Add(jsonPropertyDataRowColumn.Name, typeof(String));
