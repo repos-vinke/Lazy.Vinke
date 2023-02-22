@@ -29,7 +29,7 @@ namespace Lazy.Vinke.Json
         /// </summary>
         /// <param name="data">The object to be serialized</param>
         /// <returns>The json string token</returns>
-        public override LazyJsonToken Serialize(Object data, LazyJsonSerializerOptions serializerOptions = null)
+        public override LazyJsonToken Serialize(Object data)
         {
             if (data == null)
                 return new LazyJsonString(null);

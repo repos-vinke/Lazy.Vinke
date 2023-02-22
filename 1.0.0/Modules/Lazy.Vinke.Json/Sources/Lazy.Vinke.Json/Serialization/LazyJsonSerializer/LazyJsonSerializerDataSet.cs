@@ -29,7 +29,7 @@ namespace Lazy.Vinke.Json
         /// </summary>
         /// <param name="data">The object to be serialized</param>
         /// <returns>The json dataset object token</returns>
-        public override LazyJsonToken Serialize(Object data, LazyJsonSerializerOptions serializerOptions = null)
+        public override LazyJsonToken Serialize(Object data)
         {
             if (data == null || data is not DataSet)
                 return new LazyJsonNull();
@@ -48,7 +48,7 @@ namespace Lazy.Vinke.Json
 
             foreach (DataTable dataTable in dataSet.Tables)
             {
-                LazyJsonToken jsonTokenDataSetTable = jsonSerializerDataTable.Serialize(dataTable, serializerOptions);
+                LazyJsonToken jsonTokenDataSetTable = jsonSerializerDataTable.Serialize(dataTable);
 
                 if (jsonTokenDataSetTable != null)
                     jsonObjectDataSetTables.Add(new LazyJsonProperty(dataTable.TableName, jsonTokenDataSetTable));
