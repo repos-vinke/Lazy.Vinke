@@ -11,6 +11,7 @@ using System.Xml;
 using System.Data;
 using System.Text;
 using System.Net;
+using System.Runtime.InteropServices;
 
 namespace Lazy.Vinke
 {
@@ -91,6 +92,58 @@ namespace Lazy.Vinke
                 return nullAsZero == true ? 0 : failValue;
 
             try { return Convert.ToInt64(value); }
+            catch { return failValue; }
+        }
+
+        /// <summary>
+        /// Try convert an Object value to Float value
+        /// </summary>
+        /// <param name="value">The Object value to convert</param>
+        /// <returns>The converted Float value</returns>
+        public static float ToFloat(Object value)
+        {
+            return (float)Convert.ToDouble(value);
+        }
+
+        /// <summary>
+        /// Try convert an Object value to Float value
+        /// </summary>
+        /// <param name="value">The Object value to convert</param>
+        /// <param name="failValue">The Float value to return if fail to convert</param>
+        /// <param name="nullAsZero">Indicate if null value will be considered as zero</param>
+        /// <returns>The converted Float value or the fail Float value</returns>
+        public static float ToFloat(Object value, float failValue, Boolean nullAsZero = false)
+        {
+            if (value == null)
+                return nullAsZero == true ? 0.0f : failValue;
+
+            try { return (float)Convert.ToDouble(value); }
+            catch { return failValue; }
+        }
+
+        /// <summary>
+        /// Try convert an Object value to Double value
+        /// </summary>
+        /// <param name="value">The Object value to convert</param>
+        /// <returns>The converted Double value</returns>
+        public static Double ToDouble(Object value)
+        {
+            return Convert.ToDouble(value);
+        }
+
+        /// <summary>
+        /// Try convert an Object value to Double value
+        /// </summary>
+        /// <param name="value">The Object value to convert</param>
+        /// <param name="failValue">The Double value to return if fail to convert</param>
+        /// <param name="nullAsZero">Indicate if null value will be considered as zero</param>
+        /// <returns>The converted Double value or the fail Double value</returns>
+        public static Double ToDouble(Object value, Double failValue, Boolean nullAsZero = false)
+        {
+            if (value == null)
+                return nullAsZero == true ? 0.0d : failValue;
+
+            try { return Convert.ToDouble(value); }
             catch { return failValue; }
         }
 
