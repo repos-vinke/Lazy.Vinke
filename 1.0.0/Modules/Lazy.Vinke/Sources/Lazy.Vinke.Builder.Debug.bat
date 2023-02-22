@@ -1,0 +1,3 @@
+dotnet clean >> nul
+echo Building Lazy.Vinke...
+dotnet build --configuration Debug >> nul

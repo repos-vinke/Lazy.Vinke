@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<Product>Lazy</Product>
+		<Description>Lazy Vinke</Description>
+		<Authors>Vinke</Authors>
+		<Version>1.0.0</Version>
+		<PackageLicenseFile>LICENSE</PackageLicenseFile>
+		<RepositoryUrl>https://github.com/repos-vinke/Lazy.Vinke</RepositoryUrl>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+		<PackageOutputPath>$(SolutionDir)..\..\..\Packages\</PackageOutputPath>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Include="..\..\..\..\..\LICENSE">
+			<Pack>True</Pack>
+			<PackagePath></PackagePath>
+		</None>
+	</ItemGroup>
+
+	<PropertyGroup Condition="'$(Configuration)' == 'Debug' and '$(TargetFramework)' == 'net6.0'">
+		<PostBuildEvent>
+			xcopy /y $(SolutionDir)Lazy.Vinke\bin\Debug\net6.0\Lazy.Vinke.dll %SystemDrive%%HomePath%\.nuget\Packages\lazy.vinke\1.0.0\lib\net6.0\
+			xcopy /y $(SolutionDir)Lazy.Vinke\bin\Debug\net6.0\Lazy.Vinke.dll $(SolutionDir)..\..\..\..\..\..\Debug\Both\Bin\lazy.vinke\1.0.0\lib\net6.0\
+			xcopy /y $(SolutionDir)Lazy.Vinke\bin\Debug\net6.0\Lazy.Vinke.dll $(SolutionDir)..\..\..\..\..\..\Debug\Client\Bin\lazy.vinke\1.0.0\lib\net6.0\
+			xcopy /y $(SolutionDir)Lazy.Vinke\bin\Debug\net6.0\Lazy.Vinke.dll $(SolutionDir)..\..\..\..\..\..\Debug\Server\Bin\lazy.vinke\1.0.0\lib\net6.0\
+		</PostBuildEvent>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)' == 'Release' and '$(TargetFramework)' == 'net6.0'">
+		<PostBuildEvent>
+			xcopy /y $(SolutionDir)Lazy.Vinke\bin\Release\net6.0\Lazy.Vinke.dll $(SolutionDir)..\..\..\..\..\..\Release\Both\Bin\lazy.vinke\1.0.0\lib\net6.0\
+			xcopy /y $(SolutionDir)Lazy.Vinke\bin\Release\net6.0\Lazy.Vinke.dll $(SolutionDir)..\..\..\..\..\..\Release\Client\Bin\lazy.vinke\1.0.0\lib\net6.0\
+			xcopy /y $(SolutionDir)Lazy.Vinke\bin\Release\net6.0\Lazy.Vinke.dll $(SolutionDir)..\..\..\..\..\..\Release\Server\Bin\lazy.vinke\1.0.0\lib\net6.0\
+		</PostBuildEvent>
+	</PropertyGroup>
+
+</Project>
