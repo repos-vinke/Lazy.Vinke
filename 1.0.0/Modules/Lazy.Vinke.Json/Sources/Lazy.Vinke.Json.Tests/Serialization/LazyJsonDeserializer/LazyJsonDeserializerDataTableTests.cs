@@ -201,10 +201,6 @@ namespace Lazy.Vinke.Json.Tests
             DateTime dateTime2 = DateTime.Now.AddDays(10);
             jsonObjectCurrent.Add("DateTime2", new LazyJsonString(dateTime2.ToString("yyyy-MM-ddTHH:mm:ss:fffZ")));
 
-            LazyJsonDeserializerOptions deserializerOptions = new LazyJsonDeserializerOptions();
-            deserializerOptions.Item<LazyJsonDeserializerOptionsDataTable>()["WithRows"].Columns["DateTime1"].Set(typeof(DateTime));
-            deserializerOptions.Item<LazyJsonDeserializerOptionsDataTable>()["WithRows"].Columns["DateTime2"].Set(typeof(DateTime));
-
             LazyJsonObject jsonObjectValues = new LazyJsonObject();
             jsonObjectValues.Add("Original", new LazyJsonNull());
             jsonObjectValues.Add("Current", jsonObjectCurrent);
@@ -222,6 +218,10 @@ namespace Lazy.Vinke.Json.Tests
             Object resDataTable = null;
             LazyJsonProperty jsonProperty = new LazyJsonProperty("WithRows", jsonObjectRows);
             LazyJsonDeserializerDataTable deserializerDataTable = new LazyJsonDeserializerDataTable();
+
+            LazyJsonDeserializerOptions deserializerOptions = new LazyJsonDeserializerOptions();
+            deserializerOptions.Item<LazyJsonDeserializerOptionsDataTable>()["WithRows"].Columns["DateTime1"].Set(typeof(DateTime));
+            deserializerOptions.Item<LazyJsonDeserializerOptionsDataTable>()["WithRows"].Columns["DateTime2"].Set(typeof(DateTime));
 
             // Act
             resDataTable = deserializerDataTable.Deserialize(jsonProperty, typeof(DataTable), deserializerOptions);
