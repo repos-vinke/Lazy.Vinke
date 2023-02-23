@@ -178,28 +178,32 @@ namespace Lazy.Vinke.Json
                     if (dataRow.Table.Columns.Contains(jsonPropertyDataRowColumn.Name) == false)
                         dataRow.Table.Columns.Add(jsonPropertyDataRowColumn.Name, typeof(Boolean));
 
-                    dataRow[jsonPropertyDataRowColumn.Name] = ((LazyJsonBoolean)jsonPropertyDataRowColumn.Token).Value;
+                    Boolean? value = ((LazyJsonBoolean)jsonPropertyDataRowColumn.Token).Value;
+                    dataRow[jsonPropertyDataRowColumn.Name] = value == null ? DBNull.Value : value;
                 }
                 else if (jsonPropertyDataRowColumn.Token.Type == LazyJsonType.String)
                 {
                     if (dataRow.Table.Columns.Contains(jsonPropertyDataRowColumn.Name) == false)
                         dataRow.Table.Columns.Add(jsonPropertyDataRowColumn.Name, typeof(String));
 
-                    dataRow[jsonPropertyDataRowColumn.Name] = ((LazyJsonString)jsonPropertyDataRowColumn.Token).Value;
+                    String value = ((LazyJsonString)jsonPropertyDataRowColumn.Token).Value;
+                    dataRow[jsonPropertyDataRowColumn.Name] = value == null ? DBNull.Value : value;
                 }
                 else if (jsonPropertyDataRowColumn.Token.Type == LazyJsonType.Integer)
                 {
                     if (dataRow.Table.Columns.Contains(jsonPropertyDataRowColumn.Name) == false)
                         dataRow.Table.Columns.Add(jsonPropertyDataRowColumn.Name, typeof(Int32));
 
-                    dataRow[jsonPropertyDataRowColumn.Name] = ((LazyJsonInteger)jsonPropertyDataRowColumn.Token).Value;
+                    Int64? value = ((LazyJsonInteger)jsonPropertyDataRowColumn.Token).Value;
+                    dataRow[jsonPropertyDataRowColumn.Name] = value == null ? DBNull.Value : value;
                 }
                 else if (jsonPropertyDataRowColumn.Token.Type == LazyJsonType.Decimal)
                 {
                     if (dataRow.Table.Columns.Contains(jsonPropertyDataRowColumn.Name) == false)
                         dataRow.Table.Columns.Add(jsonPropertyDataRowColumn.Name, typeof(Decimal));
 
-                    dataRow[jsonPropertyDataRowColumn.Name] = ((LazyJsonDecimal)jsonPropertyDataRowColumn.Token).Value;
+                    Decimal? value = ((LazyJsonDecimal)jsonPropertyDataRowColumn.Token).Value;
+                    dataRow[jsonPropertyDataRowColumn.Name] = value == null ? DBNull.Value : value;
                 }
             }
         }
