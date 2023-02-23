@@ -10,6 +10,7 @@ using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 using Lazy.Vinke.Json;
+using System.Collections.Generic;
 
 namespace Lazy.Vinke.Json.Tests
 {
@@ -55,7 +56,7 @@ namespace Lazy.Vinke.Json.Tests
             LazyJsonDeserializerArray deserializerArray = new LazyJsonDeserializerArray();
 
             // Act
-            resArray = deserializerArray.Deserialize(jsonProperty, typeof(Decimal));
+            resArray = deserializerArray.Deserialize(jsonProperty, typeof(List<Decimal>));
 
             // Assert
             Assert.IsNull(resArray);
