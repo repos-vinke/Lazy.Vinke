@@ -32,12 +32,12 @@ namespace Lazy.Vinke.Json
         /// <param name="dataType">The type of the desired object</param>
         /// <param name="deserializerOptions">The json deserializer options</param>
         /// <returns>The desired object instance</returns>
-        public override Object Deserialize(LazyJsonProperty jsonProperty, Type dataType)
+        public override Object Deserialize(LazyJsonProperty jsonProperty, Type dataType, LazyJsonDeserializerOptions deserializerOptions = null)
         {
             if (jsonProperty == null)
                 return null;
 
-            return Deserialize(jsonProperty.Token, dataType);
+            return Deserialize(jsonProperty.Token, dataType, deserializerOptions);
         }
 
         /// <summary>
@@ -47,7 +47,7 @@ namespace Lazy.Vinke.Json
         /// <param name="dataType">The type of the desired object</param>
         /// <param name="deserializerOptions">The json deserializer options</param>
         /// <returns>The desired object instance</returns>
-        public override Object Deserialize(LazyJsonToken jsonToken, Type dataType)
+        public override Object Deserialize(LazyJsonToken jsonToken, Type dataType, LazyJsonDeserializerOptions deserializerOptions = null)
         {
             if (jsonToken == null || jsonToken.Type != LazyJsonType.Array || dataType == null || dataType.IsArray == false)
                 return null;
@@ -66,12 +66,12 @@ namespace Lazy.Vinke.Json
                 LazyJsonDeserializerBase jsonDeserializer = (LazyJsonDeserializerBase)Activator.CreateInstance(jsonDeserializerType);
 
                 for (int index = 0; index < jsonArray.Count; index++)
-                    array.SetValue(jsonDeserializer.Deserialize(jsonArray.TokenList[index], arrayElementType), index);
+                    array.SetValue(jsonDeserializer.Deserialize(jsonArray.TokenList[index], arrayElementType, deserializerOptions), index);
             }
             else
             {
                 for (int index = 0; index < jsonArray.Count; index++)
-                    array.SetValue(LazyJsonDeserializer.DeserializeToken(jsonArray.TokenList[index], arrayElementType), index);
+                    array.SetValue(LazyJsonDeserializer.DeserializeToken(jsonArray.TokenList[index], arrayElementType, deserializerOptions), index);
             }
             
             return array;

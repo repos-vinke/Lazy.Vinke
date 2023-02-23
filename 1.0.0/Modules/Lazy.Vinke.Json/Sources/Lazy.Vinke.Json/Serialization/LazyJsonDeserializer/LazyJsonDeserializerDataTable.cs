@@ -31,7 +31,7 @@ namespace Lazy.Vinke.Json
         /// <param name="dataType">The type of the desired object</param>
         /// <param name="deserializerOptions">The json deserializer options</param>
         /// <returns>The desired object instance</returns>
-        public override Object Deserialize(LazyJsonProperty jsonProperty, Type dataType)
+        public override Object Deserialize(LazyJsonProperty jsonProperty, Type dataType, LazyJsonDeserializerOptions deserializerOptions = null)
         {
             if (jsonProperty == null || jsonProperty.Token == null || jsonProperty.Token.Type != LazyJsonType.Object || dataType == null || dataType != typeof(DataTable))
                 return null;
@@ -62,7 +62,7 @@ namespace Lazy.Vinke.Json
         /// <param name="dataType">The type of the desired object</param>
         /// <param name="deserializerOptions">The json deserializer options</param>
         /// <returns>The desired object instance</returns>
-        public override Object Deserialize(LazyJsonToken jsonToken, Type dataType)
+        public override Object Deserialize(LazyJsonToken jsonToken, Type dataType, LazyJsonDeserializerOptions deserializerOptions = null)
         {
             /* Unable to retrieve the data table column types from deserializer options at this call because the table name is unknown */
 
