@@ -190,10 +190,6 @@ namespace Lazy.Vinke.Json
             if (dataType == null)
                 return null;
 
-            if (jsonToken.Type == LazyJsonType.Boolean) return typeof(LazyJsonDeserializerBoolean);
-            if (jsonToken.Type == LazyJsonType.Integer) return typeof(LazyJsonDeserializerInteger);
-            if (jsonToken.Type == LazyJsonType.Decimal) return typeof(LazyJsonDeserializerDecimal);
-
             if (dataType == typeof(Boolean)) return typeof(LazyJsonDeserializerBoolean);
             if (dataType == typeof(Char)) return typeof(LazyJsonDeserializerString);
             if (dataType == typeof(String)) return typeof(LazyJsonDeserializerString);
@@ -221,6 +217,11 @@ namespace Lazy.Vinke.Json
 
             if (dataType == typeof(DataSet)) return typeof(LazyJsonDeserializerDataSet);
             if (dataType == typeof(DataTable)) return typeof(LazyJsonDeserializerDataTable);
+
+            if (jsonToken.Type == LazyJsonType.String) return typeof(LazyJsonDeserializerString);
+            if (jsonToken.Type == LazyJsonType.Boolean) return typeof(LazyJsonDeserializerBoolean);
+            if (jsonToken.Type == LazyJsonType.Integer) return typeof(LazyJsonDeserializerInteger);
+            if (jsonToken.Type == LazyJsonType.Decimal) return typeof(LazyJsonDeserializerDecimal);
 
             return null;
         }
