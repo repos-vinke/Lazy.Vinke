@@ -53,10 +53,10 @@ namespace Lazy.Vinke.Json
 
             if (jsonToken.Type == LazyJsonType.Null)
             {
-                if (dataType == typeof(float)) return 0;
-                if (dataType == typeof(Double)) return 0;
-                if (dataType == typeof(Decimal)) return 0;
-                if (dataType == typeof(Object)) return 0;
+                if (dataType == typeof(float)) return 0.0f;
+                if (dataType == typeof(Double)) return 0.0d;
+                if (dataType == typeof(Decimal)) return 0.0m;
+                if (dataType == typeof(Object)) return 0.0m;
                 if (dataType == typeof(Nullable<float>)) return null;
                 if (dataType == typeof(Nullable<Double>)) return null;
                 if (dataType == typeof(Nullable<Decimal>)) return null;
@@ -65,10 +65,10 @@ namespace Lazy.Vinke.Json
             {
                 LazyJsonDecimal jsonDecimal = (LazyJsonDecimal)jsonToken;
 
-                if (dataType == typeof(float)) return jsonDecimal.Value == null ? 0 : (float)jsonDecimal.Value;
-                if (dataType == typeof(Double)) return jsonDecimal.Value == null ? 0 : Convert.ToDouble(jsonDecimal.Value);
-                if (dataType == typeof(Decimal)) return jsonDecimal.Value == null ? 0 : Convert.ToDecimal(jsonDecimal.Value);
-                if (dataType == typeof(Object)) return jsonDecimal.Value == null ? 0 : Convert.ToDecimal(jsonDecimal.Value);
+                if (dataType == typeof(float)) return jsonDecimal.Value == null ? 0.0f : (float)jsonDecimal.Value;
+                if (dataType == typeof(Double)) return jsonDecimal.Value == null ? 0.0d : Convert.ToDouble(jsonDecimal.Value);
+                if (dataType == typeof(Decimal)) return jsonDecimal.Value == null ? 0.0m : Convert.ToDecimal(jsonDecimal.Value);
+                if (dataType == typeof(Object)) return jsonDecimal.Value == null ? 0.0m : Convert.ToDecimal(jsonDecimal.Value);
                 if (dataType == typeof(Nullable<float>)) return jsonDecimal.Value == null ? null : (float)jsonDecimal.Value;
                 if (dataType == typeof(Nullable<Double>)) return jsonDecimal.Value == null ? null : Convert.ToDouble(jsonDecimal.Value);
                 if (dataType == typeof(Nullable<Decimal>)) return jsonDecimal.Value == null ? null : Convert.ToDecimal(jsonDecimal.Value);
