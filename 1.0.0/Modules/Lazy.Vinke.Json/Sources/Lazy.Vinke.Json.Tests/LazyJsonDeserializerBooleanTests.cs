@@ -65,10 +65,6 @@ namespace Lazy.Vinke.Json.Tests
         public void TestDeserializerBooleanTokenTypeNull()
         {
             // Arrange
-            Type typeBoolean = typeof(Boolean);
-            Type typeObject = typeof(Object);
-            Type typeNullableBoolean = typeof(Boolean?);
-
             Object resBoolean = null;
             Object resObject = null;
             Object resNullableBoolean = null;
@@ -77,9 +73,31 @@ namespace Lazy.Vinke.Json.Tests
             LazyJsonDeserializerBoolean deserializerBoolean = new LazyJsonDeserializerBoolean();
 
             // Act
-            resBoolean = deserializerBoolean.Deserialize(jsonProperty, typeBoolean);
-            resObject = deserializerBoolean.Deserialize(jsonProperty, typeObject);
-            resNullableBoolean = deserializerBoolean.Deserialize(jsonProperty, typeNullableBoolean);
+            resBoolean = deserializerBoolean.Deserialize(jsonProperty, typeof(Boolean));
+            resObject = deserializerBoolean.Deserialize(jsonProperty, typeof(Object));
+            resNullableBoolean = deserializerBoolean.Deserialize(jsonProperty, typeof(Boolean?));
+
+            // Assert
+            Assert.IsFalse((Boolean)resBoolean);
+            Assert.IsFalse((Boolean)resObject);
+            Assert.IsNull(resNullableBoolean);
+        }
+
+        [TestMethod]
+        public void TestDeserializerBooleanValueNull()
+        {
+            // Arrange
+            Object resBoolean = null;
+            Object resObject = null;
+            Object resNullableBoolean = null;
+
+            LazyJsonProperty jsonProperty = new LazyJsonProperty("Prop", new LazyJsonBoolean(null));
+            LazyJsonDeserializerBoolean deserializerBoolean = new LazyJsonDeserializerBoolean();
+
+            // Act
+            resBoolean = deserializerBoolean.Deserialize(jsonProperty, typeof(Boolean));
+            resObject = deserializerBoolean.Deserialize(jsonProperty, typeof(Object));
+            resNullableBoolean = deserializerBoolean.Deserialize(jsonProperty, typeof(Boolean?));
 
             // Assert
             Assert.IsFalse((Boolean)resBoolean);
@@ -91,10 +109,6 @@ namespace Lazy.Vinke.Json.Tests
         public void TestDeserializerBoolean()
         {
             // Arrange
-            Type typeBoolean = typeof(Boolean);
-            Type typeObject = typeof(Object);
-            Type typeNullableBoolean = typeof(Boolean?);
-
             Object resBoolean = null;
             Object resObject = null;
             Object resNullableBoolean = null;
@@ -103,9 +117,9 @@ namespace Lazy.Vinke.Json.Tests
             LazyJsonDeserializerBoolean deserializerBoolean = new LazyJsonDeserializerBoolean();
 
             // Act
-            resBoolean = deserializerBoolean.Deserialize(jsonProperty, typeBoolean);
-            resObject = deserializerBoolean.Deserialize(jsonProperty, typeObject);
-            resNullableBoolean = deserializerBoolean.Deserialize(jsonProperty, typeNullableBoolean);
+            resBoolean = deserializerBoolean.Deserialize(jsonProperty, typeof(Boolean));
+            resObject = deserializerBoolean.Deserialize(jsonProperty, typeof(Object));
+            resNullableBoolean = deserializerBoolean.Deserialize(jsonProperty, typeof(Boolean?));
 
             // Assert
             Assert.IsTrue((Boolean)resBoolean);

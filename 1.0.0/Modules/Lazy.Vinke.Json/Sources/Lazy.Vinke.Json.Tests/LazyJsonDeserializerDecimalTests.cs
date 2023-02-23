@@ -96,6 +96,40 @@ namespace Lazy.Vinke.Json.Tests
         }
 
         [TestMethod]
+        public void TestDeserializerDecimalValueNull()
+        {
+            // Arrange
+            Object resFloat = null;
+            Object resDouble = null;
+            Object resDecimal = null;
+            Object resObject = null;
+            Object resNullableFloat = null;
+            Object resNullableDouble = null;
+            Object resNullableDecimal = null;
+
+            LazyJsonProperty jsonProperty = new LazyJsonProperty("Prop", new LazyJsonDecimal(null));
+            LazyJsonDeserializerDecimal deserializerDecimal = new LazyJsonDeserializerDecimal();
+
+            // Act
+            resFloat = deserializerDecimal.Deserialize(jsonProperty, typeof(float));
+            resDouble = deserializerDecimal.Deserialize(jsonProperty, typeof(Double));
+            resDecimal = deserializerDecimal.Deserialize(jsonProperty, typeof(Decimal));
+            resObject = deserializerDecimal.Deserialize(jsonProperty, typeof(Object));
+            resNullableFloat = deserializerDecimal.Deserialize(jsonProperty, typeof(float?));
+            resNullableDouble = deserializerDecimal.Deserialize(jsonProperty, typeof(Double?));
+            resNullableDecimal = deserializerDecimal.Deserialize(jsonProperty, typeof(Decimal?));
+
+            // Assert
+            Assert.IsTrue((float)resFloat == 0.0f);
+            Assert.IsTrue((Double)resDouble == 0.0d);
+            Assert.IsTrue((Decimal)resDecimal == 0.0m);
+            Assert.IsTrue((Decimal)resObject == 0.0m);
+            Assert.IsNull(resNullableFloat);
+            Assert.IsNull(resNullableDouble);
+            Assert.IsNull(resNullableDecimal);
+        }
+
+        [TestMethod]
         public void TestDeserializerDecimal()
         {
             // Arrange
