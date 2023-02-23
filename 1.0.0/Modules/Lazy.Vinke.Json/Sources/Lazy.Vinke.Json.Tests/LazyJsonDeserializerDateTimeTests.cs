@@ -47,6 +47,21 @@ namespace Lazy.Vinke.Json.Tests
         }
 
         [TestMethod]
+        public void TestDeserializerDateTimeDataTypeNull()
+        {
+            // Arrange
+            Object resDateTime = null;
+            LazyJsonProperty jsonProperty = new LazyJsonProperty("Prop", new LazyJsonString(DateTime.Now.ToString()));
+            LazyJsonDeserializerDateTime deserializerDateTime = new LazyJsonDeserializerDateTime();
+
+            // Act
+            resDateTime = deserializerDateTime.Deserialize(jsonProperty, null);
+
+            // Assert
+            Assert.IsNull(resDateTime);
+        }
+
+        [TestMethod]
         public void TestDeserializerDateTimeTokenTypeNull()
         {
             // Arrange
@@ -62,15 +77,15 @@ namespace Lazy.Vinke.Json.Tests
         }
 
         [TestMethod]
-        public void TestDeserializerDateTimeDataTypeNull()
+        public void TestDeserializerDateTimeValueNull()
         {
             // Arrange
             Object resDateTime = null;
-            LazyJsonProperty jsonProperty = new LazyJsonProperty("Prop", new LazyJsonString(DateTime.Now.ToString()));
+            LazyJsonProperty jsonProperty = new LazyJsonProperty("Prop", new LazyJsonString(null));
             LazyJsonDeserializerDateTime deserializerDateTime = new LazyJsonDeserializerDateTime();
 
             // Act
-            resDateTime = deserializerDateTime.Deserialize(jsonProperty, null);
+            resDateTime = deserializerDateTime.Deserialize(jsonProperty, typeof(DateTime));
 
             // Assert
             Assert.IsNull(resDateTime);
