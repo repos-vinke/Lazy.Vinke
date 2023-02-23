@@ -190,7 +190,7 @@ namespace Lazy.Vinke.Json
                 else if (jsonPropertyDataRowColumn.Token.Type == LazyJsonType.Integer)
                 {
                     if (dataRow.Table.Columns.Contains(jsonPropertyDataRowColumn.Name) == false)
-                        dataRow.Table.Columns.Add(jsonPropertyDataRowColumn.Name, typeof(Int64));
+                        dataRow.Table.Columns.Add(jsonPropertyDataRowColumn.Name, typeof(Int32));
 
                     dataRow[jsonPropertyDataRowColumn.Name] = ((LazyJsonInteger)jsonPropertyDataRowColumn.Token).Value;
                 }
