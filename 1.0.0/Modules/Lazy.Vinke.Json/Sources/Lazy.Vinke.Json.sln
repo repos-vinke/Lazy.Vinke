@@ -3,9 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lazy.Vinke.Json", "Lazy.Vinke.Json\Lazy.Vinke.Json.csproj", "{2ADFFD28-AD01-4AF4-A6D7-9F41B6AA8198}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lazy.Vinke.Json", "Lazy.Vinke.Json\Lazy.Vinke.Json.csproj", "{2ADFFD28-AD01-4AF4-A6D7-9F41B6AA8198}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lazy.Vinke.Json.Tests", "Lazy.Vinke.Json.Tests\Lazy.Vinke.Json.Tests.csproj", "{9B52143E-975A-4473-BA72-2F4FC1B84515}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lazy.Vinke.Json.Tests", "Lazy.Vinke.Json.Tests\Lazy.Vinke.Json.Tests.csproj", "{9B52143E-975A-4473-BA72-2F4FC1B84515}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2ADFFD28-AD01-4AF4-A6D7-9F41B6AA8198} = {2ADFFD28-AD01-4AF4-A6D7-9F41B6AA8198}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

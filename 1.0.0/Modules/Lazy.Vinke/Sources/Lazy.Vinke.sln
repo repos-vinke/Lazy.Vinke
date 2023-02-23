@@ -5,7 +5,10 @@ VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lazy.Vinke", "Lazy.Vinke\Lazy.Vinke.csproj", "{094E9814-F5FE-45E0-AA62-AC494941AD2A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lazy.Vinke.Tests", "Lazy.Vinke.Tests\Lazy.Vinke.Tests.csproj", "{419DAE3B-2A88-4C7B-A22C-DD6D4C645699}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lazy.Vinke.Tests", "Lazy.Vinke.Tests\Lazy.Vinke.Tests.csproj", "{419DAE3B-2A88-4C7B-A22C-DD6D4C645699}"
+	ProjectSection(ProjectDependencies) = postProject
+		{094E9814-F5FE-45E0-AA62-AC494941AD2A} = {094E9814-F5FE-45E0-AA62-AC494941AD2A}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
