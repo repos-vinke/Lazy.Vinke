@@ -86,10 +86,10 @@ namespace Lazy.Vinke.Json.Tests
             resNullableInt64 = deserializerInteger.Deserialize(jsonProperty, typeof(Int64?));
 
             // Assert
-            Assert.IsTrue(resInt16.Equals(0)); // Casting Int32 to Int16 are failing even when the range matchs
-            Assert.IsTrue((Int32)resInt32 == 0);
-            Assert.IsTrue(resInt64.Equals(0)); // Casting Int32 to Int64 are failing even when the range matchs
-            Assert.IsTrue((Int32)resObject == 0);
+            Assert.IsTrue(resInt16.Equals(0));
+            Assert.IsTrue(resInt32.Equals(0));
+            Assert.IsTrue(resInt64.Equals(0));
+            Assert.IsTrue(resObject.Equals(0));
             Assert.IsNull(resNullableInt16);
             Assert.IsNull(resNullableInt32);
             Assert.IsNull(resNullableInt64);
