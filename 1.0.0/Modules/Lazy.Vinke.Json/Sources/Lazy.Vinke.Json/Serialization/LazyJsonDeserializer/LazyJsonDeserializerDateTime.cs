@@ -12,6 +12,7 @@ using System.Data;
 using System.Text;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using System.Globalization;
 
 namespace Lazy.Vinke.Json
 {
@@ -49,45 +50,65 @@ namespace Lazy.Vinke.Json
         /// <returns>The desired object instance</returns>
         public override Object Deserialize(LazyJsonToken jsonToken, Type dataType, LazyJsonDeserializerOptions deserializerOptions = null)
         {
-            if (jsonToken == null || jsonToken.Type == LazyJsonType.Null || dataType == null)
+            if (jsonToken == null || jsonToken.Type != LazyJsonType.String || dataType == null)
                 return null;
 
-            if (jsonToken.Type == LazyJsonType.String)
+            LazyJsonString jsonString = (LazyJsonString)jsonToken;
+
+            if (jsonString.Value == null)
+                return null;
+
+            if (deserializerOptions != null && deserializerOptions.Contains<LazyJsonDeserializerOptionsDateTime>() == true)
             {
-                LazyJsonString jsonString = (LazyJsonString)jsonToken;
+                String regex = deserializerOptions.Item<LazyJsonDeserializerOptionsDateTime>().Regex;
 
-                if (jsonString.Value == null)
-                    return null;
-
-                if (dataType == typeof(DateTime) || dataType == typeof(Nullable<DateTime>))
+                if (String.IsNullOrWhiteSpace(regex) == false)
                 {
-                    if (IsDateTimeIso(jsonString.Value)) return FromDateTimeIso(jsonString.Value);
+                    if (new Regex(regex).Match(jsonString.Value).Success == false)
+                        return null;
                 }
+
+                String format = deserializerOptions.Item<LazyJsonDeserializerOptionsDateTime>().Format;
+                CultureInfo cultureInfo = deserializerOptions.Item<LazyJsonDeserializerOptionsDateTime>().CultureInfo;
+
+                if (String.IsNullOrWhiteSpace(format) == false)
+                    return DateTime.ParseExact(jsonString.Value, format, cultureInfo != null ? cultureInfo : CultureInfo.CurrentCulture);
             }
-            
-            return null;
-        }
 
-        private Boolean IsDateTimeIso(String value)
-        {
-            return new Regex("^([0-9]{4})-([0-9]{2})-([0-9]{2})T([0-9]{2}):([0-9]{2}):([0-9]{2}):([0-9]{3})Z$").Match(value).Success;
-        }
-
-        private DateTime FromDateTimeIso(String value)
-        {
-            return new DateTime(//2023-02-01T10:11:12:345Z
-                Convert.ToInt32(value.Substring(0, 4)), 
-                Convert.ToInt32(value.Substring(5, 2)), 
-                Convert.ToInt32(value.Substring(8, 2)), 
-                Convert.ToInt32(value.Substring(11, 2)), 
-                Convert.ToInt32(value.Substring(14, 2)), 
-                Convert.ToInt32(value.Substring(17, 2)), 
-                Convert.ToInt32(value.Substring(20, 3)));
+            try { return DateTime.Parse(jsonString.Value); }
+            catch { return null; }
         }
 
         #endregion Methods
 
         #region Properties
+        #endregion Properties
+    }
+
+    public class LazyJsonDeserializerOptionsDateTime : LazyJsonDeserializerOptionsBase
+    {
+        #region Variables
+        #endregion Variables
+
+        #region Contructors
+
+        public LazyJsonDeserializerOptionsDateTime()
+        {
+        }
+
+        #endregion Contructors
+
+        #region Methods
+        #endregion Methods
+
+        #region Properties
+
+        public String Regex { get; set; }
+
+        public String Format { get; set; }
+
+        public CultureInfo CultureInfo { get; set; }
+
         #endregion Properties
     }
 }
