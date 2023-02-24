@@ -145,17 +145,10 @@ namespace Lazy.Vinke.Json
                     }
                     else
                     {
-                        Object value = null;
+                        Object value = DeserializeToken(jsonObject[propertyName].Token, propertyInfo.PropertyType, deserializerOptions);
 
-                        if (propertyInfo.PropertyType == typeof(Int16))
-                        {
-                            /* This is necessary to avoid invalid cast from Int32 to Int16 */
-                            value = Convert.ToInt16(DeserializeToken(jsonObject[propertyName].Token, propertyInfo.PropertyType, deserializerOptions));
-                        }
-                        else
-                        {
-                            value = DeserializeToken(jsonObject[propertyName].Token, propertyInfo.PropertyType, deserializerOptions);
-                        }
+                        /* This is necessary to avoid invalid cast from Int32 to Int16 */
+                        if (propertyInfo.PropertyType == typeof(Int16)) value = Convert.ToInt16(value);
 
                         propertyInfo.SetValue(data, value);
                     }
