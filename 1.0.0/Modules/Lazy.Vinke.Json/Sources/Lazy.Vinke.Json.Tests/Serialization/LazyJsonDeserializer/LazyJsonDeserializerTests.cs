@@ -309,12 +309,16 @@ namespace Lazy.Vinke.Json.Tests
             LazyJsonDeserializerSampleSimpleDateTime sampleSimpleDateTime = null;
             String json = Encoding.UTF8.GetString(Properties.Resources.LazyJsonDeserializerSampleSimpleDateTime);
 
+            LazyJsonDeserializerOptions deserializerOptions = new LazyJsonDeserializerOptions();
+            deserializerOptions.Item<LazyJsonDeserializerOptionsDateTime>().Regex = TestStringRegex.DateTimeISO_GMTXX;
+            deserializerOptions.Item<LazyJsonDeserializerOptionsDateTime>().Format = TestStringFormat.DateTimeISO_GMTXX;
+
             // Act
-            sampleSimpleDateTime = LazyJsonDeserializer.Deserialize<LazyJsonDeserializerSampleSimpleDateTime>(json);
+            sampleSimpleDateTime = LazyJsonDeserializer.Deserialize<LazyJsonDeserializerSampleSimpleDateTime>(json, deserializerOptions);
 
             // Assert
             Assert.IsTrue(sampleSimpleDateTime.DateTimeValueInvalid == DateTime.MinValue);
-            Assert.IsTrue(sampleSimpleDateTime.DateTimeValueValid.ToString("yyyy-MM-ddTHH:mm:ss:fffZ") == "2023-02-24T10:00:01:000Z");
+            Assert.IsTrue(sampleSimpleDateTime.DateTimeValueValid.ToString(TestStringFormat.DateTimeISO_GMTXX) == "2023-02-24T10:00:01:000-03");
             Assert.IsNotNull(sampleSimpleDateTime.DateTimeValueNotNullableNull == DateTime.MinValue);
             Assert.IsNull(sampleSimpleDateTime.DateTimeValueNullableNull);
         }
@@ -331,6 +335,8 @@ namespace Lazy.Vinke.Json.Tests
             deserializerOptions.Item<LazyJsonDeserializerOptionsDataTable>()["DataTableWithSingleRow"].Columns["ColumnDateTime"].Set(typeof(DateTime));
             deserializerOptions.Item<LazyJsonDeserializerOptionsDataTable>()["DataTableWithMultipleRows"].Columns["ColumnChar"].Set(typeof(Char));
             deserializerOptions.Item<LazyJsonDeserializerOptionsDataTable>()["DataTableWithMultipleRows"].Columns["ColumnDateTime"].Set(typeof(DateTime));
+            deserializerOptions.Item<LazyJsonDeserializerOptionsDateTime>().Regex = TestStringRegex.DateTimeISO_GMTXX;
+            deserializerOptions.Item<LazyJsonDeserializerOptionsDateTime>().Format = TestStringFormat.DateTimeISO_GMTXX;
 
             // Act
             sampleSimpleDataTable = LazyJsonDeserializer.Deserialize<LazyJsonDeserializerSampleSimpleDataTable>(json, deserializerOptions);
@@ -346,7 +352,7 @@ namespace Lazy.Vinke.Json.Tests
             Assert.IsTrue((Int32)sampleSimpleDataTable.DataTableWithSingleRow.Rows[0]["ColumnInt32"] == 1);
             Assert.IsTrue((String)sampleSimpleDataTable.DataTableWithSingleRow.Rows[0]["ColumnString"] == "Row1");
             Assert.IsTrue((Char)sampleSimpleDataTable.DataTableWithSingleRow.Rows[0]["ColumnChar"] == 'A');
-            Assert.IsTrue(Convert.ToDateTime(sampleSimpleDataTable.DataTableWithSingleRow.Rows[0]["ColumnDateTime"]).ToString("yyyy-MM-ddTHH:mm:ss:fffZ") == "2022-02-22T11:52:02:000Z");
+            Assert.IsTrue(Convert.ToDateTime(sampleSimpleDataTable.DataTableWithSingleRow.Rows[0]["ColumnDateTime"]).ToString(TestStringFormat.DateTimeISO_GMTXX) == "2022-02-22T11:52:02:000-03");
 
             Assert.IsTrue(sampleSimpleDataTable.DataTableWithMultipleRows.TableName == "DataTableWithMultipleRows");
             Assert.IsTrue(sampleSimpleDataTable.DataTableWithMultipleRows.Rows.Count == 3);
@@ -356,17 +362,17 @@ namespace Lazy.Vinke.Json.Tests
             Assert.IsTrue((Int32)sampleSimpleDataTable.DataTableWithMultipleRows.Rows[0]["ColumnInt32"] == 1);
             Assert.IsTrue((String)sampleSimpleDataTable.DataTableWithMultipleRows.Rows[0]["ColumnString"] == "Row1");
             Assert.IsTrue((Char)sampleSimpleDataTable.DataTableWithMultipleRows.Rows[0]["ColumnChar"] == 'A');
-            Assert.IsTrue(Convert.ToDateTime(sampleSimpleDataTable.DataTableWithMultipleRows.Rows[0]["ColumnDateTime"]).ToString("yyyy-MM-ddTHH:mm:ss:fffZ") == "2023-03-23T11:53:03:000Z");
+            Assert.IsTrue(Convert.ToDateTime(sampleSimpleDataTable.DataTableWithMultipleRows.Rows[0]["ColumnDateTime"]).ToString(TestStringFormat.DateTimeISO_GMTXX) == "2023-03-23T11:53:03:000-03");
 
             Assert.IsTrue((Int32)sampleSimpleDataTable.DataTableWithMultipleRows.Rows[1]["ColumnInt32"] == 2);
             Assert.IsTrue((String)sampleSimpleDataTable.DataTableWithMultipleRows.Rows[1]["ColumnString"] == "Row2");
             Assert.IsTrue((Char)sampleSimpleDataTable.DataTableWithMultipleRows.Rows[1]["ColumnChar"] == 'B');
-            Assert.IsTrue(Convert.ToDateTime(sampleSimpleDataTable.DataTableWithMultipleRows.Rows[1]["ColumnDateTime"]).ToString("yyyy-MM-ddTHH:mm:ss:fffZ") == "2024-04-24T11:54:04:000Z");
+            Assert.IsTrue(Convert.ToDateTime(sampleSimpleDataTable.DataTableWithMultipleRows.Rows[1]["ColumnDateTime"]).ToString(TestStringFormat.DateTimeISO_GMTXX) == "2024-04-24T11:54:04:000-03");
 
             Assert.IsTrue((Int32)sampleSimpleDataTable.DataTableWithMultipleRows.Rows[2]["ColumnInt32"] == 3);
             Assert.IsTrue((String)sampleSimpleDataTable.DataTableWithMultipleRows.Rows[2]["ColumnString"] == "Row3");
             Assert.IsTrue((Char)sampleSimpleDataTable.DataTableWithMultipleRows.Rows[2]["ColumnChar"] == 'C');
-            Assert.IsTrue(Convert.ToDateTime(sampleSimpleDataTable.DataTableWithMultipleRows.Rows[2]["ColumnDateTime"]).ToString("yyyy-MM-ddTHH:mm:ss:fffZ") == "2025-05-25T11:55:05:000Z");
+            Assert.IsTrue(Convert.ToDateTime(sampleSimpleDataTable.DataTableWithMultipleRows.Rows[2]["ColumnDateTime"]).ToString(TestStringFormat.DateTimeISO_GMTXX) == "2025-05-25T11:55:05:000-03");
         }
 
         [TestMethod]
@@ -381,6 +387,8 @@ namespace Lazy.Vinke.Json.Tests
             deserializerOptions.Item<LazyJsonDeserializerOptionsDataTable>()["DataTableWithSingleRow"].Columns["ColumnDateTime"].Set(typeof(DateTime));
             deserializerOptions.Item<LazyJsonDeserializerOptionsDataTable>()["DataTableWithMultipleRows"].Columns["ColumnChar"].Set(typeof(Char));
             deserializerOptions.Item<LazyJsonDeserializerOptionsDataTable>()["DataTableWithMultipleRows"].Columns["ColumnDateTime"].Set(typeof(DateTime));
+            deserializerOptions.Item<LazyJsonDeserializerOptionsDateTime>().Regex = TestStringRegex.DateTimeISO_GMTXX;
+            deserializerOptions.Item<LazyJsonDeserializerOptionsDateTime>().Format = TestStringFormat.DateTimeISO_GMTXX;
 
             // Act
             sampleSimpleDataSet = LazyJsonDeserializer.Deserialize<LazyJsonDeserializerSampleSimpleDataSet>(json, deserializerOptions);
@@ -403,7 +411,7 @@ namespace Lazy.Vinke.Json.Tests
             Assert.IsTrue((Int32)dataTableWithSingleRow.Rows[0]["ColumnInt32"] == 1);
             Assert.IsTrue((String)dataTableWithSingleRow.Rows[0]["ColumnString"] == "Row1");
             Assert.IsTrue((Char)dataTableWithSingleRow.Rows[0]["ColumnChar"] == 'A');
-            Assert.IsTrue(Convert.ToDateTime(dataTableWithSingleRow.Rows[0]["ColumnDateTime"]).ToString("yyyy-MM-ddTHH:mm:ss:fffZ") == "2022-02-22T11:52:02:000Z");
+            Assert.IsTrue(Convert.ToDateTime(dataTableWithSingleRow.Rows[0]["ColumnDateTime"]).ToString(TestStringFormat.DateTimeISO_GMTXX) == "2022-02-22T11:52:02:000-03");
 
             DataTable dataTableWithMultipleRows = sampleSimpleDataSet.DataSet.Tables["DataTableWithMultipleRows"];
             Assert.IsTrue(dataTableWithMultipleRows.TableName == "DataTableWithMultipleRows");
@@ -414,17 +422,17 @@ namespace Lazy.Vinke.Json.Tests
             Assert.IsTrue((Int32)dataTableWithMultipleRows.Rows[0]["ColumnInt32"] == 1);
             Assert.IsTrue((String)dataTableWithMultipleRows.Rows[0]["ColumnString"] == "Row1");
             Assert.IsTrue((Char)dataTableWithMultipleRows.Rows[0]["ColumnChar"] == 'A');
-            Assert.IsTrue(Convert.ToDateTime(dataTableWithMultipleRows.Rows[0]["ColumnDateTime"]).ToString("yyyy-MM-ddTHH:mm:ss:fffZ") == "2023-03-23T11:53:03:000Z");
+            Assert.IsTrue(Convert.ToDateTime(dataTableWithMultipleRows.Rows[0]["ColumnDateTime"]).ToString(TestStringFormat.DateTimeISO_GMTXX) == "2023-03-23T11:53:03:000-03");
 
             Assert.IsTrue((Int32)dataTableWithMultipleRows.Rows[1]["ColumnInt32"] == 2);
             Assert.IsTrue((String)dataTableWithMultipleRows.Rows[1]["ColumnString"] == "Row2");
             Assert.IsTrue((Char)dataTableWithMultipleRows.Rows[1]["ColumnChar"] == 'B');
-            Assert.IsTrue(Convert.ToDateTime(dataTableWithMultipleRows.Rows[1]["ColumnDateTime"]).ToString("yyyy-MM-ddTHH:mm:ss:fffZ") == "2024-04-24T11:54:04:000Z");
+            Assert.IsTrue(Convert.ToDateTime(dataTableWithMultipleRows.Rows[1]["ColumnDateTime"]).ToString(TestStringFormat.DateTimeISO_GMTXX) == "2024-04-24T11:54:04:000-03");
 
             Assert.IsTrue((Int32)dataTableWithMultipleRows.Rows[2]["ColumnInt32"] == 3);
             Assert.IsTrue((String)dataTableWithMultipleRows.Rows[2]["ColumnString"] == "Row3");
             Assert.IsTrue((Char)dataTableWithMultipleRows.Rows[2]["ColumnChar"] == 'C');
-            Assert.IsTrue(Convert.ToDateTime(dataTableWithMultipleRows.Rows[2]["ColumnDateTime"]).ToString("yyyy-MM-ddTHH:mm:ss:fffZ") == "2025-05-25T11:55:05:000Z");
+            Assert.IsTrue(Convert.ToDateTime(dataTableWithMultipleRows.Rows[2]["ColumnDateTime"]).ToString(TestStringFormat.DateTimeISO_GMTXX) == "2025-05-25T11:55:05:000-03");
         }
 
         [TestMethod]

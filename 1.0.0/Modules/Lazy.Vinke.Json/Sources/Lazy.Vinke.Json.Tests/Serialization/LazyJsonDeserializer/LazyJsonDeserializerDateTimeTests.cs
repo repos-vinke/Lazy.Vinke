@@ -95,7 +95,7 @@ namespace Lazy.Vinke.Json.Tests
         {
             // Arrange
             Object resDateTime = null;
-            LazyJsonProperty jsonProperty = new LazyJsonProperty("Prop", new LazyJsonString(DateTime.Now.ToString()));
+            LazyJsonProperty jsonProperty = new LazyJsonProperty("Prop", new LazyJsonString(DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss:fffZ")));
             LazyJsonDeserializerDateTime deserializerDateTime = new LazyJsonDeserializerDateTime();
 
             // Act
@@ -111,11 +111,15 @@ namespace Lazy.Vinke.Json.Tests
             // Arrange
             DateTime dateTime = DateTime.Now;
 
-            LazyJsonProperty jsonProperty = new LazyJsonProperty("Prop", new LazyJsonString(dateTime.ToString("yyyy-MM-ddTHH:mm:ss:fffZ")));
+            LazyJsonProperty jsonProperty = new LazyJsonProperty("Prop", new LazyJsonString(dateTime.ToString(TestStringFormat.DateTimeISO_GMTXX)));
             LazyJsonDeserializerDateTime deserializerDateTime = new LazyJsonDeserializerDateTime();
 
+            LazyJsonDeserializerOptions deserializerOptions = new LazyJsonDeserializerOptions();
+            deserializerOptions.Item<LazyJsonDeserializerOptionsDateTime>().Regex = TestStringRegex.DateTimeISO_GMTXX;
+            deserializerOptions.Item<LazyJsonDeserializerOptionsDateTime>().Format = TestStringFormat.DateTimeISO_GMTXX;
+
             // Act
-            DateTime resDateTime = (DateTime)deserializerDateTime.Deserialize(jsonProperty, typeof(DateTime));
+            DateTime resDateTime = (DateTime)deserializerDateTime.Deserialize(jsonProperty, typeof(DateTime), deserializerOptions);
 
             // Assert
             Assert.IsTrue(resDateTime.Year == dateTime.Year);
