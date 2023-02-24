@@ -219,5 +219,86 @@ namespace Lazy.Vinke.Json.Tests
             Assert.IsTrue(sampleSimpleDictionary.DicInt64Int16Empty.Count == 0);
             Assert.IsNull(sampleSimpleDictionary.DicInt64Int16Null);
         }
+
+        [TestMethod]
+        public void TestDeserializerSampleSimpleArray()
+        {
+            // Arrange
+            LazyJsonDeserializerSampleSimpleArray sampleSimpleArray = null;
+            String json = Encoding.UTF8.GetString(Properties.Resources.LazyJsonDeserializerSampleSimpleArray);
+
+            // Act
+            sampleSimpleArray = LazyJsonDeserializer.Deserialize<LazyJsonDeserializerSampleSimpleArray>(json);
+
+            // Assert
+            Assert.IsTrue(sampleSimpleArray.ArrayBooleanValueSingle.Length == 1);
+            Assert.IsTrue(sampleSimpleArray.ArrayBooleanValueSingle[0] == false);
+            Assert.IsTrue(sampleSimpleArray.ArrayBooleanValueMultiple.Length == 9);
+            Assert.IsTrue(sampleSimpleArray.ArrayBooleanValueMultiple[0] == true);
+            Assert.IsTrue(sampleSimpleArray.ArrayBooleanValueMultiple[5] == false);
+            Assert.IsTrue(sampleSimpleArray.ArrayBooleanValueMultiple[8] == true);
+            Assert.IsTrue(sampleSimpleArray.ArrayBooleanValueEmpty.Length == 0);
+            Assert.IsNull(sampleSimpleArray.ArrayBooleanValueNull);
+
+            Assert.IsTrue(sampleSimpleArray.ArrayDecimalValueSingle.Length == 1);
+            Assert.IsTrue(sampleSimpleArray.ArrayDecimalValueSingle[0] == 0.0m);
+            Assert.IsTrue(sampleSimpleArray.ArrayDecimalValueMultiple.Length == 9);
+            Assert.IsTrue(sampleSimpleArray.ArrayDecimalValueMultiple[0] == 1.1m);
+            Assert.IsTrue(sampleSimpleArray.ArrayDecimalValueMultiple[3] == 4.4m);
+            Assert.IsTrue(sampleSimpleArray.ArrayDecimalValueMultiple[6] == 7.7m);
+            Assert.IsTrue(sampleSimpleArray.ArrayDecimalValueEmpty.Length == 0);
+            Assert.IsNull(sampleSimpleArray.ArrayDecimalValueNull);
+
+            Assert.IsTrue(sampleSimpleArray.ArrayInt16ValueSingle.Length == 1);
+            Assert.IsTrue(sampleSimpleArray.ArrayInt16ValueSingle[0] == 0);
+            Assert.IsTrue(sampleSimpleArray.ArrayInt16ValueMultiple.Length == 9);
+            Assert.IsTrue(sampleSimpleArray.ArrayInt16ValueMultiple[2] == 3);
+            Assert.IsTrue(sampleSimpleArray.ArrayInt16ValueMultiple[5] == 6);
+            Assert.IsTrue(sampleSimpleArray.ArrayInt16ValueMultiple[8] == 9);
+            Assert.IsTrue(sampleSimpleArray.ArrayInt16ValueEmpty.Length == 0);
+            Assert.IsNull(sampleSimpleArray.ArrayInt16ValueNull);
+
+            Assert.IsTrue(sampleSimpleArray.ArrayInt64ValueSingle.Length == 1);
+            Assert.IsTrue(sampleSimpleArray.ArrayInt64ValueSingle[0] == 0);
+            Assert.IsTrue(sampleSimpleArray.ArrayInt64ValueMultiple.Length == 9);
+            Assert.IsTrue(sampleSimpleArray.ArrayInt64ValueMultiple[1] == 2);
+            Assert.IsTrue(sampleSimpleArray.ArrayInt64ValueMultiple[4] == 5);
+            Assert.IsTrue(sampleSimpleArray.ArrayInt64ValueMultiple[7] == 8);
+            Assert.IsTrue(sampleSimpleArray.ArrayInt64ValueEmpty.Length == 0);
+            Assert.IsNull(sampleSimpleArray.ArrayInt64ValueNull);
+
+            Assert.IsTrue(sampleSimpleArray.ArrayStringValueSingle.Length == 1);
+            Assert.IsTrue(sampleSimpleArray.ArrayStringValueSingle[0] == "Zero");
+            Assert.IsTrue(sampleSimpleArray.ArrayStringValueMultiple.Length == 9);
+            Assert.IsTrue(sampleSimpleArray.ArrayStringValueMultiple[1] == "Two");
+            Assert.IsTrue(sampleSimpleArray.ArrayStringValueMultiple[4] == "Five");
+            Assert.IsTrue(sampleSimpleArray.ArrayStringValueMultiple[7] == "Eight");
+            Assert.IsTrue(sampleSimpleArray.ArrayStringValueEmpty.Length == 0);
+            Assert.IsNull(sampleSimpleArray.ArrayStringValueNull);
+
+            Assert.IsTrue(sampleSimpleArray.ArrayCharValueSingle.Length == 1);
+            Assert.IsTrue(sampleSimpleArray.ArrayCharValueSingle[0] == 'Z');
+            Assert.IsTrue(sampleSimpleArray.ArrayCharValueMultiple.Length == 9);
+            Assert.IsTrue(sampleSimpleArray.ArrayCharValueMultiple[2] == 'C');
+            Assert.IsTrue(sampleSimpleArray.ArrayCharValueMultiple[5] == 'F');
+            Assert.IsTrue(sampleSimpleArray.ArrayCharValueMultiple[8] == 'I');
+            Assert.IsTrue(sampleSimpleArray.ArrayCharValueEmpty.Length == 0);
+            Assert.IsNull(sampleSimpleArray.ArrayCharValueNull);
+
+            Assert.IsTrue(sampleSimpleArray.ArrayObjectValueSingle.Length == 1);
+            Assert.IsTrue((String)sampleSimpleArray.ArrayObjectValueSingle[0] == "A");
+            Assert.IsTrue(sampleSimpleArray.ArrayObjectValueMultiple.Length == 9);
+            Assert.IsTrue((Boolean)sampleSimpleArray.ArrayObjectValueMultiple[0] == true);
+            Assert.IsTrue((String)sampleSimpleArray.ArrayObjectValueMultiple[1] == "B");
+            Assert.IsTrue((String)sampleSimpleArray.ArrayObjectValueMultiple[2] == "Json");
+            Assert.IsTrue((Decimal)sampleSimpleArray.ArrayObjectValueMultiple[3] == 1.1m);
+            Assert.IsTrue((Int64)sampleSimpleArray.ArrayObjectValueMultiple[4] == 256);
+            Assert.IsTrue((Decimal)sampleSimpleArray.ArrayObjectValueMultiple[5] == 23.456m);
+            Assert.IsTrue((Int64)sampleSimpleArray.ArrayObjectValueMultiple[6] == 0);
+            Assert.IsTrue((String)sampleSimpleArray.ArrayObjectValueMultiple[7] == "Tests");
+            Assert.IsTrue((Boolean)sampleSimpleArray.ArrayObjectValueMultiple[8] == false);
+            Assert.IsTrue(sampleSimpleArray.ArrayObjectValueEmpty.Length == 0);
+            Assert.IsNull(sampleSimpleArray.ArrayObjectValueNull);
+        }
     }
 }
