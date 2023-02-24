@@ -35,6 +35,18 @@ namespace Lazy.Vinke.Json
         }
 
         /// <summary>
+        /// Deserialize the json property to the desired object
+        /// </summary>
+        /// <typeparam name="T">The type of the desired object</typeparam>
+        /// <param name="jsonToken">The json property to be deserialized</param>
+        /// <param name="deserializerOptions">The json deserializer options</param>
+        /// <returns>The desired object instance</returns>
+        public static T DeserializeProperty<T>(LazyJsonProperty jsonProperty, LazyJsonDeserializerOptions deserializerOptions = null)
+        {
+            return (T)DeserializeProperty(jsonProperty, typeof(T), deserializerOptions);
+        }
+
+        /// <summary>
         /// Deserialize the json token to the desired object
         /// </summary>
         /// <typeparam name="T">The type of the desired object</typeparam>
@@ -57,6 +69,36 @@ namespace Lazy.Vinke.Json
         {
             LazyJson lazyJson = LazyJsonReader.Read(json, readerOptions);
             return DeserializeToken(lazyJson.Root, dataType, deserializerOptions);
+        }
+
+        /// <summary>
+        /// Deserialize the json property to the desired object
+        /// </summary>
+        /// <param name="jsonToken">The json property to be deserialized</param>
+        /// <param name="dataType">The type of the desired object</param>
+        /// <param name="deserializerOptions">The json deserializer options</param>
+        /// <returns>The desired object instance</returns>
+        public static Object DeserializeProperty(LazyJsonProperty jsonProperty, Type dataType, LazyJsonDeserializerOptions deserializerOptions = null)
+        {
+            if (jsonProperty == null || jsonProperty.Token == null || jsonProperty.Token.Type == LazyJsonType.Null || dataType == null)
+                return null;
+
+            Type jsonDeserializerType = FindTypeDeserializer(dataType);
+
+            if (jsonDeserializerType == null)
+                jsonDeserializerType = FindBuiltInDeserializer(jsonProperty.Token, dataType);
+
+            if (jsonDeserializerType != null)
+            {
+                return ((LazyJsonDeserializerBase)Activator.CreateInstance(jsonDeserializerType)).Deserialize(jsonProperty, dataType, deserializerOptions);
+            }
+            else
+            {
+                if (jsonProperty.Token.Type != LazyJsonType.Object)
+                    return null;
+
+                return DeserializeObject((LazyJsonObject)jsonProperty.Token, dataType, deserializerOptions);
+            }
         }
 
         /// <summary>
@@ -145,7 +187,7 @@ namespace Lazy.Vinke.Json
                     }
                     else
                     {
-                        Object value = DeserializeToken(jsonObject[propertyName].Token, propertyInfo.PropertyType, deserializerOptions);
+                        Object value = DeserializeProperty(jsonObject[propertyName], propertyInfo.PropertyType, deserializerOptions);
 
                         /* This is necessary to avoid invalid cast from Int32 to Int16 */
                         if (propertyInfo.PropertyType == typeof(Int16)) value = Convert.ToInt16(value);
