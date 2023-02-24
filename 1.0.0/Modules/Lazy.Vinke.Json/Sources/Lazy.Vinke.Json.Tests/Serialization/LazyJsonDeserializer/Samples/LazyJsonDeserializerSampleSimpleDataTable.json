@@ -1,0 +1,55 @@
+{
+  "DataTableWithoutRows": {
+    "Rows": [
+
+    ]
+  },
+  "DataTableWithSingleRow": {
+    "Rows": [
+      {
+        "State": "Unchanged",
+        "Values": {
+          "Original": null,
+          "Current": {
+            "ColumnInt32": 1,
+            "ColumnString": "Row1"
+          }
+        }
+      }
+    ]
+  },
+  "DataTableWithMultipleRows": {
+    "Rows": [
+      {
+        "State": "Unchanged",
+        "Values": {
+          "Original": null,
+          "Current": {
+            "ColumnInt32": 1,
+            "ColumnString": "Row1"
+          }
+        }
+      },
+      {
+        "State": "Unchanged",
+        "Values": {
+          "Original": null,
+          "Current": {
+            "ColumnInt32": 2,
+            "ColumnString": "Row2"
+          }
+        }
+      },
+      {
+        "State": "Unchanged",
+        "Values": {
+          "Original": null,
+          "Current": {
+            "ColumnInt32": 3,
+            "ColumnString": "Row3"
+          }
+        }
+      }
+    ]
+  }
+}
