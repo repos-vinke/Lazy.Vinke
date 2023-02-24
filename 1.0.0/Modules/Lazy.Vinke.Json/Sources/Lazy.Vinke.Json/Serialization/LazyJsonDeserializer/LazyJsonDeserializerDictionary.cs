@@ -110,9 +110,13 @@ namespace Lazy.Vinke.Json
                     value = LazyJsonDeserializer.DeserializeToken(jsonArrayKeyValuePair.TokenList[1], dataType.GenericTypeArguments[1], deserializerOptions);
                 }
 
+                /* This is necessary to avoid invalid cast from Int32 to Int16 */
+                if (dataType.GenericTypeArguments[0] == typeof(Int16)) key = Convert.ToInt16(key);
+                if (dataType.GenericTypeArguments[1] == typeof(Int16)) value = Convert.ToInt16(value);
+
                 methodAdd.Invoke(dictionary, new Object[] { key, value });
             }
-            
+
             return dictionary;
         }
 
