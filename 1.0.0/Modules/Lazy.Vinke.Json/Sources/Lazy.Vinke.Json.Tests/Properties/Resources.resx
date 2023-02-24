@@ -118,11 +118,17 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="LazyJsonDeserializerSampleSimpleFloating" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\serialization\lazyjsondeserializer\samples\lazyjsondeserializersamplesimplefloating.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="LazyJsonDeserializerSampleSimpleBoolean" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\serialization\lazyjsondeserializer\samples\lazyjsondeserializersamplesimpleboolean.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="LazyJsonDeserializerSampleSimpleDecimal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\serialization\lazyjsondeserializer\samples\lazyjsondeserializersamplesimpledecimal.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="LazyJsonDeserializerSampleSimpleInteger" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\serialization\lazyjsondeserializer\samples\lazyjsondeserializersamplesimpleinteger.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="LazyJsonDeserializerSampleSimpleList" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\serialization\lazyjsondeserializer\samples\lazyjsondeserializersamplesimplelist.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="LazyJsonDeserializerSampleSimpleString" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\serialization\lazyjsondeserializer\samples\lazyjsondeserializersamplesimplestring.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>

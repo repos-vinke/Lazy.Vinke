@@ -63,9 +63,19 @@ namespace Lazy.Vinke.Json.Tests.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Byte[].
         /// </summary>
-        public static byte[] LazyJsonDeserializerSampleSimpleFloating {
+        public static byte[] LazyJsonDeserializerSampleSimpleBoolean {
             get {
-                object obj = ResourceManager.GetObject("LazyJsonDeserializerSampleSimpleFloating", resourceCulture);
+                object obj = ResourceManager.GetObject("LazyJsonDeserializerSampleSimpleBoolean", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Byte[].
+        /// </summary>
+        public static byte[] LazyJsonDeserializerSampleSimpleDecimal {
+            get {
+                object obj = ResourceManager.GetObject("LazyJsonDeserializerSampleSimpleDecimal", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -76,6 +86,16 @@ namespace Lazy.Vinke.Json.Tests.Properties {
         public static byte[] LazyJsonDeserializerSampleSimpleInteger {
             get {
                 object obj = ResourceManager.GetObject("LazyJsonDeserializerSampleSimpleInteger", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Byte[].
+        /// </summary>
+        public static byte[] LazyJsonDeserializerSampleSimpleList {
+            get {
+                object obj = ResourceManager.GetObject("LazyJsonDeserializerSampleSimpleList", resourceCulture);
                 return ((byte[])(obj));
             }
         }
