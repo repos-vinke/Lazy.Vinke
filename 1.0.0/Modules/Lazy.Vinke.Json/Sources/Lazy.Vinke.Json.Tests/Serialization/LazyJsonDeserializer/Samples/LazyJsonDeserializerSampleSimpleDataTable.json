@@ -12,7 +12,9 @@
           "Original": null,
           "Current": {
             "ColumnInt32": 1,
-            "ColumnString": "Row1"
+            "ColumnString": "Row1",
+            "ColumnChar": "A",
+            "ColumnDateTime": "2022-02-22T11:52:02:000Z"
           }
         }
       }
@@ -26,7 +28,9 @@
           "Original": null,
           "Current": {
             "ColumnInt32": 1,
-            "ColumnString": "Row1"
+            "ColumnString": "Row1",
+            "ColumnChar": "A",
+            "ColumnDateTime": "2023-03-23T11:53:03:000Z"
           }
         }
       },
@@ -36,7 +40,9 @@
           "Original": null,
           "Current": {
             "ColumnInt32": 2,
-            "ColumnString": "Row2"
+            "ColumnString": "Row2",
+            "ColumnChar": "B",
+            "ColumnDateTime": "2024-04-24T11:54:04:000Z"
           }
         }
       },
@@ -46,7 +52,9 @@
           "Original": null,
           "Current": {
             "ColumnInt32": 3,
-            "ColumnString": "Row3"
+            "ColumnString": "Row3",
+            "ColumnChar": "C",
+            "ColumnDateTime": "2025-05-25T11:55:05:000Z"
           }
         }
       }
