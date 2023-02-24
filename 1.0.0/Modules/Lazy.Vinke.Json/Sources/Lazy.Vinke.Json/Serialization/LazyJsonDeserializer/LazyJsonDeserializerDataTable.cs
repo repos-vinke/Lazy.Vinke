@@ -177,7 +177,7 @@ namespace Lazy.Vinke.Json
                     if (dataRow.Table.Columns.Contains(jsonPropertyDataRowColumn.Name) == false)
                         dataRow.Table.Columns.Add(jsonPropertyDataRowColumn.Name, dataType);
 
-                    Object value = LazyJsonDeserializer.DeserializeToken(jsonPropertyDataRowColumn.Token, dataType, deserializerOptions);
+                    Object value = LazyJsonDeserializer.DeserializeProperty(jsonPropertyDataRowColumn, dataType, deserializerOptions);
 
                     dataRow[jsonPropertyDataRowColumn.Name] = value == null ? DBNull.Value : value;
                 }
