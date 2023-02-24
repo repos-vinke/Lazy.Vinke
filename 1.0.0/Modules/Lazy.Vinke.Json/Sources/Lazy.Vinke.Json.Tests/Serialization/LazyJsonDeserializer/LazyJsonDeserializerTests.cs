@@ -300,5 +300,22 @@ namespace Lazy.Vinke.Json.Tests
             Assert.IsTrue(sampleSimpleArray.ArrayObjectValueEmpty.Length == 0);
             Assert.IsNull(sampleSimpleArray.ArrayObjectValueNull);
         }
+
+        [TestMethod]
+        public void TestDeserializerSampleSimpleDateTime()
+        {
+            // Arrange
+            LazyJsonDeserializerSampleSimpleDateTime sampleSimpleDateTime = null;
+            String json = Encoding.UTF8.GetString(Properties.Resources.LazyJsonDeserializerSampleSimpleDateTime);
+
+            // Act
+            sampleSimpleDateTime = LazyJsonDeserializer.Deserialize<LazyJsonDeserializerSampleSimpleDateTime>(json);
+
+            // Assert
+            Assert.IsTrue(sampleSimpleDateTime.DateTimeValueInvalid == DateTime.MinValue);
+            Assert.IsTrue(sampleSimpleDateTime.DateTimeValueValid.ToString("yyyy-MM-ddTHH:mm:ss:fffZ") == "2023-02-24T10:00:01:000Z");
+            Assert.IsNotNull(sampleSimpleDateTime.DateTimeValueNotNullableNull == DateTime.MinValue);
+            Assert.IsNull(sampleSimpleDateTime.DateTimeValueNullableNull);
+        }
     }
 }
