@@ -124,6 +124,9 @@
   <data name="LazyJsonDeserializerSampleSimpleDecimal" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\serialization\lazyjsondeserializer\samples\lazyjsondeserializersamplesimpledecimal.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="LazyJsonDeserializerSampleSimpleDictionary" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\serialization\lazyjsondeserializer\samples\lazyjsondeserializersamplesimpledictionary.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="LazyJsonDeserializerSampleSimpleInteger" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\serialization\lazyjsondeserializer\samples\lazyjsondeserializersamplesimpleinteger.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>

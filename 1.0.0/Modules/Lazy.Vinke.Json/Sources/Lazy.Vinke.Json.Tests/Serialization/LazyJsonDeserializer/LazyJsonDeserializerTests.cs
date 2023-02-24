@@ -177,5 +177,47 @@ namespace Lazy.Vinke.Json.Tests
             Assert.IsTrue(sampleSimpleList.ListObjectValueEmpty.Count == 0);
             Assert.IsNull(sampleSimpleList.ListObjectValueNull);
         }
+
+        [TestMethod]
+        public void TestDeserializerSampleSimpleDictionary()
+        {
+            // Arrange
+            LazyJsonDeserializerSampleSimpleDictionary sampleSimpleDictionary = null;
+            String json = Encoding.UTF8.GetString(Properties.Resources.LazyJsonDeserializerSampleSimpleDictionary);
+
+            // Act
+            sampleSimpleDictionary = LazyJsonDeserializer.Deserialize<LazyJsonDeserializerSampleSimpleDictionary>(json);
+
+            // Assert
+            Assert.IsTrue(sampleSimpleDictionary.DicInt16StringInvalidSingle.Count == 0);
+            Assert.IsTrue(sampleSimpleDictionary.DicInt16StringInvalidMultiple.Count == 0);
+            Assert.IsTrue(sampleSimpleDictionary.DicInt16StringValidSingle.Count == 1);
+            Assert.IsTrue(sampleSimpleDictionary.DicInt16StringValidSingle[1] == "Json");
+            Assert.IsTrue(sampleSimpleDictionary.DicInt16StringValidMultiple.Count == 2);
+            Assert.IsTrue(sampleSimpleDictionary.DicInt16StringValidMultiple[1] == "Json");
+            Assert.IsTrue(sampleSimpleDictionary.DicInt16StringValidMultiple[2] == "Tests");
+            Assert.IsTrue(sampleSimpleDictionary.DicInt16StringEmpty.Count == 0);
+            Assert.IsNull(sampleSimpleDictionary.DicInt16StringNull);
+
+            Assert.IsTrue(sampleSimpleDictionary.DicStringDecimalInvalidSingle.Count == 0);
+            Assert.IsTrue(sampleSimpleDictionary.DicStringDecimalInvalidMultiple.Count == 0);
+            Assert.IsTrue(sampleSimpleDictionary.DicStringDecimalValidSingle.Count == 1);
+            Assert.IsTrue(sampleSimpleDictionary.DicStringDecimalValidSingle["Item1"] == 12.345m);
+            Assert.IsTrue(sampleSimpleDictionary.DicStringDecimalValidMultiple.Count == 2);
+            Assert.IsTrue(sampleSimpleDictionary.DicStringDecimalValidMultiple["Item2"] == 34.567m);
+            Assert.IsTrue(sampleSimpleDictionary.DicStringDecimalValidMultiple["Item3"] == 45.789m);
+            Assert.IsTrue(sampleSimpleDictionary.DicStringDecimalEmpty.Count == 0);
+            Assert.IsNull(sampleSimpleDictionary.DicStringDecimalNull);
+
+            Assert.IsTrue(sampleSimpleDictionary.DicInt64Int16InvalidSingle.Count == 0);
+            Assert.IsTrue(sampleSimpleDictionary.DicInt64Int16InvalidMultiple.Count == 0);
+            Assert.IsTrue(sampleSimpleDictionary.DicInt64Int16ValidSingle.Count == 1);
+            Assert.IsTrue(sampleSimpleDictionary.DicInt64Int16ValidSingle[10] == 100);
+            Assert.IsTrue(sampleSimpleDictionary.DicInt64Int16ValidMultiple.Count == 2);
+            Assert.IsTrue(sampleSimpleDictionary.DicInt64Int16ValidMultiple[20] == 200);
+            Assert.IsTrue(sampleSimpleDictionary.DicInt64Int16ValidMultiple[30] == 300);
+            Assert.IsTrue(sampleSimpleDictionary.DicInt64Int16Empty.Count == 0);
+            Assert.IsNull(sampleSimpleDictionary.DicInt64Int16Null);
+        }
     }
 }
