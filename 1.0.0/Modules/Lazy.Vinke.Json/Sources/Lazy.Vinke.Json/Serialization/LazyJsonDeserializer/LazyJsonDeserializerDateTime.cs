@@ -62,20 +62,13 @@ namespace Lazy.Vinke.Json
 
             if (deserializerOptions != null && deserializerOptions.Contains<LazyJsonDeserializerOptionsDateTime>() == true)
             {
-                String regex = deserializerOptions.Item<LazyJsonDeserializerOptionsDateTime>().Regex;
-
-                if (String.IsNullOrWhiteSpace(regex) == false)
-                {
-                    if (new Regex(regex).Match(jsonString.Value).Success == false)
-                        return null;
-                }
-
                 String format = deserializerOptions.Item<LazyJsonDeserializerOptionsDateTime>().Format;
                 CultureInfo cultureInfo = deserializerOptions.Item<LazyJsonDeserializerOptionsDateTime>().CultureInfo;
+                DateTimeStyles dateTimeStyles = deserializerOptions.Item<LazyJsonDeserializerOptionsDateTime>().DateTimeStyles;
 
                 if (String.IsNullOrWhiteSpace(format) == false)
                 {
-                    if (DateTime.TryParseExact(jsonString.Value, format, cultureInfo != null ? cultureInfo : CultureInfo.CurrentCulture, DateTimeStyles.None, out dateTime) == true)
+                    if (DateTime.TryParseExact(jsonString.Value, format, cultureInfo, dateTimeStyles, out dateTime) == true)
                         return dateTime;
 
                     return null;
@@ -103,6 +96,8 @@ namespace Lazy.Vinke.Json
 
         public LazyJsonDeserializerOptionsDateTime()
         {
+            this.CultureInfo = CultureInfo.InvariantCulture;
+            this.DateTimeStyles = DateTimeStyles.AdjustToUniversal;
         }
 
         #endregion Contructors
@@ -112,11 +107,11 @@ namespace Lazy.Vinke.Json
 
         #region Properties
 
-        public String Regex { get; set; }
-
         public String Format { get; set; }
 
         public CultureInfo CultureInfo { get; set; }
+
+        public DateTimeStyles DateTimeStyles { get; set; }
 
         #endregion Properties
     }
