@@ -111,12 +111,11 @@ namespace Lazy.Vinke.Json.Tests
             // Arrange
             DateTime dateTime = DateTime.Now;
 
-            LazyJsonProperty jsonProperty = new LazyJsonProperty("Prop", new LazyJsonString(dateTime.ToString(TestStringFormat.DateTimeISO_GMTXX)));
+            LazyJsonProperty jsonProperty = new LazyJsonProperty("Prop", new LazyJsonString(dateTime.ToString(TestStringFormat.DateTime.ISO8601Z)));
             LazyJsonDeserializerDateTime deserializerDateTime = new LazyJsonDeserializerDateTime();
 
             LazyJsonDeserializerOptions deserializerOptions = new LazyJsonDeserializerOptions();
-            deserializerOptions.Item<LazyJsonDeserializerOptionsDateTime>().Regex = TestStringRegex.DateTimeISO_GMTXX;
-            deserializerOptions.Item<LazyJsonDeserializerOptionsDateTime>().Format = TestStringFormat.DateTimeISO_GMTXX;
+            deserializerOptions.Item<LazyJsonDeserializerOptionsDateTime>().Format = TestStringFormat.DateTime.ISO8601Z;
 
             // Act
             DateTime resDateTime = (DateTime)deserializerDateTime.Deserialize(jsonProperty, typeof(DateTime), deserializerOptions);

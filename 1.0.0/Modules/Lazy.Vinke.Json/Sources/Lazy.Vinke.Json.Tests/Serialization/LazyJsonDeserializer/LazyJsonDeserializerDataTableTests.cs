@@ -195,10 +195,10 @@ namespace Lazy.Vinke.Json.Tests
             jsonObjectCurrent.Add("DecimalDBNull", new LazyJsonDecimal(null));
 
             DateTime dateTime1 = DateTime.Now;
-            jsonObjectCurrent.Add("DateTime1", new LazyJsonString(dateTime1.ToString(TestStringFormat.DateTimeISO_GMTXX)));
+            jsonObjectCurrent.Add("DateTime1", new LazyJsonString(dateTime1.ToString(TestStringFormat.DateTime.ISO8601Z)));
 
             DateTime dateTime2 = DateTime.Now.AddDays(10);
-            jsonObjectCurrent.Add("DateTime2", new LazyJsonString(dateTime2.ToString(TestStringFormat.DateTimeISO_GMTXX)));
+            jsonObjectCurrent.Add("DateTime2", new LazyJsonString(dateTime2.ToString(TestStringFormat.DateTime.ISO8601Z)));
 
             LazyJsonObject jsonObjectValues = new LazyJsonObject();
             jsonObjectValues.Add("Original", new LazyJsonNull());
@@ -221,8 +221,7 @@ namespace Lazy.Vinke.Json.Tests
             LazyJsonDeserializerOptions deserializerOptions = new LazyJsonDeserializerOptions();
             deserializerOptions.Item<LazyJsonDeserializerOptionsDataTable>()["WithRows"].Columns["DateTime1"].Set(typeof(DateTime));
             deserializerOptions.Item<LazyJsonDeserializerOptionsDataTable>()["WithRows"].Columns["DateTime2"].Set(typeof(DateTime));
-            deserializerOptions.Item<LazyJsonDeserializerOptionsDateTime>().Regex = TestStringRegex.DateTimeISO_GMTXX;
-            deserializerOptions.Item<LazyJsonDeserializerOptionsDateTime>().Format = TestStringFormat.DateTimeISO_GMTXX;
+            deserializerOptions.Item<LazyJsonDeserializerOptionsDateTime>().Format = TestStringFormat.DateTime.ISO8601Z;
 
             // Act
             resDataTable = deserializerDataTable.Deserialize(jsonProperty, typeof(DataTable), deserializerOptions);
@@ -256,10 +255,10 @@ namespace Lazy.Vinke.Json.Tests
             Assert.IsTrue(dataTable.Rows[0]["DecimalDBNull"] == DBNull.Value);
 
             Assert.IsTrue(dataTable.Columns["DateTime1"].DataType == typeof(DateTime));
-            Assert.IsTrue(((DateTime)dataTable.Rows[0]["DateTime1"]).ToString(TestStringFormat.DateTimeISO_GMTXX) == dateTime1.ToString(TestStringFormat.DateTimeISO_GMTXX));
+            Assert.IsTrue(((DateTime)dataTable.Rows[0]["DateTime1"]).ToString(TestStringFormat.DateTime.ISO8601Z) == dateTime1.ToString(TestStringFormat.DateTime.ISO8601Z));
 
             Assert.IsTrue(dataTable.Columns["DateTime2"].DataType == typeof(DateTime));
-            Assert.IsTrue(((DateTime)dataTable.Rows[0]["DateTime2"]).ToString(TestStringFormat.DateTimeISO_GMTXX) == dateTime2.ToString(TestStringFormat.DateTimeISO_GMTXX));
+            Assert.IsTrue(((DateTime)dataTable.Rows[0]["DateTime2"]).ToString(TestStringFormat.DateTime.ISO8601Z) == dateTime2.ToString(TestStringFormat.DateTime.ISO8601Z));
         }
 
         [TestMethod]
