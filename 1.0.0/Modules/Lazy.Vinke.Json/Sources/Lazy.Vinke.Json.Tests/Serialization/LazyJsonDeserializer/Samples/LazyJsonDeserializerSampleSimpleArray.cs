@@ -8,6 +8,7 @@
 
 using System;
 using System.Collections.Generic;
+
 using Lazy.Vinke.Json;
 
 namespace Lazy.Vinke.Json.Tests
