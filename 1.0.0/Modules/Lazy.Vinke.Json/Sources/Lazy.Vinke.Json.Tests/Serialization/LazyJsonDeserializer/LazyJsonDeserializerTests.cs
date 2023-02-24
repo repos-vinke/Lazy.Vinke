@@ -426,5 +426,23 @@ namespace Lazy.Vinke.Json.Tests
             Assert.IsTrue((Char)dataTableWithMultipleRows.Rows[2]["ColumnChar"] == 'C');
             Assert.IsTrue(Convert.ToDateTime(dataTableWithMultipleRows.Rows[2]["ColumnDateTime"]).ToString("yyyy-MM-ddTHH:mm:ss:fffZ") == "2025-05-25T11:55:05:000Z");
         }
+
+        [TestMethod]
+        public void TestDeserializerSampleSimpleAttribute()
+        {
+            // Arrange
+            LazyJsonDeserializerSampleSimpleAttribute sampleSimpleAttribute = null;
+            String json = Encoding.UTF8.GetString(Properties.Resources.LazyJsonDeserializerSampleSimpleAttribute);
+
+            // Act
+            sampleSimpleAttribute = LazyJsonDeserializer.Deserialize<LazyJsonDeserializerSampleSimpleAttribute>(json);
+
+            // Assert
+            Assert.IsTrue(sampleSimpleAttribute.BooleanValue == true);
+            Assert.IsTrue(sampleSimpleAttribute.Int16Value == 123);
+            Assert.IsNull(sampleSimpleAttribute.StringValue);
+            Assert.IsTrue(sampleSimpleAttribute.DecimalValue == 456.789m);
+            Assert.IsTrue(sampleSimpleAttribute.DecimalValueReadOnly == 0.0m);
+        }
     }
 }

@@ -1,0 +1,7 @@
+{
+  "BooleanValue": true,
+  "Int16Value": 123,
+  "StringValue": "Json",
+  "DecimalValueRenamed": 456.789,
+  "DecimalValueReadOnlyRenamed": 12.34
+}
