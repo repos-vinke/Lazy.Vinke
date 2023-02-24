@@ -58,6 +58,8 @@ namespace Lazy.Vinke.Json
             if (jsonString.Value == null)
                 return null;
 
+            DateTime dateTime = DateTime.MinValue;
+
             if (deserializerOptions != null && deserializerOptions.Contains<LazyJsonDeserializerOptionsDateTime>() == true)
             {
                 String regex = deserializerOptions.Item<LazyJsonDeserializerOptionsDateTime>().Regex;
@@ -72,11 +74,18 @@ namespace Lazy.Vinke.Json
                 CultureInfo cultureInfo = deserializerOptions.Item<LazyJsonDeserializerOptionsDateTime>().CultureInfo;
 
                 if (String.IsNullOrWhiteSpace(format) == false)
-                    return DateTime.ParseExact(jsonString.Value, format, cultureInfo != null ? cultureInfo : CultureInfo.CurrentCulture);
+                {
+                    if (DateTime.TryParseExact(jsonString.Value, format, cultureInfo != null ? cultureInfo : CultureInfo.CurrentCulture, DateTimeStyles.None, out dateTime) == true)
+                        return dateTime;
+
+                    return null;
+                }
             }
 
-            try { return DateTime.Parse(jsonString.Value); }
-            catch { return null; }
+            if (DateTime.TryParse(jsonString.Value, out dateTime) == true)
+                return dateTime;
+
+            return null;
         }
 
         #endregion Methods
