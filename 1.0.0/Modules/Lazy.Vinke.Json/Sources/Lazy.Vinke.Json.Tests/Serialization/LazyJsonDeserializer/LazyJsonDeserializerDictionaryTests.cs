@@ -7,10 +7,9 @@
 // Created on 2023, February 23
 
 using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Collections.Generic;
 
 using Lazy.Vinke.Json;
-using System.Collections.Generic;
 
 namespace Lazy.Vinke.Json.Tests
 {

@@ -9,8 +9,6 @@
 using System;
 using System.Text;
 
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
 using Lazy.Vinke.Json;
 
 namespace Lazy.Vinke.Json.Tests
