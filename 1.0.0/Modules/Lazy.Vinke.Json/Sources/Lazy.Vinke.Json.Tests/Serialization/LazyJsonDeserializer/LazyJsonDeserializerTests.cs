@@ -330,12 +330,15 @@ namespace Lazy.Vinke.Json.Tests
             sampleSimpleDataTable = LazyJsonDeserializer.Deserialize<LazyJsonDeserializerSampleSimpleDataTable>(json);
 
             // Assert
+            Assert.IsTrue(sampleSimpleDataTable.DataTableWithoutRows.TableName == "DataTableWithoutRows");
             Assert.IsTrue(sampleSimpleDataTable.DataTableWithoutRows.Rows.Count == 0);
 
+            Assert.IsTrue(sampleSimpleDataTable.DataTableWithSingleRow.TableName == "DataTableWithSingleRow");
             Assert.IsTrue(sampleSimpleDataTable.DataTableWithSingleRow.Rows.Count == 1);
             Assert.IsTrue((Int32)sampleSimpleDataTable.DataTableWithSingleRow.Rows[0]["ColumnInt32"] == 1);
             Assert.IsTrue((String)sampleSimpleDataTable.DataTableWithSingleRow.Rows[0]["ColumnString"] == "Row1");
 
+            Assert.IsTrue(sampleSimpleDataTable.DataTableWithMultipleRows.TableName == "DataTableWithMultipleRows");
             Assert.IsTrue(sampleSimpleDataTable.DataTableWithMultipleRows.Rows.Count == 3);
             Assert.IsTrue((Int32)sampleSimpleDataTable.DataTableWithMultipleRows.Rows[0]["ColumnInt32"] == 1);
             Assert.IsTrue((String)sampleSimpleDataTable.DataTableWithMultipleRows.Rows[0]["ColumnString"] == "Row1");
