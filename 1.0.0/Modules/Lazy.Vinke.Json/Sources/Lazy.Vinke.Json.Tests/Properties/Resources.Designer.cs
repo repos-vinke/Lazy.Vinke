@@ -83,6 +83,16 @@ namespace Lazy.Vinke.Json.Tests.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Byte[].
         /// </summary>
+        public static byte[] LazyJsonDeserializerSampleSimpleDataSet {
+            get {
+                object obj = ResourceManager.GetObject("LazyJsonDeserializerSampleSimpleDataSet", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Byte[].
+        /// </summary>
         public static byte[] LazyJsonDeserializerSampleSimpleDataTable {
             get {
                 object obj = ResourceManager.GetObject("LazyJsonDeserializerSampleSimpleDataTable", resourceCulture);

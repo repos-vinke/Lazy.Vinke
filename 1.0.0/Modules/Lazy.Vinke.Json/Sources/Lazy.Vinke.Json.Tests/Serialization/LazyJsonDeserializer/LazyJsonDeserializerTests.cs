@@ -368,5 +368,63 @@ namespace Lazy.Vinke.Json.Tests
             Assert.IsTrue((Char)sampleSimpleDataTable.DataTableWithMultipleRows.Rows[2]["ColumnChar"] == 'C');
             Assert.IsTrue(Convert.ToDateTime(sampleSimpleDataTable.DataTableWithMultipleRows.Rows[2]["ColumnDateTime"]).ToString("yyyy-MM-ddTHH:mm:ss:fffZ") == "2025-05-25T11:55:05:000Z");
         }
+
+        [TestMethod]
+        public void TestDeserializerSampleSimpleDataSet()
+        {
+            // Arrange
+            LazyJsonDeserializerSampleSimpleDataSet sampleSimpleDataSet = null;
+            String json = Encoding.UTF8.GetString(Properties.Resources.LazyJsonDeserializerSampleSimpleDataSet);
+
+            LazyJsonDeserializerOptions deserializerOptions = new LazyJsonDeserializerOptions();
+            deserializerOptions.Item<LazyJsonDeserializerOptionsDataTable>()["DataTableWithSingleRow"].Columns["ColumnChar"].Set(typeof(Char));
+            deserializerOptions.Item<LazyJsonDeserializerOptionsDataTable>()["DataTableWithSingleRow"].Columns["ColumnDateTime"].Set(typeof(DateTime));
+            deserializerOptions.Item<LazyJsonDeserializerOptionsDataTable>()["DataTableWithMultipleRows"].Columns["ColumnChar"].Set(typeof(Char));
+            deserializerOptions.Item<LazyJsonDeserializerOptionsDataTable>()["DataTableWithMultipleRows"].Columns["ColumnDateTime"].Set(typeof(DateTime));
+
+            // Act
+            sampleSimpleDataSet = LazyJsonDeserializer.Deserialize<LazyJsonDeserializerSampleSimpleDataSet>(json, deserializerOptions);
+
+            // Assert
+            Assert.IsTrue(sampleSimpleDataSet.DataSet.DataSetName == "MyDataSet");
+            Assert.IsTrue(sampleSimpleDataSet.DataSet.Tables.Contains("DataTableWithoutRows"));
+            Assert.IsTrue(sampleSimpleDataSet.DataSet.Tables.Contains("DataTableWithSingleRow"));
+            Assert.IsTrue(sampleSimpleDataSet.DataSet.Tables.Contains("DataTableWithMultipleRows"));
+
+            DataTable dataTableWithoutRows = sampleSimpleDataSet.DataSet.Tables["DataTableWithoutRows"];
+            Assert.IsTrue(dataTableWithoutRows.TableName == "DataTableWithoutRows");
+            Assert.IsTrue(dataTableWithoutRows.Rows.Count == 0);
+
+            DataTable dataTableWithSingleRow = sampleSimpleDataSet.DataSet.Tables["DataTableWithSingleRow"];
+            Assert.IsTrue(dataTableWithSingleRow.TableName == "DataTableWithSingleRow");
+            Assert.IsTrue(dataTableWithSingleRow.Rows.Count == 1);
+            Assert.IsTrue(dataTableWithSingleRow.Columns["ColumnChar"].DataType == typeof(Char));
+            Assert.IsTrue(dataTableWithSingleRow.Columns["ColumnDateTime"].DataType == typeof(DateTime));
+            Assert.IsTrue((Int32)dataTableWithSingleRow.Rows[0]["ColumnInt32"] == 1);
+            Assert.IsTrue((String)dataTableWithSingleRow.Rows[0]["ColumnString"] == "Row1");
+            Assert.IsTrue((Char)dataTableWithSingleRow.Rows[0]["ColumnChar"] == 'A');
+            Assert.IsTrue(Convert.ToDateTime(dataTableWithSingleRow.Rows[0]["ColumnDateTime"]).ToString("yyyy-MM-ddTHH:mm:ss:fffZ") == "2022-02-22T11:52:02:000Z");
+
+            DataTable dataTableWithMultipleRows = sampleSimpleDataSet.DataSet.Tables["DataTableWithMultipleRows"];
+            Assert.IsTrue(dataTableWithMultipleRows.TableName == "DataTableWithMultipleRows");
+            Assert.IsTrue(dataTableWithMultipleRows.Rows.Count == 3);
+            Assert.IsTrue(dataTableWithMultipleRows.Columns["ColumnChar"].DataType == typeof(Char));
+            Assert.IsTrue(dataTableWithMultipleRows.Columns["ColumnDateTime"].DataType == typeof(DateTime));
+
+            Assert.IsTrue((Int32)dataTableWithMultipleRows.Rows[0]["ColumnInt32"] == 1);
+            Assert.IsTrue((String)dataTableWithMultipleRows.Rows[0]["ColumnString"] == "Row1");
+            Assert.IsTrue((Char)dataTableWithMultipleRows.Rows[0]["ColumnChar"] == 'A');
+            Assert.IsTrue(Convert.ToDateTime(dataTableWithMultipleRows.Rows[0]["ColumnDateTime"]).ToString("yyyy-MM-ddTHH:mm:ss:fffZ") == "2023-03-23T11:53:03:000Z");
+
+            Assert.IsTrue((Int32)dataTableWithMultipleRows.Rows[1]["ColumnInt32"] == 2);
+            Assert.IsTrue((String)dataTableWithMultipleRows.Rows[1]["ColumnString"] == "Row2");
+            Assert.IsTrue((Char)dataTableWithMultipleRows.Rows[1]["ColumnChar"] == 'B');
+            Assert.IsTrue(Convert.ToDateTime(dataTableWithMultipleRows.Rows[1]["ColumnDateTime"]).ToString("yyyy-MM-ddTHH:mm:ss:fffZ") == "2024-04-24T11:54:04:000Z");
+
+            Assert.IsTrue((Int32)dataTableWithMultipleRows.Rows[2]["ColumnInt32"] == 3);
+            Assert.IsTrue((String)dataTableWithMultipleRows.Rows[2]["ColumnString"] == "Row3");
+            Assert.IsTrue((Char)dataTableWithMultipleRows.Rows[2]["ColumnChar"] == 'C');
+            Assert.IsTrue(Convert.ToDateTime(dataTableWithMultipleRows.Rows[2]["ColumnDateTime"]).ToString("yyyy-MM-ddTHH:mm:ss:fffZ") == "2025-05-25T11:55:05:000Z");
+        }
     }
 }
