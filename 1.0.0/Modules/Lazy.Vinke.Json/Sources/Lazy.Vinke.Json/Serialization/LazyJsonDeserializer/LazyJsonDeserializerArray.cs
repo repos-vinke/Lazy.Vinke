@@ -66,14 +66,28 @@ namespace Lazy.Vinke.Json
                 LazyJsonDeserializerBase jsonDeserializer = (LazyJsonDeserializerBase)Activator.CreateInstance(jsonDeserializerType);
 
                 for (int index = 0; index < jsonArray.Count; index++)
-                    array.SetValue(jsonDeserializer.Deserialize(jsonArray.TokenList[index], arrayElementType, deserializerOptions), index);
+                {
+                    Object value = jsonDeserializer.Deserialize(jsonArray.TokenList[index], arrayElementType, deserializerOptions);
+
+                    /* This is necessary to avoid invalid cast from Int32 to Int16 */
+                    if (arrayElementType == typeof(Int16)) value = Convert.ToInt16(value);
+
+                    array.SetValue(value, index);
+                }
             }
             else
             {
                 for (int index = 0; index < jsonArray.Count; index++)
-                    array.SetValue(LazyJsonDeserializer.DeserializeToken(jsonArray.TokenList[index], arrayElementType, deserializerOptions), index);
+                {
+                    Object value = LazyJsonDeserializer.DeserializeToken(jsonArray.TokenList[index], arrayElementType, deserializerOptions);
+
+                    /* This is necessary to avoid invalid cast from Int32 to Int16 */
+                    if (arrayElementType == typeof(Int16)) value = Convert.ToInt16(value);
+
+                    array.SetValue(value, index);
+                }
             }
-            
+
             return array;
         }
 
