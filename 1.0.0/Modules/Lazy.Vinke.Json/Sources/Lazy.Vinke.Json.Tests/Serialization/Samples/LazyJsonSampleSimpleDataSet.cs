@@ -1,4 +1,4 @@
-﻿// LazyJsonDeserializerSampleSimpleDataSet.cs
+﻿// LazyJsonSampleSimpleDataSet.cs
 //
 // This file is integrated part of Lazy project
 // Licensed under "Gnu General Public License Version 3"
@@ -14,7 +14,7 @@ using Lazy.Vinke.Json;
 
 namespace Lazy.Vinke.Json.Tests
 {
-    public class LazyJsonDeserializerSampleSimpleDataSet
+    public class LazyJsonSampleSimpleDataSet
     {
         public DataSet DataSet { get; set; }
     }

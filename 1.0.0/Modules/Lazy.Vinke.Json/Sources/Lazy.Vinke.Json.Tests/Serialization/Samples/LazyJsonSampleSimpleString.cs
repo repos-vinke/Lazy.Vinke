@@ -1,4 +1,4 @@
-﻿// LazyJsonDeserializerSampleSimpleString.cs
+﻿// LazyJsonSampleSimpleString.cs
 //
 // This file is integrated part of Lazy project
 // Licensed under "Gnu General Public License Version 3"
@@ -12,7 +12,7 @@ using Lazy.Vinke.Json;
 
 namespace Lazy.Vinke.Json.Tests
 {
-    public class LazyJsonDeserializerSampleSimpleString
+    public class LazyJsonSampleSimpleString
     {
         public Char CharValue { get; set; }
 
