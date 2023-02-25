@@ -31,7 +31,7 @@ namespace Lazy.Vinke.Json
         /// </summary>
         /// <param name="data">The object to be serialized</param>
         /// <returns>The json list array token</returns>
-        public override LazyJsonToken Serialize(Object data)
+        public override LazyJsonToken Serialize(Object data, LazyJsonSerializerOptions serializerOptions = null)
         {
             if (data == null)
                 return new LazyJsonNull();
@@ -55,12 +55,12 @@ namespace Lazy.Vinke.Json
                 LazyJsonSerializerBase jsonSerializer = (LazyJsonSerializerBase)Activator.CreateInstance(jsonSerializerType);
 
                 for (int i = 0; i < itemsCount; i++)
-                    jsonArray.TokenList.Add(jsonSerializer.Serialize(propertyIndexer.GetValue(data, new Object[] { i })));
+                    jsonArray.TokenList.Add(jsonSerializer.Serialize(propertyIndexer.GetValue(data, new Object[] { i }), serializerOptions));
             }
             else
             {
                 for (int i = 0; i < itemsCount; i++)
-                    jsonArray.TokenList.Add(LazyJsonSerializer.SerializeToken(propertyIndexer.GetValue(data, new Object[] { i })));
+                    jsonArray.TokenList.Add(LazyJsonSerializer.SerializeToken(propertyIndexer.GetValue(data, new Object[] { i }), serializerOptions));
             }
 
             return jsonArray;

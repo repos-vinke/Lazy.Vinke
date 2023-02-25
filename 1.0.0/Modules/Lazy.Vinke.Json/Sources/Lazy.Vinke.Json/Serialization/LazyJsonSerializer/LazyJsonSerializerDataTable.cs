@@ -29,7 +29,7 @@ namespace Lazy.Vinke.Json
         /// </summary>
         /// <param name="data">The object to be serialized</param>
         /// <returns>The json datatable object token</returns>
-        public override LazyJsonToken Serialize(Object data)
+        public override LazyJsonToken Serialize(Object data, LazyJsonSerializerOptions serializerOptions = null)
         {
             if (data == null || data is not DataTable)
                 return new LazyJsonNull();
@@ -45,7 +45,7 @@ namespace Lazy.Vinke.Json
 
             foreach (DataRow dataRow in dataTable.Rows)
             {
-                LazyJsonToken jsonTokenDataTableRow = jsonSerializerDataRow.Serialize(dataRow);
+                LazyJsonToken jsonTokenDataTableRow = jsonSerializerDataRow.Serialize(dataRow, serializerOptions);
 
                 if (jsonTokenDataTableRow != null && jsonTokenDataTableRow.Type != LazyJsonType.Null)
                     jsonArrayDataTableRows.Add(jsonTokenDataTableRow);
@@ -75,7 +75,7 @@ namespace Lazy.Vinke.Json
         /// </summary>
         /// <param name="data">The object to be serialized</param>
         /// <returns>The json datarow object token</returns>
-        public LazyJsonToken Serialize(DataRow dataRow)
+        internal LazyJsonToken Serialize(DataRow dataRow, LazyJsonSerializerOptions serializerOptions)
         {
             LazyJsonObject jsonObjectDataRow = new LazyJsonObject();
 
@@ -87,10 +87,10 @@ namespace Lazy.Vinke.Json
             jsonObjectDataRow.Add(new LazyJsonProperty("Values", jsonObjectDataRowValues));
 
             // Values Original
-            jsonObjectDataRowValues.Add(new LazyJsonProperty("Original", dataRow.RowState != DataRowState.Modified ? new LazyJsonNull() : SerializeDataRow(dataRow, DataRowVersion.Original)));
+            jsonObjectDataRowValues.Add(new LazyJsonProperty("Original", dataRow.RowState != DataRowState.Modified ? new LazyJsonNull() : SerializeDataRow(dataRow, DataRowVersion.Original, serializerOptions)));
 
             // Values Current
-            jsonObjectDataRowValues.Add(new LazyJsonProperty("Current", SerializeDataRow(dataRow, DataRowVersion.Current)));
+            jsonObjectDataRowValues.Add(new LazyJsonProperty("Current", SerializeDataRow(dataRow, DataRowVersion.Current, serializerOptions)));
 
             return jsonObjectDataRow;
         }
@@ -101,7 +101,7 @@ namespace Lazy.Vinke.Json
         /// <param name="dataRow">The datarow to be serialized</param>
         /// <param name="dataRowVersion">The datarow version to be serialized</param>
         /// <returns>The json datarow object token</returns>
-        private LazyJsonObject SerializeDataRow(DataRow dataRow, DataRowVersion dataRowVersion)
+        internal LazyJsonObject SerializeDataRow(DataRow dataRow, DataRowVersion dataRowVersion, LazyJsonSerializerOptions serializerOptions)
         {
             LazyJsonObject jsonObjectDataRowColumns = new LazyJsonObject();
 
@@ -129,7 +129,7 @@ namespace Lazy.Vinke.Json
                 }
                 else if (dataColumn.DataType == typeof(DateTime))
                 {
-                    jsonObjectDataRowColumns.Add(new LazyJsonProperty(dataColumn.ColumnName, new LazyJsonSerializerDateTime().Serialize(dataRow[dataColumn.ColumnName, dataRowVersion])));
+                    jsonObjectDataRowColumns.Add(new LazyJsonProperty(dataColumn.ColumnName, new LazyJsonSerializerDateTime().Serialize(dataRow[dataColumn.ColumnName, dataRowVersion], serializerOptions)));
                 }
                 else
                 {
