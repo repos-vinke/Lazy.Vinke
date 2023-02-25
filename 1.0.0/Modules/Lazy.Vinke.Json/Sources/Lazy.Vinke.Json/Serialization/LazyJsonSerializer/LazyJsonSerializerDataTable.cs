@@ -11,6 +11,7 @@ using System.IO;
 using System.Data;
 using System.Text;
 using System.Collections.Generic;
+using System.Text.Json;
 
 namespace Lazy.Vinke.Json
 {
@@ -43,9 +44,13 @@ namespace Lazy.Vinke.Json
 
             LazyJsonSerializerDataRow jsonSerializerDataRow = new LazyJsonSerializerDataRow();
 
+            Dictionary<String, LazyJsonSerializerOptionsDataTableColumnData> customColumnDictionary = null;
+            if (serializerOptions?.Contains<LazyJsonSerializerOptionsDataTable>() == true && serializerOptions.Item<LazyJsonSerializerOptionsDataTable>().dataTableColumnDictionary?.ContainsKey(dataTable.TableName) == true)
+                customColumnDictionary = serializerOptions.Item<LazyJsonSerializerOptionsDataTable>().dataTableColumnDictionary[dataTable.TableName].columnCollectionOptions?.customColumnDictionary;
+
             foreach (DataRow dataRow in dataTable.Rows)
             {
-                LazyJsonToken jsonTokenDataTableRow = jsonSerializerDataRow.Serialize(dataRow, serializerOptions);
+                LazyJsonToken jsonTokenDataTableRow = jsonSerializerDataRow.Serialize(dataRow, customColumnDictionary, serializerOptions);
 
                 if (jsonTokenDataTableRow != null && jsonTokenDataTableRow.Type != LazyJsonType.Null)
                     jsonArrayDataTableRows.Add(jsonTokenDataTableRow);
@@ -75,7 +80,7 @@ namespace Lazy.Vinke.Json
         /// </summary>
         /// <param name="data">The object to be serialized</param>
         /// <returns>The json datarow object token</returns>
-        internal LazyJsonToken Serialize(DataRow dataRow, LazyJsonSerializerOptions serializerOptions)
+        internal LazyJsonToken Serialize(DataRow dataRow, Dictionary<String, LazyJsonSerializerOptionsDataTableColumnData> customColumnDictionary, LazyJsonSerializerOptions serializerOptions)
         {
             LazyJsonObject jsonObjectDataRow = new LazyJsonObject();
 
@@ -87,10 +92,10 @@ namespace Lazy.Vinke.Json
             jsonObjectDataRow.Add(new LazyJsonProperty("Values", jsonObjectDataRowValues));
 
             // Values Original
-            jsonObjectDataRowValues.Add(new LazyJsonProperty("Original", dataRow.RowState != DataRowState.Modified ? new LazyJsonNull() : SerializeDataRow(dataRow, DataRowVersion.Original, serializerOptions)));
+            jsonObjectDataRowValues.Add(new LazyJsonProperty("Original", dataRow.RowState != DataRowState.Modified ? new LazyJsonNull() : SerializeDataRow(dataRow, DataRowVersion.Original, customColumnDictionary, serializerOptions)));
 
             // Values Current
-            jsonObjectDataRowValues.Add(new LazyJsonProperty("Current", SerializeDataRow(dataRow, DataRowVersion.Current, serializerOptions)));
+            jsonObjectDataRowValues.Add(new LazyJsonProperty("Current", SerializeDataRow(dataRow, DataRowVersion.Current, customColumnDictionary, serializerOptions)));
 
             return jsonObjectDataRow;
         }
@@ -101,40 +106,48 @@ namespace Lazy.Vinke.Json
         /// <param name="dataRow">The datarow to be serialized</param>
         /// <param name="dataRowVersion">The datarow version to be serialized</param>
         /// <returns>The json datarow object token</returns>
-        internal LazyJsonObject SerializeDataRow(DataRow dataRow, DataRowVersion dataRowVersion, LazyJsonSerializerOptions serializerOptions)
+        internal LazyJsonObject SerializeDataRow(DataRow dataRow, DataRowVersion dataRowVersion, Dictionary<String, LazyJsonSerializerOptionsDataTableColumnData> customColumnDictionary, LazyJsonSerializerOptions serializerOptions)
         {
             LazyJsonObject jsonObjectDataRowColumns = new LazyJsonObject();
 
             foreach (DataColumn dataColumn in dataRow.Table.Columns)
             {
-                if (dataRow[dataColumn.ColumnName, dataRowVersion] == null || dataRow[dataColumn.ColumnName, dataRowVersion] == DBNull.Value)
+                LazyJsonToken jsonToken = null;
+
+                if (customColumnDictionary != null && customColumnDictionary.ContainsKey(dataColumn.ColumnName) == true && customColumnDictionary[dataColumn.ColumnName].Serializer != null)
                 {
-                    jsonObjectDataRowColumns.Add(new LazyJsonProperty(dataColumn.ColumnName, new LazyJsonNull()));
+                    jsonToken = customColumnDictionary[dataColumn.ColumnName].Serializer.Serialize(dataRow[dataColumn.ColumnName, dataRowVersion], serializerOptions);
+                }
+                else if (dataRow[dataColumn.ColumnName, dataRowVersion] == DBNull.Value)
+                {
+                    jsonToken = new LazyJsonNull();
                 }
                 else if (dataColumn.DataType == typeof(Boolean))
                 {
-                    jsonObjectDataRowColumns.Add(new LazyJsonProperty(dataColumn.ColumnName, new LazyJsonBoolean(Convert.ToBoolean(dataRow[dataColumn.ColumnName, dataRowVersion]))));
+                    jsonToken = new LazyJsonSerializerBoolean().Serialize(dataRow[dataColumn.ColumnName, dataRowVersion], serializerOptions);
                 }
                 else if (dataColumn.DataType == typeof(Char) || dataColumn.DataType == typeof(String))
                 {
-                    jsonObjectDataRowColumns.Add(new LazyJsonProperty(dataColumn.ColumnName, new LazyJsonString(Convert.ToString(dataRow[dataColumn.ColumnName, dataRowVersion]))));
+                    jsonToken = new LazyJsonSerializerString().Serialize(dataRow[dataColumn.ColumnName, dataRowVersion], serializerOptions);
                 }
                 else if (dataColumn.DataType == typeof(Int16) || dataColumn.DataType == typeof(Int32) || dataColumn.DataType == typeof(Int64))
                 {
-                    jsonObjectDataRowColumns.Add(new LazyJsonProperty(dataColumn.ColumnName, new LazyJsonInteger(Convert.ToInt64(dataRow[dataColumn.ColumnName, dataRowVersion]))));
+                    jsonToken = new LazyJsonSerializerInteger().Serialize(dataRow[dataColumn.ColumnName, dataRowVersion], serializerOptions);
                 }
                 else if (dataColumn.DataType == typeof(float) || dataColumn.DataType == typeof(Double) || dataColumn.DataType == typeof(Decimal))
                 {
-                    jsonObjectDataRowColumns.Add(new LazyJsonProperty(dataColumn.ColumnName, new LazyJsonDecimal(Convert.ToDecimal(dataRow[dataColumn.ColumnName, dataRowVersion]))));
+                    jsonToken = new LazyJsonSerializerDecimal().Serialize(dataRow[dataColumn.ColumnName, dataRowVersion], serializerOptions);
                 }
                 else if (dataColumn.DataType == typeof(DateTime))
                 {
-                    jsonObjectDataRowColumns.Add(new LazyJsonProperty(dataColumn.ColumnName, new LazyJsonSerializerDateTime().Serialize(dataRow[dataColumn.ColumnName, dataRowVersion], serializerOptions)));
+                    jsonToken = new LazyJsonSerializerDateTime().Serialize(dataRow[dataColumn.ColumnName, dataRowVersion], serializerOptions);
                 }
                 else
                 {
-                    jsonObjectDataRowColumns.Add(new LazyJsonProperty(dataColumn.ColumnName, new LazyJsonString(Convert.ToString(dataRow[dataColumn.ColumnName, dataRowVersion]))));
+                    jsonToken = new LazyJsonNull();
                 }
+
+                jsonObjectDataRowColumns.Add(new LazyJsonProperty(dataColumn.ColumnName, jsonToken));
             }
 
             return jsonObjectDataRowColumns;
@@ -143,6 +156,144 @@ namespace Lazy.Vinke.Json
         #endregion Methods
 
         #region Properties
+        #endregion Properties
+    }
+
+    public class LazyJsonSerializerOptionsDataTable : LazyJsonSerializerOptionsBase
+    {
+        #region Variables
+
+        internal Dictionary<String, LazyJsonSerializerOptionsDataTableColumn> dataTableColumnDictionary;
+
+        #endregion Variables
+
+        #region Contructors
+        #endregion Contructors
+
+        #region Methods
+        #endregion Methods
+
+        #region Properties
+        #endregion Properties
+
+        #region Indexers
+
+        public LazyJsonSerializerOptionsDataTableColumn this[String name]
+        {
+            get
+            {
+                if (this.dataTableColumnDictionary == null)
+                    this.dataTableColumnDictionary = new Dictionary<String, LazyJsonSerializerOptionsDataTableColumn>();
+
+                if (this.dataTableColumnDictionary.ContainsKey(name) == false)
+                    this.dataTableColumnDictionary.Add(name, new LazyJsonSerializerOptionsDataTableColumn());
+
+                return this.dataTableColumnDictionary[name];
+            }
+            set
+            {
+                this[name] = value;
+            }
+        }
+
+        #endregion Indexers
+    }
+
+    public class LazyJsonSerializerOptionsDataTableColumn
+    {
+        #region Variables
+
+        internal LazyJsonSerializerOptionsDataTableColumnCollection columnCollectionOptions;
+
+        #endregion Variables
+
+        #region Contructors
+        #endregion Contructors
+
+        #region Methods
+        #endregion Methods
+
+        #region Properties
+
+        public LazyJsonSerializerOptionsDataTableColumnCollection Columns
+        {
+            get
+            {
+                if (this.columnCollectionOptions == null)
+                    this.columnCollectionOptions = new LazyJsonSerializerOptionsDataTableColumnCollection();
+
+                return this.columnCollectionOptions;
+            }
+            set
+            {
+                this.columnCollectionOptions = value;
+            }
+        }
+
+        #endregion Properties
+    }
+
+    public class LazyJsonSerializerOptionsDataTableColumnCollection
+    {
+        #region Variables
+
+        internal Dictionary<String, LazyJsonSerializerOptionsDataTableColumnData> customColumnDictionary;
+
+        #endregion Variables
+
+        #region Contructors
+        #endregion Contructors
+
+        #region Methods
+        #endregion Methods
+
+        #region Properties
+        #endregion Properties
+
+        #region Indexers
+
+        public LazyJsonSerializerOptionsDataTableColumnData this[String name]
+        {
+            get
+            {
+                if (this.customColumnDictionary == null)
+                    this.customColumnDictionary = new Dictionary<String, LazyJsonSerializerOptionsDataTableColumnData>();
+
+                if (this.customColumnDictionary.ContainsKey(name) == false)
+                    this.customColumnDictionary.Add(name, new LazyJsonSerializerOptionsDataTableColumnData());
+
+                return this.customColumnDictionary[name];
+            }
+            set
+            {
+                this[name] = value;
+            }
+        }
+
+        #endregion Indexers
+    }
+
+    public class LazyJsonSerializerOptionsDataTableColumnData
+    {
+        #region Variables
+        #endregion Variables
+
+        #region Contructors
+        #endregion Contructors
+
+        #region Methods
+
+        public void Set(LazyJsonSerializerBase serializer)
+        {
+            this.Serializer = serializer;
+        }
+
+        #endregion Methods
+
+        #region Properties
+
+        public LazyJsonSerializerBase Serializer { get; set; }
+
         #endregion Properties
     }
 }
