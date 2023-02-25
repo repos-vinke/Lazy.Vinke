@@ -11,6 +11,7 @@ using System.IO;
 using System.Data;
 using System.Text;
 using System.Collections.Generic;
+using System.Globalization;
 
 namespace Lazy.Vinke.Json
 {
@@ -31,23 +32,46 @@ namespace Lazy.Vinke.Json
         /// <returns>The json string token</returns>
         public override LazyJsonToken Serialize(Object data, LazyJsonSerializerOptions serializerOptions = null)
         {
-            if (data == null)
-                return new LazyJsonString(null);
+            if (data == null || data.GetType() != typeof(DateTime))
+                return new LazyJsonNull();
+            
+            if (serializerOptions != null && serializerOptions.Contains<LazyJsonSerializerOptionsDateTime>() == true)
+            {
+                String format = serializerOptions.Item<LazyJsonSerializerOptionsDateTime>().Format;
 
-            if (data.GetType() == typeof(DateTime)) return new LazyJsonString(ToDateTimeIso((DateTime)data));
-            if (data.GetType() == typeof(Nullable<DateTime>)) return new LazyJsonString(ToDateTimeIso((DateTime)data));
+                if (String.IsNullOrWhiteSpace(format) == false)
+                    return new LazyJsonString(((DateTime)data).ToString(format));
+            }
 
-            return new LazyJsonString(null);
-        }
-
-        private String ToDateTimeIso(DateTime value)
-        {
-            return value.ToString("yyyy'-'MM'-'dd'T'HH':'mm':'ss':'fff'Z'");
+            return new LazyJsonString(((DateTime)data).ToString());
         }
 
         #endregion Methods
 
         #region Properties
+        #endregion Properties
+    }
+
+    public class LazyJsonSerializerOptionsDateTime : LazyJsonSerializerOptionsBase
+    {
+        #region Variables
+        #endregion Variables
+
+        #region Contructors
+
+        public LazyJsonSerializerOptionsDateTime()
+        {
+        }
+
+        #endregion Contructors
+
+        #region Methods
+        #endregion Methods
+
+        #region Properties
+
+        public String Format { get; set; }
+
         #endregion Properties
     }
 }
