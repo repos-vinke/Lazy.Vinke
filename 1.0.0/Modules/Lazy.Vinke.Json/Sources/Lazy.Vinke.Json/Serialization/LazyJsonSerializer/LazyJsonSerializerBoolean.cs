@@ -34,10 +34,10 @@ namespace Lazy.Vinke.Json
             if (data == null)
                 return new LazyJsonBoolean(null);
 
-            if (data.GetType() == typeof(Boolean)) return new LazyJsonBoolean(Convert.ToBoolean(data));
-            if (data.GetType() == typeof(Nullable<Boolean>)) return new LazyJsonBoolean(Convert.ToBoolean(data));
+            if (data.GetType() != typeof(Boolean))
+                return new LazyJsonNull();
 
-            return new LazyJsonBoolean(null);
+            return new LazyJsonBoolean(Convert.ToBoolean(data));
         }
 
         #endregion Methods

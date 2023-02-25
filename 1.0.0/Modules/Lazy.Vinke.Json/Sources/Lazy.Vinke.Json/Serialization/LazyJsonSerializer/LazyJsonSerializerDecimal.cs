@@ -34,14 +34,12 @@ namespace Lazy.Vinke.Json
             if (data == null)
                 return new LazyJsonDecimal(null);
 
-            if (data.GetType() == typeof(float)) return new LazyJsonDecimal(Convert.ToDecimal(data));
-            if (data.GetType() == typeof(Double)) return new LazyJsonDecimal(Convert.ToDecimal(data));
-            if (data.GetType() == typeof(Decimal)) return new LazyJsonDecimal(Convert.ToDecimal(data));
-            if (data.GetType() == typeof(Nullable<float>)) return new LazyJsonDecimal(Convert.ToDecimal(data));
-            if (data.GetType() == typeof(Nullable<Double>)) return new LazyJsonDecimal(Convert.ToDecimal(data));
-            if (data.GetType() == typeof(Nullable<Decimal>)) return new LazyJsonDecimal(Convert.ToDecimal(data));
+            Type dataType = data.GetType();
 
-            return new LazyJsonDecimal(null);
+            if (dataType != typeof(Decimal) && dataType != typeof(Double) && dataType != typeof(float))
+                return new LazyJsonNull();
+
+            return new LazyJsonDecimal(Convert.ToDecimal(data));
         }
 
         #endregion Methods

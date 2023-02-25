@@ -11,7 +11,6 @@ using System.IO;
 using System.Data;
 using System.Text;
 using System.Collections.Generic;
-using System.Globalization;
 
 namespace Lazy.Vinke.Json
 {
@@ -32,9 +31,12 @@ namespace Lazy.Vinke.Json
         /// <returns>The json string token</returns>
         public override LazyJsonToken Serialize(Object data, LazyJsonSerializerOptions serializerOptions = null)
         {
-            if (data == null || data.GetType() != typeof(DateTime))
-                return new LazyJsonNull();
+            if (data == null)
+                return new LazyJsonString(null);
             
+            if (data.GetType() != typeof(DateTime))
+                return new LazyJsonNull();
+
             if (serializerOptions != null && serializerOptions.Contains<LazyJsonSerializerOptionsDateTime>() == true)
             {
                 String format = serializerOptions.Item<LazyJsonSerializerOptionsDateTime>().Format;

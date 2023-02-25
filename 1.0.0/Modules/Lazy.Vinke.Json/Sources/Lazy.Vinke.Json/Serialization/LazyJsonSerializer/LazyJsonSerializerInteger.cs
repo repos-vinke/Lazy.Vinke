@@ -33,15 +33,13 @@ namespace Lazy.Vinke.Json
         {
             if (data == null)
                 return new LazyJsonInteger(null);
+            
+            Type dataType = data.GetType();
 
-            if (data.GetType() == typeof(Int16)) return new LazyJsonInteger(Convert.ToInt16(data));
-            if (data.GetType() == typeof(Int32)) return new LazyJsonInteger(Convert.ToInt32(data));
-            if (data.GetType() == typeof(Int64)) return new LazyJsonInteger(Convert.ToInt64(data));
-            if (data.GetType() == typeof(Nullable<Int16>)) return new LazyJsonInteger(Convert.ToInt16(data));
-            if (data.GetType() == typeof(Nullable<Int32>)) return new LazyJsonInteger(Convert.ToInt32(data));
-            if (data.GetType() == typeof(Nullable<Int64>)) return new LazyJsonInteger(Convert.ToInt64(data));
+            if (dataType != typeof(Int32) && dataType != typeof(Int16) && dataType != typeof(Int64))
+                return new LazyJsonNull();
 
-            return new LazyJsonInteger(null);
+            return new LazyJsonInteger(Convert.ToInt64(data));
         }
 
         #endregion Methods

@@ -34,10 +34,12 @@ namespace Lazy.Vinke.Json
             if (data == null)
                 return new LazyJsonString(null);
 
-            if (data.GetType() == typeof(Char)) return new LazyJsonString(Convert.ToString(data));
-            if (data.GetType() == typeof(String)) return new LazyJsonString(Convert.ToString(data));
+            Type dataType = data.GetType();
 
-            return new LazyJsonString(null);
+            if (dataType != typeof(String) && dataType != typeof(Char))
+                return new LazyJsonNull();
+
+            return new LazyJsonString(Convert.ToString(data));
         }
 
         #endregion Methods
