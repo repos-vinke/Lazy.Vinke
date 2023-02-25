@@ -7,6 +7,7 @@
 // Created on 2023, February 25
 
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Text;
 
@@ -101,6 +102,53 @@ namespace Lazy.Vinke.Json.Tests
 
             // Act
             String json = LazyJsonSerializer.Serialize(sampleSimpleString);
+
+            // Assert
+            Assert.IsTrue(json == originalJson);
+        }
+
+        [TestMethod]
+        public void TestDeserializerSampleSimpleList()
+        {
+            // Arrange
+            LazyJsonSampleSimpleList sampleSimpleList = new LazyJsonSampleSimpleList();
+
+            sampleSimpleList.ListBooleanValueSingle = new List<Boolean>() { false };
+            sampleSimpleList.ListBooleanValueMultiple = new List<Boolean>() { true, false, false, true, true, false, false, true, true };
+            sampleSimpleList.ListBooleanValueEmpty = new List<Boolean>() { };
+            sampleSimpleList.ListBooleanValueNull = null;
+            sampleSimpleList.ListDecimalValueSingle = new List<Decimal>() { 0.0m };
+            sampleSimpleList.ListDecimalValueMultiple = new List<Decimal>() { 1.1m, 2.2m, 3.3m, 4.4m, 5.5m, 6.6m, 7.7m, 8.8m, 9.9m };
+            sampleSimpleList.ListDecimalValueEmpty = new List<Decimal>() { };
+            sampleSimpleList.ListDecimalValueNull = null;
+            sampleSimpleList.ListInt16ValueSingle = new List<Int16>() { 0 };
+            sampleSimpleList.ListInt16ValueMultiple = new List<Int16>() { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+            sampleSimpleList.ListInt16ValueEmpty = new List<Int16>() { };
+            sampleSimpleList.ListInt16ValueNull = null;
+            sampleSimpleList.ListInt64ValueSingle = new List<Int64>() { 0 };
+            sampleSimpleList.ListInt64ValueMultiple = new List<Int64>() { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+            sampleSimpleList.ListInt64ValueEmpty = new List<Int64>() { };
+            sampleSimpleList.ListInt64ValueNull = null;
+            sampleSimpleList.ListStringValueSingle = new List<String>() { "Zero" };
+            sampleSimpleList.ListStringValueMultiple = new List<String>() { "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine" };
+            sampleSimpleList.ListStringValueEmpty = new List<String>() { };
+            sampleSimpleList.ListStringValueNull = null;
+            sampleSimpleList.ListCharValueSingle = new List<Char>() { 'Z' };
+            sampleSimpleList.ListCharValueMultiple = new List<Char>() { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I' };
+            sampleSimpleList.ListCharValueEmpty = new List<Char>() { };
+            sampleSimpleList.ListCharValueNull = null;
+            sampleSimpleList.ListObjectValueSingle = new List<Object>() { "A" };
+            sampleSimpleList.ListObjectValueMultiple = new List<Object>() { true, "B", "Json", 1.1, 256, 23.456, 0, "Tests", false };
+            sampleSimpleList.ListObjectValueEmpty = new List<Object>() { };
+            sampleSimpleList.ListObjectValueNull = null;
+
+            LazyJsonWriterOptions writerOptions = new LazyJsonWriterOptions() { Indent = false };
+
+            String originalJson = Encoding.UTF8.GetString(Properties.Resources.LazyJsonSampleSimpleList);
+            originalJson = LazyJsonWriter.Write(LazyJsonReader.Read(originalJson), jsonWriterOptions: writerOptions);
+
+            // Act
+            String json = LazyJsonSerializer.Serialize(sampleSimpleList, writerOptions: writerOptions);
 
             // Assert
             Assert.IsTrue(json == originalJson);
