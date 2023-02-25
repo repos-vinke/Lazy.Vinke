@@ -39,6 +39,9 @@ namespace Lazy.Vinke.Json
             if (dataType != typeof(String) && dataType != typeof(Char))
                 return new LazyJsonNull();
 
+            if (dataType == typeof(Char) && (Char)data == '\0')
+                return new LazyJsonNull();
+
             return new LazyJsonString(Convert.ToString(data));
         }
 
