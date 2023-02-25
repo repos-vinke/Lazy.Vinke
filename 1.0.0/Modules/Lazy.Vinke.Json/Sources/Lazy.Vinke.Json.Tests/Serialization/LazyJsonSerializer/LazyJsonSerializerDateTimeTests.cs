@@ -27,11 +27,12 @@ namespace Lazy.Vinke.Json.Tests
             resToken = serializerDateTime.Serialize(data);
 
             // Assert
-            Assert.IsTrue(resToken.Type == LazyJsonType.Null);
+            Assert.IsTrue(resToken.Type == LazyJsonType.String);
+            Assert.IsTrue(((LazyJsonString)resToken).Value == null);
         }
 
         [TestMethod]
-        public void TestSerializerDateTimeDataNotDateTime()
+        public void TestSerializerDateTimeDataNotMatch()
         {
             // Arrange
             LazyJsonToken resToken = null;
