@@ -26,8 +26,8 @@ namespace Lazy.Vinke.Json.Tests
             deserializerOptionsBase = deserializerOptions.Item<LazyJsonDeserializerOptionsBase>();
 
             // Assert
-            Assert.IsNotNull(deserializerOptionsBase);
             Assert.IsTrue(deserializerOptions.Contains<LazyJsonDeserializerOptionsBase>());
+            Assert.IsNotNull(deserializerOptionsBase);
         }
     }
 }
