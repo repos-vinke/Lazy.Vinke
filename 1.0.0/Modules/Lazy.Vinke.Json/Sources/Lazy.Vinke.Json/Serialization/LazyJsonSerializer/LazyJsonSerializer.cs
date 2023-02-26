@@ -27,11 +27,11 @@ namespace Lazy.Vinke.Json
         /// </summary>
         /// <param name="data">The object to be serialized</param>
         /// <returns>The json</returns>
-        public static String Serialize(Object data, LazyJsonSerializerOptions serializerOptions = null, LazyJsonWriterOptions writerOptions = null)
+        public static String Serialize(Object data, LazyJsonSerializerOptions serializerOptions = null, LazyJsonWriterOptions jsonWriterOptions = null)
         {
             LazyJson lazyJson = new LazyJson();
             lazyJson.AppendRoot(SerializeToken(data, serializerOptions));
-            return LazyJsonWriter.Write(lazyJson, writerOptions);
+            return LazyJsonWriter.Write(lazyJson, jsonWriterOptions);
         }
 
         /// <summary>

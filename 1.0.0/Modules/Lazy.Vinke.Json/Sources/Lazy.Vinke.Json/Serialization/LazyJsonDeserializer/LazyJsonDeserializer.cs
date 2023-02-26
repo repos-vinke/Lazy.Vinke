@@ -29,9 +29,9 @@ namespace Lazy.Vinke.Json
         /// <param name="json">The json to be deserialized</param>
         /// <param name="deserializerOptions">The json deserializer options</param>
         /// <returns>The desired object instance</returns>
-        public static T Deserialize<T>(String json, LazyJsonDeserializerOptions deserializerOptions = null, LazyJsonReaderOptions readerOptions = null)
+        public static T Deserialize<T>(String json, LazyJsonDeserializerOptions deserializerOptions = null, LazyJsonReaderOptions jsonReaderOptions = null)
         {
-            return (T)Deserialize(json, typeof(T), deserializerOptions, readerOptions);
+            return (T)Deserialize(json, typeof(T), deserializerOptions, jsonReaderOptions);
         }
 
         /// <summary>
@@ -65,9 +65,9 @@ namespace Lazy.Vinke.Json
         /// <param name="dataType">The type of the desired object</param>
         /// <param name="deserializerOptions">The json deserializer options</param>
         /// <returns>The desired object instance</returns>
-        public static Object Deserialize(String json, Type dataType, LazyJsonDeserializerOptions deserializerOptions = null, LazyJsonReaderOptions readerOptions = null)
+        public static Object Deserialize(String json, Type dataType, LazyJsonDeserializerOptions deserializerOptions = null, LazyJsonReaderOptions jsonReaderOptions = null)
         {
-            LazyJson lazyJson = LazyJsonReader.Read(json, readerOptions);
+            LazyJson lazyJson = LazyJsonReader.Read(json, jsonReaderOptions);
             return DeserializeToken(lazyJson.Root, dataType, deserializerOptions);
         }
 
