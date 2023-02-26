@@ -436,11 +436,11 @@ namespace Lazy.Vinke.Json.Tests
         public void TestDeserializerSampleSimpleAttribute()
         {
             // Arrange
-            LazyJsonSampleSimpleAttribute sampleSimpleAttribute = null;
-            String json = Encoding.UTF8.GetString(Properties.Resources.LazyJsonSampleSimpleAttribute);
+            LazyJsonDeserializerSampleSimpleAttribute sampleSimpleAttribute = null;
+            String json = Encoding.UTF8.GetString(Properties.Resources.LazyJsonDeserializerSampleSimpleAttribute);
 
             // Act
-            sampleSimpleAttribute = LazyJsonDeserializer.Deserialize<LazyJsonSampleSimpleAttribute>(json);
+            sampleSimpleAttribute = LazyJsonDeserializer.Deserialize<LazyJsonDeserializerSampleSimpleAttribute>(json);
 
             // Assert
             Assert.IsTrue(sampleSimpleAttribute.BooleanValue == true);

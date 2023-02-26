@@ -1,4 +1,4 @@
-﻿// LazyJsonSampleSimpleAttribute.cs
+﻿// LazyJsonDeserializerSampleSimpleAttribute.cs
 //
 // This file is integrated part of Lazy project
 // Licensed under "Gnu General Public License Version 3"
@@ -12,7 +12,7 @@ using Lazy.Vinke.Json;
 
 namespace Lazy.Vinke.Json.Tests
 {
-    public class LazyJsonSampleSimpleAttribute
+    public class LazyJsonDeserializerSampleSimpleAttribute
     {
         public Boolean BooleanValue { get; set; }
 

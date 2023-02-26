@@ -259,5 +259,90 @@ namespace Lazy.Vinke.Json.Tests
             // Assert
             Assert.IsTrue(json == originalJson);
         }
+
+        [TestMethod]
+        public void TestSerializerSampleSimpleDataTable()
+        {
+            // Arrange
+            LazyJsonSampleSimpleDataTable sampleSimpleDataTable = new LazyJsonSampleSimpleDataTable();
+
+            sampleSimpleDataTable.DataTableWithoutRows = new DataTable("DataTableWithoutRows");
+
+            sampleSimpleDataTable.DataTableWithSingleRow = new DataTable("DataTableWithSingleRow");
+            sampleSimpleDataTable.DataTableWithSingleRow.Columns.AddRange(new DataColumn[] { new DataColumn("ColumnInt32", typeof(Int32)), new DataColumn("ColumnString", typeof(String)), new DataColumn("ColumnChar", typeof(Char)), new DataColumn("ColumnDateTime", typeof(DateTime)) });
+            sampleSimpleDataTable.DataTableWithSingleRow.Rows.Add(1, "Row1", 'A', new DateTime(2022, 02, 22, 11, 52, 02, 000));
+            sampleSimpleDataTable.DataTableWithSingleRow.AcceptChanges();
+
+            sampleSimpleDataTable.DataTableWithMultipleRows = new DataTable("DataTableWithMultipleRows");
+            sampleSimpleDataTable.DataTableWithMultipleRows.Columns.AddRange(new DataColumn[] { new DataColumn("ColumnInt32", typeof(Int32)), new DataColumn("ColumnString", typeof(String)), new DataColumn("ColumnChar", typeof(Char)), new DataColumn("ColumnDateTime", typeof(DateTime)) });
+            sampleSimpleDataTable.DataTableWithMultipleRows.Rows.Add(1, "Row1", 'A', new DateTime(2023, 03, 23, 11, 53, 03, 000));
+            sampleSimpleDataTable.DataTableWithMultipleRows.Rows.Add(2, "Row2", 'B', new DateTime(2024, 04, 24, 11, 54, 04, 000));
+            sampleSimpleDataTable.DataTableWithMultipleRows.Rows.Add(3, "Row3", 'C', new DateTime(2025, 05, 25, 11, 55, 05, 000));
+            sampleSimpleDataTable.DataTableWithMultipleRows.AcceptChanges();
+
+            String originalJson = Encoding.UTF8.GetString(Properties.Resources.LazyJsonSampleSimpleDataTable);
+
+            LazyJsonSerializerOptions serializerOptions = new LazyJsonSerializerOptions();
+            serializerOptions.Item<LazyJsonSerializerOptionsDateTime>().Format = TestStringFormat.DateTime.ISO8601Z;
+
+            // Act
+            String json = LazyJsonSerializer.Serialize(sampleSimpleDataTable, serializerOptions);
+
+            // Assert
+            Assert.IsTrue(json == originalJson);
+        }
+
+        [TestMethod]
+        public void TestSerializerSampleSimpleDataSet()
+        {
+            // Arrange
+            LazyJsonSampleSimpleDataSet sampleSimpleDataSet = new LazyJsonSampleSimpleDataSet();
+
+            sampleSimpleDataSet.DataSet = new DataSet("MyDataSet");
+
+            sampleSimpleDataSet.DataSet.Tables.Add(new DataTable("DataTableWithoutRows"));
+
+            sampleSimpleDataSet.DataSet.Tables.Add(new DataTable("DataTableWithSingleRow"));
+            sampleSimpleDataSet.DataSet.Tables["DataTableWithSingleRow"].Columns.AddRange(new DataColumn[] { new DataColumn("ColumnInt32", typeof(Int32)), new DataColumn("ColumnString", typeof(String)), new DataColumn("ColumnChar", typeof(Char)), new DataColumn("ColumnDateTime", typeof(DateTime)) });
+            sampleSimpleDataSet.DataSet.Tables["DataTableWithSingleRow"].Rows.Add(1, "Row1", 'A', new DateTime(2022, 02, 22, 11, 52, 02, 000));
+            sampleSimpleDataSet.DataSet.Tables["DataTableWithSingleRow"].AcceptChanges();
+
+            sampleSimpleDataSet.DataSet.Tables.Add(new DataTable("DataTableWithMultipleRows"));
+            sampleSimpleDataSet.DataSet.Tables["DataTableWithMultipleRows"].Columns.AddRange(new DataColumn[] { new DataColumn("ColumnInt32", typeof(Int32)), new DataColumn("ColumnString", typeof(String)), new DataColumn("ColumnChar", typeof(Char)), new DataColumn("ColumnDateTime", typeof(DateTime)) });
+            sampleSimpleDataSet.DataSet.Tables["DataTableWithMultipleRows"].Rows.Add(1, "Row1", 'A', new DateTime(2023, 03, 23, 11, 53, 03, 000));
+            sampleSimpleDataSet.DataSet.Tables["DataTableWithMultipleRows"].Rows.Add(2, "Row2", 'B', new DateTime(2024, 04, 24, 11, 54, 04, 000));
+            sampleSimpleDataSet.DataSet.Tables["DataTableWithMultipleRows"].Rows.Add(3, "Row3", 'C', new DateTime(2025, 05, 25, 11, 55, 05, 000));
+            sampleSimpleDataSet.DataSet.Tables["DataTableWithMultipleRows"].AcceptChanges();
+
+            String originalJson = Encoding.UTF8.GetString(Properties.Resources.LazyJsonSampleSimpleDataSet);
+
+            LazyJsonSerializerOptions serializerOptions = new LazyJsonSerializerOptions();
+            serializerOptions.Item<LazyJsonSerializerOptionsDateTime>().Format = TestStringFormat.DateTime.ISO8601Z;
+
+            // Act
+            String json = LazyJsonSerializer.Serialize(sampleSimpleDataSet, serializerOptions);
+
+            // Assert
+            Assert.IsTrue(json == originalJson);
+        }
+
+        [TestMethod]
+        public void TestSerializerSampleSimpleAttribute()
+        {
+            // Arrange
+            LazyJsonSerializerSampleSimpleAttribute sampleSimpleAttribute = new LazyJsonSerializerSampleSimpleAttribute();
+            sampleSimpleAttribute.BooleanValue = true;
+            sampleSimpleAttribute.Int16Value = 123;
+            sampleSimpleAttribute.StringValue = "Json";
+            sampleSimpleAttribute.DecimalValue = 456.789m;
+
+            String originalJson = Encoding.UTF8.GetString(Properties.Resources.LazyJsonSerializerSampleSimpleAttribute);
+
+            // Act
+            String json = LazyJsonSerializer.Serialize(sampleSimpleAttribute);
+
+            // Assert
+            Assert.IsTrue(json == originalJson);
+        }
     }
 }
