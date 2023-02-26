@@ -15,10 +15,6 @@ namespace Lazy.Vinke.Json.Tests
 {
     public class LazyJsonSerializerSampleSimpleDictionary
     {
-        public Dictionary<Int16, String> DicInt16StringInvalidSingle { get; set; }
-
-        public Dictionary<Int16, String> DicInt16StringInvalidMultiple { get; set; }
-
         public Dictionary<Int16, String> DicInt16StringValidSingle { get; set; }
 
         public Dictionary<Int16, String> DicInt16StringValidMultiple { get; set; }
@@ -27,10 +23,6 @@ namespace Lazy.Vinke.Json.Tests
 
         public Dictionary<Int16, String> DicInt16StringNull { get; set; }
 
-        public Dictionary<String, Decimal> DicStringDecimalInvalidSingle { get; set; }
-
-        public Dictionary<String, Decimal> DicStringDecimalInvalidMultiple { get; set; }
-
         public Dictionary<String, Decimal> DicStringDecimalValidSingle { get; set; }
 
         public Dictionary<String, Decimal> DicStringDecimalValidMultiple { get; set; }
@@ -38,10 +30,6 @@ namespace Lazy.Vinke.Json.Tests
         public Dictionary<String, Decimal> DicStringDecimalEmpty { get; set; }
 
         public Dictionary<String, Decimal> DicStringDecimalNull { get; set; }
-
-        public Dictionary<Int64, Int16> DicInt64Int16InvalidSingle { get; set; }
-
-        public Dictionary<Int64, Int16> DicInt64Int16InvalidMultiple { get; set; }
 
         public Dictionary<Int64, Int16> DicInt64Int16ValidSingle { get; set; }
 

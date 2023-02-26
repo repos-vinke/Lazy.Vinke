@@ -61,7 +61,7 @@ namespace Lazy.Vinke.Json.Tests
         }
 
         [TestMethod]
-        public void TestDeserializerSampleSimpleInteger()
+        public void TestSerializerSampleSimpleInteger()
         {
             // Arrange
             LazyJsonSampleSimpleInteger sampleSimpleInteger = new LazyJsonSampleSimpleInteger();
@@ -85,7 +85,7 @@ namespace Lazy.Vinke.Json.Tests
         }
 
         [TestMethod]
-        public void TestDeserializerSampleSimpleString()
+        public void TestSerializerSampleSimpleString()
         {
             // Arrange
             LazyJsonSampleSimpleString sampleSimpleString = new LazyJsonSampleSimpleString();
@@ -108,7 +108,7 @@ namespace Lazy.Vinke.Json.Tests
         }
 
         [TestMethod]
-        public void TestDeserializerSampleSimpleList()
+        public void TestSerializerSampleSimpleList()
         {
             // Arrange
             LazyJsonSampleSimpleList sampleSimpleList = new LazyJsonSampleSimpleList();
@@ -153,5 +153,39 @@ namespace Lazy.Vinke.Json.Tests
             // Assert
             Assert.IsTrue(json == originalJson);
         }
+
+        [TestMethod]
+        public void TestSerializerSampleSimpleDictionary()
+        {
+            // Arrange
+            LazyJsonSerializerSampleSimpleDictionary sampleSimpleDictionary = new LazyJsonSerializerSampleSimpleDictionary();
+
+            sampleSimpleDictionary.DicInt16StringValidSingle = new Dictionary<Int16, String>() { { 1, "Json" } };
+            sampleSimpleDictionary.DicInt16StringValidMultiple = new Dictionary<Int16, String>() { { 1, "Json" }, { 2, "Tests" } };
+            sampleSimpleDictionary.DicInt16StringEmpty = new Dictionary<Int16, String>() { };
+            sampleSimpleDictionary.DicInt16StringNull = null;
+
+            sampleSimpleDictionary.DicStringDecimalValidSingle = new Dictionary<String, Decimal>() { { "Item1", 12.345m } };
+            sampleSimpleDictionary.DicStringDecimalValidMultiple = new Dictionary<String, Decimal>() { { "Item2", 34.567m }, { "Item3", 45.789m } };
+            sampleSimpleDictionary.DicStringDecimalEmpty = new Dictionary<String, Decimal>() { };
+            sampleSimpleDictionary.DicStringDecimalNull = null;
+
+            sampleSimpleDictionary.DicInt64Int16ValidSingle = new Dictionary<Int64, Int16>() { { 10, 100 } };
+            sampleSimpleDictionary.DicInt64Int16ValidMultiple = new Dictionary<Int64, Int16>() { { 20, 200 }, { 30, 300 } };
+            sampleSimpleDictionary.DicInt64Int16Empty = new Dictionary<Int64, Int16>() { };
+            sampleSimpleDictionary.DicInt64Int16Null = null;
+
+            LazyJsonWriterOptions writerOptions = new LazyJsonWriterOptions() { Indent = false };
+
+            String originalJson = Encoding.UTF8.GetString(Properties.Resources.LazyJsonSerializerSampleSimpleDictionary);
+            originalJson = LazyJsonWriter.Write(LazyJsonReader.Read(originalJson), jsonWriterOptions: writerOptions);
+
+            // Act
+            String json = LazyJsonSerializer.Serialize(sampleSimpleDictionary, writerOptions: writerOptions);
+
+            // Assert
+            Assert.IsTrue(json == originalJson);
+        }
+
     }
 }
