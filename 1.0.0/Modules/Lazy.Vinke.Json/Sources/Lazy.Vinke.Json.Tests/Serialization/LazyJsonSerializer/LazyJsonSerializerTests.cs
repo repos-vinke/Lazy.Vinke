@@ -10,7 +10,6 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Text;
-
 using Lazy.Vinke.Json;
 
 namespace Lazy.Vinke.Json.Tests
@@ -148,7 +147,7 @@ namespace Lazy.Vinke.Json.Tests
             originalJson = LazyJsonWriter.Write(LazyJsonReader.Read(originalJson), jsonWriterOptions: writerOptions);
 
             // Act
-            String json = LazyJsonSerializer.Serialize(sampleSimpleList, writerOptions: writerOptions);
+            String json = LazyJsonSerializer.Serialize(sampleSimpleList, jsonWriterOptions: writerOptions);
 
             // Assert
             Assert.IsTrue(json == originalJson);
@@ -181,7 +180,7 @@ namespace Lazy.Vinke.Json.Tests
             originalJson = LazyJsonWriter.Write(LazyJsonReader.Read(originalJson), jsonWriterOptions: writerOptions);
 
             // Act
-            String json = LazyJsonSerializer.Serialize(sampleSimpleDictionary, writerOptions: writerOptions);
+            String json = LazyJsonSerializer.Serialize(sampleSimpleDictionary, jsonWriterOptions: writerOptions);
 
             // Assert
             Assert.IsTrue(json == originalJson);
