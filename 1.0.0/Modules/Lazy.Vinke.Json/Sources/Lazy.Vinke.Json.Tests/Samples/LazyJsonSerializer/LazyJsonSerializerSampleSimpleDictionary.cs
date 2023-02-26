@@ -1,4 +1,4 @@
-﻿// LazyJsonSampleSimpleDictionary.cs
+﻿// LazyJsonSerializerSampleSimpleDictionary.cs
 //
 // This file is integrated part of Lazy project
 // Licensed under "Gnu General Public License Version 3"
@@ -13,7 +13,7 @@ using Lazy.Vinke.Json;
 
 namespace Lazy.Vinke.Json.Tests
 {
-    public class LazyJsonSampleSimpleDictionary
+    public class LazyJsonSerializerSampleSimpleDictionary
     {
         public Dictionary<Int16, String> DicInt16StringInvalidSingle { get; set; }
 

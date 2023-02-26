@@ -183,11 +183,11 @@ namespace Lazy.Vinke.Json.Tests
         public void TestDeserializerSampleSimpleDictionary()
         {
             // Arrange
-            LazyJsonSampleSimpleDictionary sampleSimpleDictionary = null;
-            String json = Encoding.UTF8.GetString(Properties.Resources.LazyJsonSampleSimpleDictionary);
+            LazyJsonDeserializerSampleSimpleDictionary sampleSimpleDictionary = null;
+            String json = Encoding.UTF8.GetString(Properties.Resources.LazyJsonDeserializerSampleSimpleDictionary);
 
             // Act
-            sampleSimpleDictionary = LazyJsonDeserializer.Deserialize<LazyJsonSampleSimpleDictionary>(json);
+            sampleSimpleDictionary = LazyJsonDeserializer.Deserialize<LazyJsonDeserializerSampleSimpleDictionary>(json);
 
             // Assert
             Assert.IsTrue(sampleSimpleDictionary.DicInt16StringInvalidSingle.Count == 0);
