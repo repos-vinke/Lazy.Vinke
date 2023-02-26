@@ -1,4 +1,4 @@
-﻿// LazyJsonSampleSimpleList.cs
+﻿// LazyJsonSerializerSampleSimpleList.cs
 //
 // This file is integrated part of Lazy project
 // Licensed under "Gnu General Public License Version 3"
@@ -13,7 +13,7 @@ using Lazy.Vinke.Json;
 
 namespace Lazy.Vinke.Json.Tests
 {
-    public class LazyJsonSampleSimpleList
+    public class LazyJsonSerializerSampleSimpleList
     {
         public List<Boolean> ListBooleanValueSingle { get; set; }
 

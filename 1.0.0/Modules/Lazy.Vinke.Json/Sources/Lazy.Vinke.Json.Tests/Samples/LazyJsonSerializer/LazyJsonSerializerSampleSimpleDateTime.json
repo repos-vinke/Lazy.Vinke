@@ -1,0 +1,8 @@
+{
+  "DateTimeValueNormal": "26/02/2023 14:15:16",
+  "DateTimeValueNormalNullableNotNull": "26/02/2023 17:18:19",
+  "DateTimeValueNormalNullableNull": null,
+  "DateTimeValueFormatted": "2023-02-26T14:15:16:123Z",
+  "DateTimeValueFormattedNullableNotNull": "2023-02-26T17:18:19:123Z",
+  "DateTimeValueFormattedNullableNull": null
+}

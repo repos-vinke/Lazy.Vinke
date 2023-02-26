@@ -110,7 +110,7 @@ namespace Lazy.Vinke.Json.Tests
         public void TestSerializerSampleSimpleList()
         {
             // Arrange
-            LazyJsonSampleSimpleList sampleSimpleList = new LazyJsonSampleSimpleList();
+            LazyJsonSerializerSampleSimpleList sampleSimpleList = new LazyJsonSerializerSampleSimpleList();
 
             sampleSimpleList.ListBooleanValueSingle = new List<Boolean>() { false };
             sampleSimpleList.ListBooleanValueMultiple = new List<Boolean>() { true, false, false, true, true, false, false, true, true };
@@ -141,13 +141,10 @@ namespace Lazy.Vinke.Json.Tests
             sampleSimpleList.ListObjectValueEmpty = new List<Object>() { };
             sampleSimpleList.ListObjectValueNull = null;
 
-            LazyJsonWriterOptions writerOptions = new LazyJsonWriterOptions() { Indent = false };
-
-            String originalJson = Encoding.UTF8.GetString(Properties.Resources.LazyJsonSampleSimpleList);
-            originalJson = LazyJsonWriter.Write(LazyJsonReader.Read(originalJson), jsonWriterOptions: writerOptions);
+            String originalJson = Encoding.UTF8.GetString(Properties.Resources.LazyJsonSerializerSampleSimpleList);
 
             // Act
-            String json = LazyJsonSerializer.Serialize(sampleSimpleList, jsonWriterOptions: writerOptions);
+            String json = LazyJsonSerializer.Serialize(sampleSimpleList);
 
             // Assert
             Assert.IsTrue(json == originalJson);
@@ -174,17 +171,93 @@ namespace Lazy.Vinke.Json.Tests
             sampleSimpleDictionary.DicInt64Int16Empty = new Dictionary<Int64, Int16>() { };
             sampleSimpleDictionary.DicInt64Int16Null = null;
 
-            LazyJsonWriterOptions writerOptions = new LazyJsonWriterOptions() { Indent = false };
-
             String originalJson = Encoding.UTF8.GetString(Properties.Resources.LazyJsonSerializerSampleSimpleDictionary);
-            originalJson = LazyJsonWriter.Write(LazyJsonReader.Read(originalJson), jsonWriterOptions: writerOptions);
 
             // Act
-            String json = LazyJsonSerializer.Serialize(sampleSimpleDictionary, jsonWriterOptions: writerOptions);
+            String json = LazyJsonSerializer.Serialize(sampleSimpleDictionary);
 
             // Assert
             Assert.IsTrue(json == originalJson);
         }
 
+        [TestMethod]
+        public void TestSerializerSampleSimpleArray()
+        {
+            // Arrange
+            LazyJsonSerializerSampleSimpleArray sampleSimpleArray = new LazyJsonSerializerSampleSimpleArray();
+
+            sampleSimpleArray.ArrayBooleanValueSingle = new Boolean[] { false };
+            sampleSimpleArray.ArrayBooleanValueMultiple = new Boolean[] { true, false, false, true, true, false, false, true, true };
+            sampleSimpleArray.ArrayBooleanValueEmpty = new Boolean[] { };
+            sampleSimpleArray.ArrayBooleanValueNull = null;
+            sampleSimpleArray.ArrayDecimalValueSingle = new Decimal[] { 0.0m };
+            sampleSimpleArray.ArrayDecimalValueMultiple = new Decimal[] { 1.1m, 2.2m, 3.3m, 4.4m, 5.5m, 6.6m, 7.7m, 8.8m, 9.9m };
+            sampleSimpleArray.ArrayDecimalValueEmpty = new Decimal[] { };
+            sampleSimpleArray.ArrayDecimalValueNull = null;
+            sampleSimpleArray.ArrayInt16ValueSingle = new Int16[] { 0 };
+            sampleSimpleArray.ArrayInt16ValueMultiple = new Int16[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+            sampleSimpleArray.ArrayInt16ValueEmpty = new Int16[] { };
+            sampleSimpleArray.ArrayInt16ValueNull = null;
+            sampleSimpleArray.ArrayInt64ValueSingle = new Int64[] { 0 };
+            sampleSimpleArray.ArrayInt64ValueMultiple = new Int64[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+            sampleSimpleArray.ArrayInt64ValueEmpty = new Int64[] { };
+            sampleSimpleArray.ArrayInt64ValueNull = null;
+            sampleSimpleArray.ArrayStringValueSingle = new String[] { "Zero" };
+            sampleSimpleArray.ArrayStringValueMultiple = new String[] { "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine" };
+            sampleSimpleArray.ArrayStringValueEmpty = new String[] { };
+            sampleSimpleArray.ArrayStringValueNull = null;
+            sampleSimpleArray.ArrayCharValueSingle = new Char[] { 'Z' };
+            sampleSimpleArray.ArrayCharValueMultiple = new Char[] { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I' };
+            sampleSimpleArray.ArrayCharValueEmpty = new Char[] { };
+            sampleSimpleArray.ArrayCharValueNull = null;
+            sampleSimpleArray.ArrayObjectValueSingle = new Object[] { "A" };
+            sampleSimpleArray.ArrayObjectValueMultiple = new Object[] { true, "B", "Json", 1.1, 256, 23.456, 0, "Tests", false };
+            sampleSimpleArray.ArrayObjectValueEmpty = new Object[] { };
+            sampleSimpleArray.ArrayObjectValueNull = null;
+
+            String originalJson = Encoding.UTF8.GetString(Properties.Resources.LazyJsonSerializerSampleSimpleArray);
+
+            // Act
+            String json = LazyJsonSerializer.Serialize(sampleSimpleArray);
+
+            // Assert
+            Assert.IsTrue(json == originalJson);
+        }
+
+        [TestMethod]
+        public void TestSerializerSampleSimpleDateTime()
+        {
+            // Arrange
+            LazyJsonSerializerSampleSimpleDateTime1 sampleSimpleDateTime1 = new LazyJsonSerializerSampleSimpleDateTime1();
+            sampleSimpleDateTime1.DateTimeValueNormal = new DateTime(2023, 02, 26, 14, 15, 16, 000);
+            sampleSimpleDateTime1.DateTimeValueNormalNullableNotNull = new DateTime(2023, 02, 26, 17, 18, 19, 000);
+            sampleSimpleDateTime1.DateTimeValueNormalNullableNull = null;
+
+            LazyJsonSerializerSampleSimpleDateTime2 sampleSimpleDateTime2 = new LazyJsonSerializerSampleSimpleDateTime2();
+            sampleSimpleDateTime2.DateTimeValueFormatted = new DateTime(2023, 02, 26, 14, 15, 16, 123);
+            sampleSimpleDateTime2.DateTimeValueFormattedNullableNotNull = new DateTime(2023, 02, 26, 17, 18, 19, 123);
+            sampleSimpleDateTime2.DateTimeValueFormattedNullableNull = null;
+
+            String originalJson = Encoding.UTF8.GetString(Properties.Resources.LazyJsonSerializerSampleSimpleDateTime);
+
+            LazyJsonSerializerOptions serializerOptions = new LazyJsonSerializerOptions();
+            serializerOptions.Item<LazyJsonSerializerOptionsDateTime>().Format = TestStringFormat.DateTime.ISO8601Z;
+
+            // Act
+            String parcialJson1 = LazyJsonSerializer.Serialize(sampleSimpleDateTime1);
+            String parcialJson2 = LazyJsonSerializer.Serialize(sampleSimpleDateTime2, serializerOptions);
+
+            LazyJson lazyJson = LazyJsonReader.Read(parcialJson1);
+            LazyJson lazyJsonAux = LazyJsonReader.Read(parcialJson2);
+
+            lazyJson.AppendProperty("$", "DateTimeValueFormatted", lazyJsonAux.Find("$.DateTimeValueFormatted"));
+            lazyJson.AppendProperty("$", "DateTimeValueFormattedNullableNotNull", lazyJsonAux.Find("$.DateTimeValueFormattedNullableNotNull"));
+            lazyJson.AppendProperty("$", "DateTimeValueFormattedNullableNull", lazyJsonAux.Find("$.DateTimeValueFormattedNullableNull"));
+
+            String json = LazyJsonWriter.Write(lazyJson);
+
+            // Assert
+            Assert.IsTrue(json == originalJson);
+        }
     }
 }

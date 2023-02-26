@@ -63,6 +63,26 @@ namespace Lazy.Vinke.Json.Tests.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Byte[].
         /// </summary>
+        public static byte[] LazyJsonDeserializerSampleSimpleArray {
+            get {
+                object obj = ResourceManager.GetObject("LazyJsonDeserializerSampleSimpleArray", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Byte[].
+        /// </summary>
+        public static byte[] LazyJsonDeserializerSampleSimpleDateTime {
+            get {
+                object obj = ResourceManager.GetObject("LazyJsonDeserializerSampleSimpleDateTime", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Byte[].
+        /// </summary>
         public static byte[] LazyJsonDeserializerSampleSimpleDictionary {
             get {
                 object obj = ResourceManager.GetObject("LazyJsonDeserializerSampleSimpleDictionary", resourceCulture);
@@ -73,9 +93,9 @@ namespace Lazy.Vinke.Json.Tests.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Byte[].
         /// </summary>
-        public static byte[] LazyJsonSampleSimpleArray {
+        public static byte[] LazyJsonDeserializerSampleSimpleList {
             get {
-                object obj = ResourceManager.GetObject("LazyJsonSampleSimpleArray", resourceCulture);
+                object obj = ResourceManager.GetObject("LazyJsonDeserializerSampleSimpleList", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -123,16 +143,6 @@ namespace Lazy.Vinke.Json.Tests.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Byte[].
         /// </summary>
-        public static byte[] LazyJsonSampleSimpleDateTime {
-            get {
-                object obj = ResourceManager.GetObject("LazyJsonSampleSimpleDateTime", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta um recurso localizado do tipo System.Byte[].
-        /// </summary>
         public static byte[] LazyJsonSampleSimpleDecimal {
             get {
                 object obj = ResourceManager.GetObject("LazyJsonSampleSimpleDecimal", resourceCulture);
@@ -153,16 +163,6 @@ namespace Lazy.Vinke.Json.Tests.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Byte[].
         /// </summary>
-        public static byte[] LazyJsonSampleSimpleList {
-            get {
-                object obj = ResourceManager.GetObject("LazyJsonSampleSimpleList", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta um recurso localizado do tipo System.Byte[].
-        /// </summary>
         public static byte[] LazyJsonSampleSimpleString {
             get {
                 object obj = ResourceManager.GetObject("LazyJsonSampleSimpleString", resourceCulture);
@@ -173,9 +173,39 @@ namespace Lazy.Vinke.Json.Tests.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Byte[].
         /// </summary>
+        public static byte[] LazyJsonSerializerSampleSimpleArray {
+            get {
+                object obj = ResourceManager.GetObject("LazyJsonSerializerSampleSimpleArray", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Byte[].
+        /// </summary>
+        public static byte[] LazyJsonSerializerSampleSimpleDateTime {
+            get {
+                object obj = ResourceManager.GetObject("LazyJsonSerializerSampleSimpleDateTime", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Byte[].
+        /// </summary>
         public static byte[] LazyJsonSerializerSampleSimpleDictionary {
             get {
                 object obj = ResourceManager.GetObject("LazyJsonSerializerSampleSimpleDictionary", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Byte[].
+        /// </summary>
+        public static byte[] LazyJsonSerializerSampleSimpleList {
+            get {
+                object obj = ResourceManager.GetObject("LazyJsonSerializerSampleSimpleList", resourceCulture);
                 return ((byte[])(obj));
             }
         }

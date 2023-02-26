@@ -1,14 +1,59 @@
 {
-  "DicInt16StringValidSingle": [ [ 1, "Json" ] ],
-  "DicInt16StringValidMultiple": [ [ 1, "Json" ], [ 2, "Tests" ] ],
-  "DicInt16StringEmpty": [],
+  "DicInt16StringValidSingle": [
+    [
+      1,
+      "Json"
+    ]
+  ],
+  "DicInt16StringValidMultiple": [
+    [
+      1,
+      "Json"
+    ],
+    [
+      2,
+      "Tests"
+    ]
+  ],
+  "DicInt16StringEmpty": [
+  ],
   "DicInt16StringNull": null,
-  "DicStringDecimalValidSingle": [ [ "Item1", 12.345 ] ],
-  "DicStringDecimalValidMultiple": [ [ "Item2", 34.567 ], [ "Item3", 45.789 ] ],
-  "DicStringDecimalEmpty": [],
+  "DicStringDecimalValidSingle": [
+    [
+      "Item1",
+      12.345
+    ]
+  ],
+  "DicStringDecimalValidMultiple": [
+    [
+      "Item2",
+      34.567
+    ],
+    [
+      "Item3",
+      45.789
+    ]
+  ],
+  "DicStringDecimalEmpty": [
+  ],
   "DicStringDecimalNull": null,
-  "DicInt64Int16ValidSingle": [ [ 10, 100 ] ],
-  "DicInt64Int16ValidMultiple": [ [ 20, 200 ], [ 30, 300 ] ],
-  "DicInt64Int16Empty": [],
+  "DicInt64Int16ValidSingle": [
+    [
+      10,
+      100
+    ]
+  ],
+  "DicInt64Int16ValidMultiple": [
+    [
+      20,
+      200
+    ],
+    [
+      30,
+      300
+    ]
+  ],
+  "DicInt64Int16Empty": [
+  ],
   "DicInt64Int16Null": null
 }

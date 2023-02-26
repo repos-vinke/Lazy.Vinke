@@ -1,0 +1,121 @@
+{
+  "ArrayBooleanValueSingle": [
+    false
+  ],
+  "ArrayBooleanValueMultiple": [
+    true,
+    false,
+    false,
+    true,
+    true,
+    false,
+    false,
+    true,
+    true
+  ],
+  "ArrayBooleanValueEmpty": [
+  ],
+  "ArrayBooleanValueNull": null,
+  "ArrayDecimalValueSingle": [
+    0.0
+  ],
+  "ArrayDecimalValueMultiple": [
+    1.1,
+    2.2,
+    3.3,
+    4.4,
+    5.5,
+    6.6,
+    7.7,
+    8.8,
+    9.9
+  ],
+  "ArrayDecimalValueEmpty": [
+  ],
+  "ArrayDecimalValueNull": null,
+  "ArrayInt16ValueSingle": [
+    0
+  ],
+  "ArrayInt16ValueMultiple": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "ArrayInt16ValueEmpty": [
+  ],
+  "ArrayInt16ValueNull": null,
+  "ArrayInt64ValueSingle": [
+    0
+  ],
+  "ArrayInt64ValueMultiple": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "ArrayInt64ValueEmpty": [
+  ],
+  "ArrayInt64ValueNull": null,
+  "ArrayStringValueSingle": [
+    "Zero"
+  ],
+  "ArrayStringValueMultiple": [
+    "One",
+    "Two",
+    "Three",
+    "Four",
+    "Five",
+    "Six",
+    "Seven",
+    "Eight",
+    "Nine"
+  ],
+  "ArrayStringValueEmpty": [
+  ],
+  "ArrayStringValueNull": null,
+  "ArrayCharValueSingle": [
+    "Z"
+  ],
+  "ArrayCharValueMultiple": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I"
+  ],
+  "ArrayCharValueEmpty": [
+  ],
+  "ArrayCharValueNull": null,
+  "ArrayObjectValueSingle": [
+    "A"
+  ],
+  "ArrayObjectValueMultiple": [
+    true,
+    "B",
+    "Json",
+    1.1,
+    256,
+    23.456,
+    0,
+    "Tests",
+    false
+  ],
+  "ArrayObjectValueEmpty": [
+  ],
+  "ArrayObjectValueNull": null
+}

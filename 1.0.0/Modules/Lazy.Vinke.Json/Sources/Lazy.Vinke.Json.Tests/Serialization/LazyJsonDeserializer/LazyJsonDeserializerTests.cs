@@ -102,11 +102,11 @@ namespace Lazy.Vinke.Json.Tests
         public void TestDeserializerSampleSimpleList()
         {
             // Arrange
-            LazyJsonSampleSimpleList sampleSimpleList = null;
-            String json = Encoding.UTF8.GetString(Properties.Resources.LazyJsonSampleSimpleList);
+            LazyJsonDeserializerSampleSimpleList sampleSimpleList = null;
+            String json = Encoding.UTF8.GetString(Properties.Resources.LazyJsonDeserializerSampleSimpleList);
 
             // Act
-            sampleSimpleList = LazyJsonDeserializer.Deserialize<LazyJsonSampleSimpleList>(json);
+            sampleSimpleList = LazyJsonDeserializer.Deserialize<LazyJsonDeserializerSampleSimpleList>(json);
 
             // Assert
             Assert.IsTrue(sampleSimpleList.ListBooleanValueSingle.Count == 1);
@@ -225,11 +225,11 @@ namespace Lazy.Vinke.Json.Tests
         public void TestDeserializerSampleSimpleArray()
         {
             // Arrange
-            LazyJsonSampleSimpleArray sampleSimpleArray = null;
-            String json = Encoding.UTF8.GetString(Properties.Resources.LazyJsonSampleSimpleArray);
+            LazyJsonDeserializerSampleSimpleArray sampleSimpleArray = null;
+            String json = Encoding.UTF8.GetString(Properties.Resources.LazyJsonDeserializerSampleSimpleArray);
 
             // Act
-            sampleSimpleArray = LazyJsonDeserializer.Deserialize<LazyJsonSampleSimpleArray>(json);
+            sampleSimpleArray = LazyJsonDeserializer.Deserialize<LazyJsonDeserializerSampleSimpleArray>(json);
 
             // Assert
             Assert.IsTrue(sampleSimpleArray.ArrayBooleanValueSingle.Length == 1);
@@ -306,14 +306,14 @@ namespace Lazy.Vinke.Json.Tests
         public void TestDeserializerSampleSimpleDateTime()
         {
             // Arrange
-            LazyJsonSampleSimpleDateTime sampleSimpleDateTime = null;
-            String json = Encoding.UTF8.GetString(Properties.Resources.LazyJsonSampleSimpleDateTime);
+            LazyJsonDeserializerSampleSimpleDateTime sampleSimpleDateTime = null;
+            String json = Encoding.UTF8.GetString(Properties.Resources.LazyJsonDeserializerSampleSimpleDateTime);
 
             LazyJsonDeserializerOptions deserializerOptions = new LazyJsonDeserializerOptions();
             deserializerOptions.Item<LazyJsonDeserializerOptionsDateTime>().Format = TestStringFormat.DateTime.ISO8601Z;
 
             // Act
-            sampleSimpleDateTime = LazyJsonDeserializer.Deserialize<LazyJsonSampleSimpleDateTime>(json, deserializerOptions);
+            sampleSimpleDateTime = LazyJsonDeserializer.Deserialize<LazyJsonDeserializerSampleSimpleDateTime>(json, deserializerOptions);
 
             // Assert
             Assert.IsTrue(sampleSimpleDateTime.DateTimeValueInvalid == DateTime.MinValue);
