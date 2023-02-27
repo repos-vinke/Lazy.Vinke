@@ -170,7 +170,7 @@ namespace Lazy.Vinke.Json
             String openBracket = "{0}{1}{2}";
             String closeBracket = "{0}{1}{2}";
 
-            if (jsonWriterOptions.Indent == true)
+            if (jsonWriterOptions.Indent == true && jsonWriterOptions.IndentArray == true && (jsonArray.Count > 0 || jsonWriterOptions.IndentArrayEmpty == true))
             {
                 jsonWriterOptions.IndentLevel++;
                 value = Environment.NewLine + jsonWriterOptions.IndentValue + "{0}";
@@ -373,6 +373,8 @@ namespace Lazy.Vinke.Json
         public LazyJsonWriterOptions()
         {
             this.Indent = true;
+            this.IndentArray = true;
+            this.IndentArrayEmpty = true;
             this.IndentSize = 2;
             this.IndentLevel = 0;
         }
@@ -385,6 +387,10 @@ namespace Lazy.Vinke.Json
         #region Properties
 
         public Boolean Indent { get; set; }
+
+        public Boolean IndentArray { get; set; }
+
+        public Boolean IndentArrayEmpty { get; set; }
 
         public Int32 IndentSize { get; set; }
 
