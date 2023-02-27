@@ -10,8 +10,8 @@ using System;
 using System.Xml;
 using System.Data;
 using System.Linq;
-using System.Collections.Generic;
 using System.Globalization;
+using System.Collections.Generic;
 
 namespace Lazy.Vinke.Database
 {
