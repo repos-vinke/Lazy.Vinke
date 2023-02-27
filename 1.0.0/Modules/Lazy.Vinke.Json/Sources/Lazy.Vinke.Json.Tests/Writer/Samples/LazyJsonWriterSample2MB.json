@@ -14436,7 +14436,7 @@
                         {
                           "url": "http://t.co/cCH13gqeUK",
                           "expanded_url": "https://www.sitepoint.com/javascript",
-                          "display_url": "sitepoint.com/javascript",
+                          "display_url": "sitepoint.com/javascript/javascript",
                           "indices": [
                             0,
                             22
@@ -20965,7 +20965,7 @@
                                                                   },
                                                                   {
                                                                     "kind": "youtube#searchListResponse",
-                                                                    "etag": "\"m2yskBQFythfE4irbTIeOgYYfBU/PaiEDiVxOyCWelLPuuwa9LKz3Gk\"",
+                                                                    "etag": "\"m2yskBQFythfE4irbTIeOgYYfBU/PaiEDiVxOyCWelLPuuwa9LKz3GkPaiEDisPuuwa9LKz3Gk\"",
                                                                     "nextPageToken": "CAUQAA",
                                                                     "regionCode": "KE",
                                                                     "pageInfo": {
