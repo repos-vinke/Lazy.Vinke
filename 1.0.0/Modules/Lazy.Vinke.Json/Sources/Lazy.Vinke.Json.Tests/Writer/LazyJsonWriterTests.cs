@@ -22,6 +22,7 @@ namespace Lazy.Vinke.Json.Tests
             String originalJson = Encoding.UTF8.GetString(Properties.Resources.LazyJsonWriterSample2MB);
 
             LazyJsonWriterOptions writerOptions = new LazyJsonWriterOptions();
+            writerOptions.IndentObjectEmpty = false;
             writerOptions.IndentArrayEmpty = false;
 
             // Act

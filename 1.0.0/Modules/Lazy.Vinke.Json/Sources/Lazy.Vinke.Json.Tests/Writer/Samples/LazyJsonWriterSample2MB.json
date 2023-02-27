@@ -2,27 +2,29 @@
   {
     "colors": [
       {
-        "color": "black",
-        "category": "hue",
+        "color": "primary",
+        "category": "primary",
         "type": "primary",
         "code": {
           "rgba": [
             255,
             255,
-            255,
+            {},
             1
           ],
-          "hex": "#000"
+          "hex": {}
         }
       },
       {
-        "color": "white",
-        "category": "value",
+        "color": "primary",
+        "category": [],
         "code": {
           "rgba": [
             0,
-            0,
-            0,
+            [
+              {}
+            ],
+            [],
             1
           ],
           "hex": "#FFF"
@@ -39,7 +41,7 @@
             0,
             1
           ],
-          "hex": "#FF0"
+          "hex": {}
         }
       },
       {
@@ -71,9 +73,9 @@
         }
       },
       {
-        "color": "green",
-        "category": "hue",
-        "type": "secondary",
+        "color": "second",
+        "category": "second",
+        "type": "second",
         "code": {
           "rgba": [
             0,
@@ -144,7 +146,7 @@
             {
               "color": "red",
               "category": "hue",
-              "type": "primary",
+              "type": "pri",
               "code": {
                 "rgba": [
                   255,
@@ -172,7 +174,7 @@
             {
               "color": "yellow",
               "category": "hue",
-              "type": "primary",
+              "type": "pri",
               "code": {
                 "rgba": [
                   255,
@@ -186,7 +188,7 @@
             {
               "color": "green",
               "category": "hue",
-              "type": "secondary",
+              "type": "second",
               "code": {
                 "rgba": [
                   0,
@@ -3569,7 +3571,7 @@
                                   },
                                   {
                                     "kind": "youtube#searchResult",
-                                    "etag": "\"m2yskBQFythfE4irbTIeOgYYfBU/2dIR9BTfr7QphpBuY3hPU-h5u-4\"",
+                                    "etag": "\"m2yskBQFythfE4irbTIeOgYYfBU/2dIR9BTfr7QphpBuY3hPU-h\"",
                                     "id": {
                                       "kind": "youtube#video",
                                       "videoId": "IirngItQuVs"
@@ -10769,7 +10771,7 @@
                                                                                   ]
                                                                                 },
                                                                                 {
-                                                                                  "kind": "youtube#searchListResponse",
+                                                                                  "kind": "youtube#searchListResponse#searchListResponse#searchListRe",
                                                                                   "etag": "\"m2yskBQFythfE4irbTIeOgYYfBU/PaiEDiVxOyCWelLPuuwa9LKz3Gk\"",
                                                                                   "nextPageToken": "CAUQAA",
                                                                                   "regionCode": "KE",
@@ -14922,7 +14924,7 @@
                                                 "beige": "#f5f5dc",
                                                 "bisque": "#ffe4c4",
                                                 "black": "#000000",
-                                                "blanchedalmond": "#ffebcd",
+                                                "blanchedalmond": {},
                                                 "blue": "#0000ff",
                                                 "blueviolet": "#8a2be2",
                                                 "brown": "#a52a2a"
@@ -18544,13 +18546,13 @@
                                                                 0,
                                                                 1
                                                               ],
-                                                              "hex": "#FF0"
+                                                              "hex": {}
                                                             }
                                                           },
                                                           {
                                                             "color": "blue",
                                                             "category": "hue",
-                                                            "type": "primary",
+                                                            "type": {},
                                                             "code": {
                                                               "rgba": [
                                                                 0,
@@ -18597,9 +18599,9 @@
                                                         "aqua": "#00ffff",
                                                         "aquamarine": "#7fffd4",
                                                         "azure": "#f0ffff",
-                                                        "beige": "#f5f5dc",
-                                                        "bisque": "#ffe4c4",
-                                                        "black": "#000000",
+                                                        "beige": {},
+                                                        "bisque": {},
+                                                        "black": {},
                                                         "blanchedalmond": "#ffebcd",
                                                         "blue": "#0000ff",
                                                         "blueviolet": "#8a2be2",
@@ -20832,7 +20834,7 @@
                                                                     "blanchedalmond": "#ffebcd",
                                                                     "blue": "#0000ff",
                                                                     "blueviolet": "#8a2be2",
-                                                                    "brown": "#a52a2a"
+                                                                    "brown": {}
                                                                   },
                                                                   {
                                                                     "aliceblue": [
