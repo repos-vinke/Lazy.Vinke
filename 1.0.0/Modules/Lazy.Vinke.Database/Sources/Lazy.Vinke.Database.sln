@@ -5,9 +5,15 @@ VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lazy.Vinke.Database", "Lazy.Vinke.Database\Lazy.Vinke.Database.csproj", "{417FD98A-159B-4768-965A-3D6F02DEA68D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lazy.Vinke.Database.MySql", "Lazy.Vinke.Database.MySql\Lazy.Vinke.Database.MySql.csproj", "{AADFA6C9-42AE-4C07-8AC7-BCC81347E2F9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lazy.Vinke.Database.MySql", "Lazy.Vinke.Database.MySql\Lazy.Vinke.Database.MySql.csproj", "{AADFA6C9-42AE-4C07-8AC7-BCC81347E2F9}"
 	ProjectSection(ProjectDependencies) = postProject
 		{417FD98A-159B-4768-965A-3D6F02DEA68D} = {417FD98A-159B-4768-965A-3D6F02DEA68D}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lazy.Vinke.Database.Tests", "Lazy.Vinke.Database.Tests\Lazy.Vinke.Database.Tests.csproj", "{B69B8BC5-4C6D-491C-B047-BCBBBE7A3CAF}"
+	ProjectSection(ProjectDependencies) = postProject
+		{417FD98A-159B-4768-965A-3D6F02DEA68D} = {417FD98A-159B-4768-965A-3D6F02DEA68D}
+		{AADFA6C9-42AE-4C07-8AC7-BCC81347E2F9} = {AADFA6C9-42AE-4C07-8AC7-BCC81347E2F9}
 	EndProjectSection
 EndProject
 Global
@@ -24,6 +30,10 @@ Global
 		{AADFA6C9-42AE-4C07-8AC7-BCC81347E2F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AADFA6C9-42AE-4C07-8AC7-BCC81347E2F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AADFA6C9-42AE-4C07-8AC7-BCC81347E2F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B69B8BC5-4C6D-491C-B047-BCBBBE7A3CAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B69B8BC5-4C6D-491C-B047-BCBBBE7A3CAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B69B8BC5-4C6D-491C-B047-BCBBBE7A3CAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B69B8BC5-4C6D-491C-B047-BCBBBE7A3CAF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
