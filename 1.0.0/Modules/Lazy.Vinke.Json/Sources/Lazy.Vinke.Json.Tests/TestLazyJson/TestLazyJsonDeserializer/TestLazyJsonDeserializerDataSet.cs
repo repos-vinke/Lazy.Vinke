@@ -1,4 +1,4 @@
-// LazyJsonDeserializerDataSetTests.cs
+// TestLazyJsonDeserializerDataSet.cs
 //
 // This file is integrated part of Lazy project
 // Licensed under "Gnu General Public License Version 3"
@@ -14,7 +14,7 @@ using Lazy.Vinke.Json;
 namespace Lazy.Vinke.Json.Tests
 {
     [TestClass]
-    public class LazyJsonDeserializerDataSetTests
+    public class TestLazyJsonDeserializerDataSet
     {
         [TestMethod]
         public void TestDeserializerDataSetPropertyNull()
@@ -241,10 +241,10 @@ namespace Lazy.Vinke.Json.Tests
             jsonObjectCurrent.Add("DecimalDBNull", new LazyJsonDecimal(null));
 
             DateTime dateTime1 = DateTime.Now;
-            jsonObjectCurrent.Add("DateTime1", new LazyJsonString(dateTime1.ToString(TestStringFormat.DateTime.ISO8601Z)));
+            jsonObjectCurrent.Add("DateTime1", new LazyJsonString(dateTime1.ToString(Globals.StringFormat.DateTime.ISO8601Z)));
 
             DateTime dateTime2 = DateTime.Now.AddDays(10);
-            jsonObjectCurrent.Add("DateTime2", new LazyJsonString(dateTime2.ToString(TestStringFormat.DateTime.ISO8601Z)));
+            jsonObjectCurrent.Add("DateTime2", new LazyJsonString(dateTime2.ToString(Globals.StringFormat.DateTime.ISO8601Z)));
 
             LazyJsonObject jsonObjectValues = new LazyJsonObject();
             jsonObjectValues.Add("Original", new LazyJsonNull());
@@ -279,7 +279,7 @@ namespace Lazy.Vinke.Json.Tests
             LazyJsonDeserializerOptions deserializerOptions = new LazyJsonDeserializerOptions();
             deserializerOptions.Item<LazyJsonDeserializerOptionsDataTable>()["WithRows"].Columns["DateTime1"].Set(typeof(DateTime));
             deserializerOptions.Item<LazyJsonDeserializerOptionsDataTable>()["WithRows"].Columns["DateTime2"].Set(typeof(DateTime));
-            deserializerOptions.Item<LazyJsonDeserializerOptionsDateTime>().Format = TestStringFormat.DateTime.ISO8601Z;
+            deserializerOptions.Item<LazyJsonDeserializerOptionsDateTime>().Format = Globals.StringFormat.DateTime.ISO8601Z;
 
             // Act
             resDataSet = deserializerDataSet.Deserialize(jsonProperty, typeof(DataSet), deserializerOptions);
@@ -318,10 +318,10 @@ namespace Lazy.Vinke.Json.Tests
             Assert.IsTrue(dataTable.Rows[0]["DecimalDBNull"] == DBNull.Value);
 
             Assert.IsTrue(dataTable.Columns["DateTime1"].DataType == typeof(DateTime));
-            Assert.IsTrue(((DateTime)dataTable.Rows[0]["DateTime1"]).ToString(TestStringFormat.DateTime.ISO8601Z) == dateTime1.ToString(TestStringFormat.DateTime.ISO8601Z));
+            Assert.IsTrue(((DateTime)dataTable.Rows[0]["DateTime1"]).ToString(Globals.StringFormat.DateTime.ISO8601Z) == dateTime1.ToString(Globals.StringFormat.DateTime.ISO8601Z));
 
             Assert.IsTrue(dataTable.Columns["DateTime2"].DataType == typeof(DateTime));
-            Assert.IsTrue(((DateTime)dataTable.Rows[0]["DateTime2"]).ToString(TestStringFormat.DateTime.ISO8601Z) == dateTime2.ToString(TestStringFormat.DateTime.ISO8601Z));
+            Assert.IsTrue(((DateTime)dataTable.Rows[0]["DateTime2"]).ToString(Globals.StringFormat.DateTime.ISO8601Z) == dateTime2.ToString(Globals.StringFormat.DateTime.ISO8601Z));
         }
     }
 }

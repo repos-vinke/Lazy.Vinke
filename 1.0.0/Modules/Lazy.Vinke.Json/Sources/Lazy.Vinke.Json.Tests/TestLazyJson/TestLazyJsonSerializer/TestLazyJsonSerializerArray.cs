@@ -1,4 +1,4 @@
-// LazyJsonSerializerArrayTests.cs
+// TestLazyJsonSerializerArray.cs
 //
 // This file is integrated part of Lazy project
 // Licensed under "Gnu General Public License Version 3"
@@ -13,7 +13,7 @@ using Lazy.Vinke.Json;
 namespace Lazy.Vinke.Json.Tests
 {
     [TestClass]
-    public class LazyJsonSerializerArrayTests
+    public class TestLazyJsonSerializerArray
     {
         [TestMethod]
         public void TestSerializerArrayDataNull()

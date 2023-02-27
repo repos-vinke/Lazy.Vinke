@@ -1,4 +1,4 @@
-// LazyJsonSerializerTests.cs
+// TestLazyJsonSerializer.cs
 //
 // This file is integrated part of Lazy project
 // Licensed under "Gnu General Public License Version 3"
@@ -15,7 +15,7 @@ using Lazy.Vinke.Json;
 namespace Lazy.Vinke.Json.Tests
 {
     [TestClass]
-    public class LazyJsonSerializerTests
+    public class TestLazyJsonSerializer
     {
         [TestMethod]
         public void TestSerializerSampleSimpleBoolean()
@@ -241,7 +241,7 @@ namespace Lazy.Vinke.Json.Tests
             String originalJson = Encoding.UTF8.GetString(Properties.Resources.LazyJsonSerializerSampleSimpleDateTime);
 
             LazyJsonSerializerOptions serializerOptions = new LazyJsonSerializerOptions();
-            serializerOptions.Item<LazyJsonSerializerOptionsDateTime>().Format = TestStringFormat.DateTime.ISO8601Z;
+            serializerOptions.Item<LazyJsonSerializerOptionsDateTime>().Format = Globals.StringFormat.DateTime.ISO8601Z;
 
             // Act
             String parcialJson1 = LazyJsonSerializer.Serialize(sampleSimpleDateTime1);
@@ -283,7 +283,7 @@ namespace Lazy.Vinke.Json.Tests
             String originalJson = Encoding.UTF8.GetString(Properties.Resources.LazyJsonSerializerSampleSimpleDataTable);
 
             LazyJsonSerializerOptions serializerOptions = new LazyJsonSerializerOptions();
-            serializerOptions.Item<LazyJsonSerializerOptionsDateTime>().Format = TestStringFormat.DateTime.ISO8601Z;
+            serializerOptions.Item<LazyJsonSerializerOptionsDateTime>().Format = Globals.StringFormat.DateTime.ISO8601Z;
 
             // Act
             String json = LazyJsonSerializer.Serialize(sampleSimpleDataTable, serializerOptions);
@@ -317,7 +317,7 @@ namespace Lazy.Vinke.Json.Tests
             String originalJson = Encoding.UTF8.GetString(Properties.Resources.LazyJsonSerializerSampleSimpleDataSet);
 
             LazyJsonSerializerOptions serializerOptions = new LazyJsonSerializerOptions();
-            serializerOptions.Item<LazyJsonSerializerOptionsDateTime>().Format = TestStringFormat.DateTime.ISO8601Z;
+            serializerOptions.Item<LazyJsonSerializerOptionsDateTime>().Format = Globals.StringFormat.DateTime.ISO8601Z;
 
             // Act
             String json = LazyJsonSerializer.Serialize(sampleSimpleDataSet, serializerOptions);

@@ -1,4 +1,4 @@
-// LazyJsonSerializerDataTableTests.cs
+// TestLazyJsonSerializerDataTable.cs
 //
 // This file is integrated part of Lazy project
 // Licensed under "Gnu General Public License Version 3"
@@ -14,7 +14,7 @@ using Lazy.Vinke.Json;
 namespace Lazy.Vinke.Json.Tests
 {
     [TestClass]
-    public class LazyJsonSerializerDataTableTests
+    public class TestLazyJsonSerializerDataTable
     {
         [TestMethod]
         public void TestSerializerDataTableDataNull()
@@ -194,7 +194,7 @@ namespace Lazy.Vinke.Json.Tests
             data.Rows.Add("C", 30, true, dateTimeRow3);
 
             LazyJsonSerializerOptions serializerOptions = new LazyJsonSerializerOptions();
-            serializerOptions.Item<LazyJsonSerializerOptionsDateTime>().Format = TestStringFormat.DateTime.ISO8601Z;
+            serializerOptions.Item<LazyJsonSerializerOptionsDateTime>().Format = Globals.StringFormat.DateTime.ISO8601Z;
             serializerOptions.Item<LazyJsonSerializerOptionsDataTable>()["MyDataTable"].Columns["Date"].Set(new LazyJsonSerializerDateTime());
 
             LazyJsonSerializerDataTable serializerDataTable = new LazyJsonSerializerDataTable();
@@ -225,7 +225,7 @@ namespace Lazy.Vinke.Json.Tests
             Assert.IsTrue(((LazyJsonString)jsonObjectRowsValuesCurrent["Id"].Token).Value == "A");
             Assert.IsTrue(((LazyJsonInteger)jsonObjectRowsValuesCurrent["Count"].Token).Value == 10);
             Assert.IsTrue(((LazyJsonBoolean)jsonObjectRowsValuesCurrent["Active"].Token).Value == true);
-            Assert.IsTrue(((LazyJsonString)jsonObjectRowsValuesCurrent["Date"].Token).Value == dateTimeRow1.ToString(TestStringFormat.DateTime.ISO8601Z));
+            Assert.IsTrue(((LazyJsonString)jsonObjectRowsValuesCurrent["Date"].Token).Value == dateTimeRow1.ToString(Globals.StringFormat.DateTime.ISO8601Z));
 
             // Row2
             jsonObjectRowsValues = (LazyJsonObject)((LazyJsonObject)jsonArrayRows[1])["Values"].Token;
@@ -239,7 +239,7 @@ namespace Lazy.Vinke.Json.Tests
             Assert.IsTrue(((LazyJsonString)jsonObjectRowsValuesCurrent["Id"].Token).Value == "B");
             Assert.IsTrue(((LazyJsonInteger)jsonObjectRowsValuesCurrent["Count"].Token).Value == 20);
             Assert.IsTrue(((LazyJsonBoolean)jsonObjectRowsValuesCurrent["Active"].Token).Value == false);
-            Assert.IsTrue(((LazyJsonString)jsonObjectRowsValuesCurrent["Date"].Token).Value == dateTimeRow2.ToString(TestStringFormat.DateTime.ISO8601Z));
+            Assert.IsTrue(((LazyJsonString)jsonObjectRowsValuesCurrent["Date"].Token).Value == dateTimeRow2.ToString(Globals.StringFormat.DateTime.ISO8601Z));
 
             // Row3
             jsonObjectRowsValues = (LazyJsonObject)((LazyJsonObject)jsonArrayRows[2])["Values"].Token;
@@ -253,7 +253,7 @@ namespace Lazy.Vinke.Json.Tests
             Assert.IsTrue(((LazyJsonString)jsonObjectRowsValuesCurrent["Id"].Token).Value == "C");
             Assert.IsTrue(((LazyJsonInteger)jsonObjectRowsValuesCurrent["Count"].Token).Value == 30);
             Assert.IsTrue(((LazyJsonBoolean)jsonObjectRowsValuesCurrent["Active"].Token).Value == true);
-            Assert.IsTrue(((LazyJsonString)jsonObjectRowsValuesCurrent["Date"].Token).Value == dateTimeRow3.ToString(TestStringFormat.DateTime.ISO8601Z));
+            Assert.IsTrue(((LazyJsonString)jsonObjectRowsValuesCurrent["Date"].Token).Value == dateTimeRow3.ToString(Globals.StringFormat.DateTime.ISO8601Z));
         }
     }
 }

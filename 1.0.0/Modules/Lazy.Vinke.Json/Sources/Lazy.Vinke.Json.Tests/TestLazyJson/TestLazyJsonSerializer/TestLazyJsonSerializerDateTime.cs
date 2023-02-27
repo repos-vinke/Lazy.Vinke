@@ -1,4 +1,4 @@
-// LazyJsonSerializerDateTimeTests.cs
+// TestLazyJsonSerializerDateTime.cs
 //
 // This file is integrated part of Lazy project
 // Licensed under "Gnu General Public License Version 3"
@@ -13,7 +13,7 @@ using Lazy.Vinke.Json;
 namespace Lazy.Vinke.Json.Tests
 {
     [TestClass]
-    public class LazyJsonSerializerDateTimeTests
+    public class TestLazyJsonSerializerDateTime
     {
         [TestMethod]
         public void TestSerializerDateTimeDataNull()
@@ -71,14 +71,14 @@ namespace Lazy.Vinke.Json.Tests
             LazyJsonSerializerDateTime serializerDateTime = new LazyJsonSerializerDateTime();
 
             LazyJsonSerializerOptions serializerOptions = new LazyJsonSerializerOptions();
-            serializerOptions.Item<LazyJsonSerializerOptionsDateTime>().Format = TestStringFormat.DateTime.ISO8601Z;
+            serializerOptions.Item<LazyJsonSerializerOptionsDateTime>().Format = Globals.StringFormat.DateTime.ISO8601Z;
 
             // Act
             resToken = serializerDateTime.Serialize(data, serializerOptions);
 
             // Assert
             Assert.IsTrue(resToken.Type == LazyJsonType.String);
-            Assert.IsTrue(((LazyJsonString)resToken).Value == data.ToString(TestStringFormat.DateTime.ISO8601Z));
+            Assert.IsTrue(((LazyJsonString)resToken).Value == data.ToString(Globals.StringFormat.DateTime.ISO8601Z));
         }
 
         [TestMethod]
@@ -90,14 +90,14 @@ namespace Lazy.Vinke.Json.Tests
             LazyJsonSerializerDateTime serializerDateTime = new LazyJsonSerializerDateTime();
 
             LazyJsonSerializerOptions serializerOptions = new LazyJsonSerializerOptions();
-            serializerOptions.Item<LazyJsonSerializerOptionsDateTime>().Format = TestStringFormat.DateTime.ISO8601Z;
+            serializerOptions.Item<LazyJsonSerializerOptionsDateTime>().Format = Globals.StringFormat.DateTime.ISO8601Z;
 
             // Act
             resToken = serializerDateTime.Serialize(data, serializerOptions);
 
             // Assert
             Assert.IsTrue(resToken.Type == LazyJsonType.String);
-            Assert.IsTrue(((LazyJsonString)resToken).Value == ((DateTime)data).ToString(TestStringFormat.DateTime.ISO8601Z));
+            Assert.IsTrue(((LazyJsonString)resToken).Value == ((DateTime)data).ToString(Globals.StringFormat.DateTime.ISO8601Z));
         }
     }
 }

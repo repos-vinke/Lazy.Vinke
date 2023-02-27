@@ -119,72 +119,72 @@
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="LazyJsonDeserializerSampleSimpleArray" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\serialization\lazyjsondeserializer\samples\json\lazyjsondeserializersamplesimplearray.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>..\testlazyjson\testlazyjsondeserializer\samples\json\lazyjsondeserializersamplesimplearray.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="LazyJsonDeserializerSampleSimpleAttribute" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\serialization\lazyjsondeserializer\samples\json\lazyjsondeserializersamplesimpleattribute.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>..\testlazyjson\testlazyjsondeserializer\samples\json\lazyjsondeserializersamplesimpleattribute.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="LazyJsonDeserializerSampleSimpleBoolean" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\serialization\lazyjsondeserializer\samples\json\lazyjsondeserializersamplesimpleboolean.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>..\testlazyjson\testlazyjsondeserializer\samples\json\lazyjsondeserializersamplesimpleboolean.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="LazyJsonDeserializerSampleSimpleDataSet" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\serialization\lazyjsondeserializer\samples\json\lazyjsondeserializersamplesimpledataset.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>..\testlazyjson\testlazyjsondeserializer\samples\json\lazyjsondeserializersamplesimpledataset.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="LazyJsonDeserializerSampleSimpleDataTable" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\serialization\lazyjsondeserializer\samples\json\lazyjsondeserializersamplesimpledatatable.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>..\testlazyjson\testlazyjsondeserializer\samples\json\lazyjsondeserializersamplesimpledatatable.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="LazyJsonDeserializerSampleSimpleDateTime" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\serialization\lazyjsondeserializer\samples\json\lazyjsondeserializersamplesimpledatetime.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>..\testlazyjson\testlazyjsondeserializer\samples\json\lazyjsondeserializersamplesimpledatetime.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="LazyJsonDeserializerSampleSimpleDecimal" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\serialization\lazyjsondeserializer\samples\json\lazyjsondeserializersamplesimpledecimal.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>..\testlazyjson\testlazyjsondeserializer\samples\json\lazyjsondeserializersamplesimpledecimal.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="LazyJsonDeserializerSampleSimpleDictionary" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\serialization\lazyjsondeserializer\samples\json\lazyjsondeserializersamplesimpledictionary.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>..\testlazyjson\testlazyjsondeserializer\samples\json\lazyjsondeserializersamplesimpledictionary.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="LazyJsonDeserializerSampleSimpleInteger" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\serialization\lazyjsondeserializer\samples\json\lazyjsondeserializersamplesimpleinteger.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>..\testlazyjson\testlazyjsondeserializer\samples\json\lazyjsondeserializersamplesimpleinteger.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="LazyJsonDeserializerSampleSimpleList" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\serialization\lazyjsondeserializer\samples\json\lazyjsondeserializersamplesimplelist.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>..\testlazyjson\testlazyjsondeserializer\samples\json\lazyjsondeserializersamplesimplelist.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="LazyJsonDeserializerSampleSimpleString" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\serialization\lazyjsondeserializer\samples\json\lazyjsondeserializersamplesimplestring.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>..\testlazyjson\testlazyjsondeserializer\samples\json\lazyjsondeserializersamplesimplestring.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="LazyJsonSerializerSampleSimpleArray" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\serialization\lazyjsonserializer\samples\json\lazyjsonserializersamplesimplearray.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>..\testlazyjson\testlazyjsonserializer\samples\json\lazyjsonserializersamplesimplearray.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="LazyJsonSerializerSampleSimpleAttribute" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\serialization\lazyjsonserializer\samples\json\lazyjsonserializersamplesimpleattribute.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>..\testlazyjson\testlazyjsonserializer\samples\json\lazyjsonserializersamplesimpleattribute.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="LazyJsonSerializerSampleSimpleBoolean" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\serialization\lazyjsonserializer\samples\json\lazyjsonserializersamplesimpleboolean.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>..\testlazyjson\testlazyjsonserializer\samples\json\lazyjsonserializersamplesimpleboolean.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="LazyJsonSerializerSampleSimpleDataSet" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\serialization\lazyjsonserializer\samples\json\lazyjsonserializersamplesimpledataset.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>..\testlazyjson\testlazyjsonserializer\samples\json\lazyjsonserializersamplesimpledataset.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="LazyJsonSerializerSampleSimpleDataTable" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\serialization\lazyjsonserializer\samples\json\lazyjsonserializersamplesimpledatatable.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>..\testlazyjson\testlazyjsonserializer\samples\json\lazyjsonserializersamplesimpledatatable.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="LazyJsonSerializerSampleSimpleDateTime" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\serialization\lazyjsonserializer\samples\json\lazyjsonserializersamplesimpledatetime.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>..\testlazyjson\testlazyjsonserializer\samples\json\lazyjsonserializersamplesimpledatetime.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="LazyJsonSerializerSampleSimpleDecimal" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\serialization\lazyjsonserializer\samples\json\lazyjsonserializersamplesimpledecimal.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>..\testlazyjson\testlazyjsonserializer\samples\json\lazyjsonserializersamplesimpledecimal.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="LazyJsonSerializerSampleSimpleDictionary" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\serialization\lazyjsonserializer\samples\json\lazyjsonserializersamplesimpledictionary.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>..\testlazyjson\testlazyjsonserializer\samples\json\lazyjsonserializersamplesimpledictionary.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="LazyJsonSerializerSampleSimpleInteger" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\serialization\lazyjsonserializer\samples\json\lazyjsonserializersamplesimpleinteger.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>..\testlazyjson\testlazyjsonserializer\samples\json\lazyjsonserializersamplesimpleinteger.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="LazyJsonSerializerSampleSimpleList" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\serialization\lazyjsonserializer\samples\json\lazyjsonserializersamplesimplelist.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>..\testlazyjson\testlazyjsonserializer\samples\json\lazyjsonserializersamplesimplelist.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="LazyJsonSerializerSampleSimpleString" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\serialization\lazyjsonserializer\samples\json\lazyjsonserializersamplesimplestring.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>..\testlazyjson\testlazyjsonserializer\samples\json\lazyjsonserializersamplesimplestring.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="LazyJsonWriterSample2MB" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\writer\samples\lazyjsonwritersample2mb.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>..\testlazyjson\testlazyjsonwriter\samples\lazyjsonwritersample2mb.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

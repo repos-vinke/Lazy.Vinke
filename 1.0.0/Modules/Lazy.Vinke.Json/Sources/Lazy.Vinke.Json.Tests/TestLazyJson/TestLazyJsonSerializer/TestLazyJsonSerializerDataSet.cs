@@ -1,4 +1,4 @@
-// LazyJsonSerializerDataSetTests.cs
+// TestLazyJsonSerializerDataSet.cs
 //
 // This file is integrated part of Lazy project
 // Licensed under "Gnu General Public License Version 3"
@@ -14,7 +14,7 @@ using Lazy.Vinke.Json;
 namespace Lazy.Vinke.Json.Tests
 {
     [TestClass]
-    public class LazyJsonSerializerDataSetTests
+    public class TestLazyJsonSerializerDataSet
     {
         [TestMethod]
         public void TestSerializerDataSetDataNull()
@@ -255,7 +255,7 @@ namespace Lazy.Vinke.Json.Tests
             data.Tables.Add(dataTable);
 
             LazyJsonSerializerOptions serializerOptions = new LazyJsonSerializerOptions();
-            serializerOptions.Item<LazyJsonSerializerOptionsDateTime>().Format = TestStringFormat.DateTime.ISO8601Z;
+            serializerOptions.Item<LazyJsonSerializerOptionsDateTime>().Format = Globals.StringFormat.DateTime.ISO8601Z;
             serializerOptions.Item<LazyJsonSerializerOptionsDataTable>()["MyDataTable"].Columns["Date1"].Set(new LazyJsonSerializerDateTime());
 
             LazyJsonSerializerDataSet serializerDataSet = new LazyJsonSerializerDataSet();
@@ -296,8 +296,8 @@ namespace Lazy.Vinke.Json.Tests
             Assert.IsTrue(((LazyJsonString)jsonObjectRowsValuesCurrent["Id"].Token).Value == "A");
             Assert.IsTrue(((LazyJsonInteger)jsonObjectRowsValuesCurrent["Count"].Token).Value == 10);
             Assert.IsTrue(((LazyJsonBoolean)jsonObjectRowsValuesCurrent["Active"].Token).Value == true);
-            Assert.IsTrue(((LazyJsonString)jsonObjectRowsValuesCurrent["Date1"].Token).Value == dateTime1Row1.ToString(TestStringFormat.DateTime.ISO8601Z));
-            Assert.IsTrue(((LazyJsonString)jsonObjectRowsValuesCurrent["Date2"].Token).Value == dateTime2Row1.ToString(TestStringFormat.DateTime.ISO8601Z));
+            Assert.IsTrue(((LazyJsonString)jsonObjectRowsValuesCurrent["Date1"].Token).Value == dateTime1Row1.ToString(Globals.StringFormat.DateTime.ISO8601Z));
+            Assert.IsTrue(((LazyJsonString)jsonObjectRowsValuesCurrent["Date2"].Token).Value == dateTime2Row1.ToString(Globals.StringFormat.DateTime.ISO8601Z));
 
             // Row2
             jsonObjectRowsValues = (LazyJsonObject)((LazyJsonObject)jsonArrayRows[1])["Values"].Token;
@@ -311,8 +311,8 @@ namespace Lazy.Vinke.Json.Tests
             Assert.IsTrue(((LazyJsonString)jsonObjectRowsValuesCurrent["Id"].Token).Value == "B");
             Assert.IsTrue(((LazyJsonInteger)jsonObjectRowsValuesCurrent["Count"].Token).Value == 20);
             Assert.IsTrue(((LazyJsonBoolean)jsonObjectRowsValuesCurrent["Active"].Token).Value == false);
-            Assert.IsTrue(((LazyJsonString)jsonObjectRowsValuesCurrent["Date1"].Token).Value == dateTime1Row2.ToString(TestStringFormat.DateTime.ISO8601Z));
-            Assert.IsTrue(((LazyJsonString)jsonObjectRowsValuesCurrent["Date2"].Token).Value == dateTime2Row2.ToString(TestStringFormat.DateTime.ISO8601Z));
+            Assert.IsTrue(((LazyJsonString)jsonObjectRowsValuesCurrent["Date1"].Token).Value == dateTime1Row2.ToString(Globals.StringFormat.DateTime.ISO8601Z));
+            Assert.IsTrue(((LazyJsonString)jsonObjectRowsValuesCurrent["Date2"].Token).Value == dateTime2Row2.ToString(Globals.StringFormat.DateTime.ISO8601Z));
 
             // Row3
             jsonObjectRowsValues = (LazyJsonObject)((LazyJsonObject)jsonArrayRows[2])["Values"].Token;
@@ -326,8 +326,8 @@ namespace Lazy.Vinke.Json.Tests
             Assert.IsTrue(((LazyJsonString)jsonObjectRowsValuesCurrent["Id"].Token).Value == "C");
             Assert.IsTrue(((LazyJsonInteger)jsonObjectRowsValuesCurrent["Count"].Token).Value == 30);
             Assert.IsTrue(((LazyJsonBoolean)jsonObjectRowsValuesCurrent["Active"].Token).Value == true);
-            Assert.IsTrue(((LazyJsonString)jsonObjectRowsValuesCurrent["Date1"].Token).Value == dateTime1Row3.ToString(TestStringFormat.DateTime.ISO8601Z));
-            Assert.IsTrue(((LazyJsonString)jsonObjectRowsValuesCurrent["Date2"].Token).Value == dateTime2Row3.ToString(TestStringFormat.DateTime.ISO8601Z));
+            Assert.IsTrue(((LazyJsonString)jsonObjectRowsValuesCurrent["Date1"].Token).Value == dateTime1Row3.ToString(Globals.StringFormat.DateTime.ISO8601Z));
+            Assert.IsTrue(((LazyJsonString)jsonObjectRowsValuesCurrent["Date2"].Token).Value == dateTime2Row3.ToString(Globals.StringFormat.DateTime.ISO8601Z));
         }
     }
 }
