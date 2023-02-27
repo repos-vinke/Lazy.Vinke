@@ -24,6 +24,21 @@
 		<PackageReference Include="Lazy.Vinke" Version="1.0.0" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Compile Update="Properties\Resources.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>Resources.resx</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Update="Properties\Resources.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	    <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+	</ItemGroup>
+
 	<PropertyGroup Condition="'$(Configuration)' == 'Debug' and '$(TargetFramework)' == 'net6.0'">
 		<PostBuildEvent>
 			xcopy /y $(SolutionDir)Lazy.Vinke.Database\bin\Debug\net6.0\Lazy.Vinke.Database.dll %SystemDrive%%HomePath%\.nuget\Packages\lazy.vinke.database\1.0.0\lib\net6.0\
