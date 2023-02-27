@@ -11,6 +11,7 @@ using System.Xml;
 using System.Data;
 using System.Linq;
 using System.Collections.Generic;
+using System.Globalization;
 
 namespace Lazy.Vinke.Database
 {
@@ -26,9 +27,12 @@ namespace Lazy.Vinke.Database
 
         public LazyDatabase()
         {
+            this.CultureInfo = CultureInfo.InvariantCulture;
+            this.StringFormat = new LazyDatabaseStringFormat();
         }
 
         public LazyDatabase(String connectionString)
+            : base()
         {
             this.connectionString = connectionString;
         }
@@ -1503,10 +1507,11 @@ namespace Lazy.Vinke.Database
             set { this.connectionString = value; }
         }
 
-        public abstract Boolean InTransaction
-        {
-            get;
-        }
+        public CultureInfo CultureInfo { get; set; }
+
+        public LazyDatabaseStringFormat StringFormat { get; set; }
+
+        public abstract Boolean InTransaction { get; }
 
         #endregion Properties
     }
