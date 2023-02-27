@@ -11,6 +11,7 @@ using System.IO;
 using System.Data;
 using System.Text;
 using System.Collections.Generic;
+using System.Text.Json.Nodes;
 
 namespace Lazy.Vinke.Json
 {
@@ -128,12 +129,19 @@ namespace Lazy.Vinke.Json
                 if (jsonPathType == LazyJsonPathType.ArrayIndex)
                 {
                     openKey = String.Format(openKey, Environment.NewLine, jsonWriterOptions.IndentValue, "{");
-                    closeKey = String.Format(closeKey, Environment.NewLine, jsonWriterOptions.IndentValue, "}");
                 }
                 else if (jsonPathType == LazyJsonPathType.Property)
                 {
                     openKey = "{";
+                }
+
+                if (jsonObject.Count > 0 || jsonWriterOptions.IndentObjectEmpty == true)
+                {
                     closeKey = String.Format(closeKey, Environment.NewLine, jsonWriterOptions.IndentValue, "}");
+                }
+                else
+                {
+                    closeKey = "}";
                 }
             }
             else
@@ -170,7 +178,7 @@ namespace Lazy.Vinke.Json
             String openBracket = "{0}{1}{2}";
             String closeBracket = "{0}{1}{2}";
 
-            if (jsonWriterOptions.Indent == true && jsonWriterOptions.IndentArray == true && (jsonArray.Count > 0 || jsonWriterOptions.IndentArrayEmpty == true))
+            if (jsonWriterOptions.Indent == true)
             {
                 jsonWriterOptions.IndentLevel++;
                 value = Environment.NewLine + jsonWriterOptions.IndentValue + "{0}";
@@ -179,12 +187,19 @@ namespace Lazy.Vinke.Json
                 if (jsonPathType == LazyJsonPathType.ArrayIndex)
                 {
                     openBracket = String.Format(openBracket, Environment.NewLine, jsonWriterOptions.IndentValue, "[");
-                    closeBracket = String.Format(closeBracket, Environment.NewLine, jsonWriterOptions.IndentValue, "]");
                 }
                 else if (jsonPathType == LazyJsonPathType.Property)
                 {
                     openBracket = "[";
+                }
+
+                if (jsonArray.Count > 0 || jsonWriterOptions.IndentArrayEmpty == true)
+                {
                     closeBracket = String.Format(closeBracket, Environment.NewLine, jsonWriterOptions.IndentValue, "]");
+                }
+                else
+                {
+                    closeBracket = "]";
                 }
             }
             else
@@ -373,8 +388,8 @@ namespace Lazy.Vinke.Json
         public LazyJsonWriterOptions()
         {
             this.Indent = true;
-            this.IndentArray = true;
             this.IndentArrayEmpty = true;
+            this.IndentObjectEmpty = true;
             this.IndentSize = 2;
             this.IndentLevel = 0;
         }
@@ -388,9 +403,9 @@ namespace Lazy.Vinke.Json
 
         public Boolean Indent { get; set; }
 
-        public Boolean IndentArray { get; set; }
-
         public Boolean IndentArrayEmpty { get; set; }
+
+        public Boolean IndentObjectEmpty { get; set; }
 
         public Int32 IndentSize { get; set; }
 
