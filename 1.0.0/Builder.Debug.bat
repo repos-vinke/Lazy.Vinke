@@ -7,3 +7,7 @@ cd ..\..\..\
 cd .\Modules\Lazy.Vinke.Json\Sources\
 call .\Lazy.Vinke.Json.Builder.Debug.bat
 cd ..\..\..\
+
+cd .\Modules\Lazy.Vinke.Database\Sources\
+call .\Lazy.Vinke.Database.Builder.Debug.bat
+cd ..\..\..\
