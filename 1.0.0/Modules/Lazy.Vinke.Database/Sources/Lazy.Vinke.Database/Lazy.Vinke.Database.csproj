@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<Product>Lazy</Product>
+		<Description>Lazy Vinke Database</Description>
+		<Authors>Vinke</Authors>
+		<Version>1.0.0</Version>
+		<RepositoryUrl>https://github.com/repos-vinke/Lazy.Vinke</RepositoryUrl>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+		<PackageLicenseFile>LICENSE</PackageLicenseFile>
+		<PackageOutputPath>$(SolutionDir)..\..\..\Packages\</PackageOutputPath>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Include="..\..\..\..\..\LICENSE">
+			<Pack>True</Pack>
+			<PackagePath></PackagePath>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Lazy.Vinke" Version="1.0.0" />
+	</ItemGroup>
+
+	<PropertyGroup Condition="'$(Configuration)' == 'Debug' and '$(TargetFramework)' == 'net6.0'">
+		<PostBuildEvent>
+			xcopy /y $(SolutionDir)Lazy.Vinke.Database\bin\Debug\net6.0\Lazy.Vinke.Database.dll %SystemDrive%%HomePath%\.nuget\Packages\lazy.vinke.database\1.0.0\lib\net6.0\
+			xcopy /y $(SolutionDir)Lazy.Vinke.Database\bin\Debug\net6.0\Lazy.Vinke.Database.dll $(SolutionDir)..\..\..\..\..\..\Debug\Both\Bin\lazy.vinke.database\1.0.0\lib\net6.0\
+			xcopy /y $(SolutionDir)Lazy.Vinke.Database\bin\Debug\net6.0\Lazy.Vinke.Database.dll $(SolutionDir)..\..\..\..\..\..\Debug\Server\Bin\lazy.vinke.database\1.0.0\lib\net6.0\
+		</PostBuildEvent>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)' == 'Release' and '$(TargetFramework)' == 'net6.0'">
+		<PostBuildEvent>
+			xcopy /y $(SolutionDir)Lazy.Vinke.Database\bin\Release\net6.0\Lazy.Vinke.Database.dll $(SolutionDir)..\..\..\..\..\..\Release\Both\Bin\lazy.vinke.database\1.0.0\lib\net6.0\
+			xcopy /y $(SolutionDir)Lazy.Vinke.Database\bin\Release\net6.0\Lazy.Vinke.Database.dll $(SolutionDir)..\..\..\..\..\..\Release\Server\Bin\lazy.vinke.database\1.0.0\lib\net6.0\
+		</PostBuildEvent>
+	</PropertyGroup>
+
+</Project>
