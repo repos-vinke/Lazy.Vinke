@@ -29,6 +29,8 @@ namespace Lazy.Vinke.Database
         {
             this.CultureInfo = CultureInfo.InvariantCulture;
             this.StringFormat = new LazyDatabaseStringFormat();
+
+            InitializeDatabaseStringFormat();
         }
 
         public LazyDatabase(String connectionString)
@@ -1484,11 +1486,37 @@ namespace Lazy.Vinke.Database
         }
 
         /// <summary>
+        /// Initialize database string format
+        /// </summary>
+        protected abstract void InitializeDatabaseStringFormat();
+
+        /// <summary>
         /// Convert a value to a database string format
         /// </summary>
         /// <param name="value">The value to be converted to the string format</param>
         /// <returns>The string format of the value</returns>
-        protected abstract String ConvertToDatabaseStringFormat(Object value);
+        protected virtual String ConvertToDatabaseStringFormat(Object value)
+        {
+            Type dataType = value.GetType();
+
+            if (dataType == typeof(Char)) return String.Format(this.CultureInfo, this.StringFormat.Char, value);
+            if (dataType == typeof(Byte)) return String.Format(this.CultureInfo, this.StringFormat.Byte, value);
+            if (dataType == typeof(Int16)) return String.Format(this.CultureInfo, this.StringFormat.Int16, value);
+            if (dataType == typeof(Int32)) return String.Format(this.CultureInfo, this.StringFormat.Int32, value);
+            if (dataType == typeof(Int64)) return String.Format(this.CultureInfo, this.StringFormat.Int64, value);
+            if (dataType == typeof(UInt16)) return String.Format(this.CultureInfo, this.StringFormat.UInt16, value);
+            if (dataType == typeof(UInt32)) return String.Format(this.CultureInfo, this.StringFormat.UInt32, value);
+            if (dataType == typeof(UInt64)) return String.Format(this.CultureInfo, this.StringFormat.UInt64, value);
+            if (dataType == typeof(String)) return String.Format(this.CultureInfo, this.StringFormat.String, value);
+            if (dataType == typeof(Boolean)) return String.Format(this.CultureInfo, this.StringFormat.Boolean, value);
+            if (dataType == typeof(Byte[])) return String.Format(this.CultureInfo, this.StringFormat.ByteArray, value);
+            if (dataType == typeof(DateTime)) return String.Format(this.CultureInfo, this.StringFormat.DateTime, value);
+            if (dataType == typeof(Decimal)) return String.Format(this.CultureInfo, this.StringFormat.Decimal, value);
+            if (dataType == typeof(float)) return String.Format(this.CultureInfo, this.StringFormat.Float, value);
+            if (dataType == typeof(double)) return String.Format(this.CultureInfo, this.StringFormat.Double, value);
+
+            return String.Format(this.CultureInfo, this.StringFormat.String, value);
+        }
 
         /// <summary>
         /// Convert a system type to a database type

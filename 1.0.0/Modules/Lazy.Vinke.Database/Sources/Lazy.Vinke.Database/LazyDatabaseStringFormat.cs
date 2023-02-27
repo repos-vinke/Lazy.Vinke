@@ -23,21 +23,6 @@ namespace Lazy.Vinke.Database
 
         public LazyDatabaseStringFormat()
         {
-            this.Char = "'{0}'";
-            this.Byte = "{0}";
-            this.Int16 = "{0}";
-            this.Int32 = "{0}";
-            this.Int64 = "{0}";
-            this.UInt16 = "{0}";
-            this.UInt32 = "{0}";
-            this.UInt64 = "{0}";
-            this.String = "'{0}'";
-            this.Boolean = "'{0}'";
-            this.ByteArray = "'{0}'";
-            this.DateTime = "'{0:yyyy-MM-dd HH:mm:ss}'";
-            this.Decimal = "{0:f4}";
-            this.Float = "{0:f4}";
-            this.Double = "{0:f4}";
         }
 
         #endregion Constructors

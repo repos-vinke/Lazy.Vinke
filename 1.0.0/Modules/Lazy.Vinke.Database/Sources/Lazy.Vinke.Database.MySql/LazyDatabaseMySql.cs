@@ -1313,31 +1313,35 @@ namespace Lazy.Vinke.Database.MySql
         }
 
         /// <summary>
+        /// Initialize database string format
+        /// </summary>
+        protected override void InitializeDatabaseStringFormat()
+        {
+            this.StringFormat.Char = "'{0}'";
+            this.StringFormat.Byte = "{0}";
+            this.StringFormat.Int16 = "{0}";
+            this.StringFormat.Int32 = "{0}";
+            this.StringFormat.Int64 = "{0}";
+            this.StringFormat.UInt16 = "{0}";
+            this.StringFormat.UInt32 = "{0}";
+            this.StringFormat.UInt64 = "{0}";
+            this.StringFormat.String = "'{0}'";
+            this.StringFormat.Boolean = "'{0}'";
+            this.StringFormat.ByteArray = "'{0}'";
+            this.StringFormat.DateTime = "'{0:yyyy-MM-dd HH:mm:ss}'";
+            this.StringFormat.Decimal = "{0:f4}";
+            this.StringFormat.Float = "{0:f4}";
+            this.StringFormat.Double = "{0:f4}";
+        }
+
+        /// <summary>
         /// Convert a value to a database string format
         /// </summary>
         /// <param name="value">The value to be converted to the string format</param>
         /// <returns>The string format of the value</returns>
         protected override String ConvertToDatabaseStringFormat(Object value)
         {
-            Type dataType = value.GetType();
-
-            if (dataType == typeof(Char)) return String.Format(this.CultureInfo, this.StringFormat.Char, value);
-            if (dataType == typeof(Byte)) return String.Format(this.CultureInfo, this.StringFormat.Byte, value);
-            if (dataType == typeof(Int16)) return String.Format(this.CultureInfo, this.StringFormat.Int16, value);
-            if (dataType == typeof(Int32)) return String.Format(this.CultureInfo, this.StringFormat.Int32, value);
-            if (dataType == typeof(Int64)) return String.Format(this.CultureInfo, this.StringFormat.Int64, value);
-            if (dataType == typeof(UInt16)) return String.Format(this.CultureInfo, this.StringFormat.UInt16, value);
-            if (dataType == typeof(UInt32)) return String.Format(this.CultureInfo, this.StringFormat.UInt32, value);
-            if (dataType == typeof(UInt64)) return String.Format(this.CultureInfo, this.StringFormat.UInt64, value);
-            if (dataType == typeof(String)) return String.Format(this.CultureInfo, this.StringFormat.String, value);
-            if (dataType == typeof(Boolean)) return String.Format(this.CultureInfo, this.StringFormat.Boolean, value);
-            if (dataType == typeof(Byte[])) return String.Format(this.CultureInfo, this.StringFormat.ByteArray, value);
-            if (dataType == typeof(DateTime)) return String.Format(this.CultureInfo, this.StringFormat.DateTime, value);
-            if (dataType == typeof(Decimal)) return String.Format(this.CultureInfo, this.StringFormat.Decimal, value);
-            if (dataType == typeof(float)) return String.Format(this.CultureInfo, this.StringFormat.Float, value);
-            if (dataType == typeof(double)) return String.Format(this.CultureInfo, this.StringFormat.Double, value);
-
-            return String.Format(this.CultureInfo, this.StringFormat.String, value);
+            return base.ConvertToDatabaseStringFormat(value);
         }
 
         /// <summary>
