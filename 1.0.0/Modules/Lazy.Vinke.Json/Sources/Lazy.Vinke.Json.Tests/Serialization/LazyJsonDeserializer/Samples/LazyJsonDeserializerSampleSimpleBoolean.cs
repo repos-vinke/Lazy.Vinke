@@ -1,4 +1,4 @@
-﻿// LazyJsonSampleSimpleBoolean.cs
+﻿// LazyJsonDeserializerSampleSimpleBoolean.cs
 //
 // This file is integrated part of Lazy project
 // Licensed under "Gnu General Public License Version 3"
@@ -12,7 +12,7 @@ using Lazy.Vinke.Json;
 
 namespace Lazy.Vinke.Json.Tests
 {
-    public class LazyJsonSampleSimpleBoolean
+    public class LazyJsonDeserializerSampleSimpleBoolean
     {
         public Boolean BooleanValue { get; set; }
 

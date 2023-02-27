@@ -1,4 +1,4 @@
-﻿// LazyJsonSampleSimpleInteger.cs
+﻿// LazyJsonSerializerSampleSimpleInteger.cs
 //
 // This file is integrated part of Lazy project
 // Licensed under "Gnu General Public License Version 3"
@@ -12,7 +12,7 @@ using Lazy.Vinke.Json;
 
 namespace Lazy.Vinke.Json.Tests
 {
-    public class LazyJsonSampleSimpleInteger
+    public class LazyJsonSerializerSampleSimpleInteger
     {
         public Int16 Int16Value { get; set; }
 

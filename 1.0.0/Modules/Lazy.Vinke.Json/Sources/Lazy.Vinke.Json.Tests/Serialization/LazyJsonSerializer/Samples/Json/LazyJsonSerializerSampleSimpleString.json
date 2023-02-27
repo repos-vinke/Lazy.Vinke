@@ -1,0 +1,10 @@
+{
+  "CharValue": "A",
+  "CharValueNull": null,
+  "CharValueNullableNull": null,
+  "CharValueNullableNotNull": "B",
+  "StringValue": "Json",
+  "StringValueNullableNull": null,
+  "StringValueWhiteSpace": " ",
+  "StringValueEmpty": ""
+}

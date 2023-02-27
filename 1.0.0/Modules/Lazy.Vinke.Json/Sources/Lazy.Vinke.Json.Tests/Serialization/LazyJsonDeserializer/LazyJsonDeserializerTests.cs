@@ -21,11 +21,11 @@ namespace Lazy.Vinke.Json.Tests
         public void TestDeserializerSampleSimpleBoolean()
         {
             // Arrange
-            LazyJsonSampleSimpleBoolean sampleSimpleBoolean = null;
-            String json = Encoding.UTF8.GetString(Properties.Resources.LazyJsonSampleSimpleBoolean);
+            LazyJsonDeserializerSampleSimpleBoolean sampleSimpleBoolean = null;
+            String json = Encoding.UTF8.GetString(Properties.Resources.LazyJsonDeserializerSampleSimpleBoolean);
 
             // Act
-            sampleSimpleBoolean = LazyJsonDeserializer.Deserialize<LazyJsonSampleSimpleBoolean>(json);
+            sampleSimpleBoolean = LazyJsonDeserializer.Deserialize<LazyJsonDeserializerSampleSimpleBoolean>(json);
 
             // Assert
             Assert.IsTrue(sampleSimpleBoolean.BooleanValue == true);
@@ -37,11 +37,11 @@ namespace Lazy.Vinke.Json.Tests
         public void TestDeserializerSampleSimpleDecimal()
         {
             // Arrange
-            LazyJsonSampleSimpleDecimal sampleSimpleDecimal = null;
-            String json = Encoding.UTF8.GetString(Properties.Resources.LazyJsonSampleSimpleDecimal);
+            LazyJsonDeserializerSampleSimpleDecimal sampleSimpleDecimal = null;
+            String json = Encoding.UTF8.GetString(Properties.Resources.LazyJsonDeserializerSampleSimpleDecimal);
 
             // Act
-            sampleSimpleDecimal = LazyJsonDeserializer.Deserialize<LazyJsonSampleSimpleDecimal>(json);
+            sampleSimpleDecimal = LazyJsonDeserializer.Deserialize<LazyJsonDeserializerSampleSimpleDecimal>(json);
 
             // Assert
             Assert.IsTrue(sampleSimpleDecimal.FloatValue == 1.2f);
@@ -59,11 +59,11 @@ namespace Lazy.Vinke.Json.Tests
         public void TestDeserializerSampleSimpleInteger()
         {
             // Arrange
-            LazyJsonSampleSimpleInteger sampleSimpleInteger = null;
-            String json = Encoding.UTF8.GetString(Properties.Resources.LazyJsonSampleSimpleInteger);
+            LazyJsonDeserializerSampleSimpleInteger sampleSimpleInteger = null;
+            String json = Encoding.UTF8.GetString(Properties.Resources.LazyJsonDeserializerSampleSimpleInteger);
 
             // Act
-            sampleSimpleInteger = LazyJsonDeserializer.Deserialize<LazyJsonSampleSimpleInteger>(json);
+            sampleSimpleInteger = LazyJsonDeserializer.Deserialize<LazyJsonDeserializerSampleSimpleInteger>(json);
 
             // Assert
             Assert.IsTrue(sampleSimpleInteger.Int16Value == 1);
@@ -81,11 +81,11 @@ namespace Lazy.Vinke.Json.Tests
         public void TestDeserializerSampleSimpleString()
         {
             // Arrange
-            LazyJsonSampleSimpleString sampleSimpleString = null;
-            String json = Encoding.UTF8.GetString(Properties.Resources.LazyJsonSampleSimpleString);
+            LazyJsonDeserializerSampleSimpleString sampleSimpleString = null;
+            String json = Encoding.UTF8.GetString(Properties.Resources.LazyJsonDeserializerSampleSimpleString);
 
             // Act
-            sampleSimpleString = LazyJsonDeserializer.Deserialize<LazyJsonSampleSimpleString>(json);
+            sampleSimpleString = LazyJsonDeserializer.Deserialize<LazyJsonDeserializerSampleSimpleString>(json);
 
             // Assert
             Assert.IsTrue(sampleSimpleString.CharValue == 'A');
@@ -326,8 +326,8 @@ namespace Lazy.Vinke.Json.Tests
         public void TestDeserializerSampleSimpleDataTable()
         {
             // Arrange
-            LazyJsonSampleSimpleDataTable sampleSimpleDataTable = null;
-            String json = Encoding.UTF8.GetString(Properties.Resources.LazyJsonSampleSimpleDataTable);
+            LazyJsonDeserializerSampleSimpleDataTable sampleSimpleDataTable = null;
+            String json = Encoding.UTF8.GetString(Properties.Resources.LazyJsonDeserializerSampleSimpleDataTable);
 
             LazyJsonDeserializerOptions deserializerOptions = new LazyJsonDeserializerOptions();
             deserializerOptions.Item<LazyJsonDeserializerOptionsDataTable>()["DataTableWithSingleRow"].Columns["ColumnChar"].Set(typeof(Char));
@@ -337,7 +337,7 @@ namespace Lazy.Vinke.Json.Tests
             deserializerOptions.Item<LazyJsonDeserializerOptionsDateTime>().Format = TestStringFormat.DateTime.ISO8601Z;
 
             // Act
-            sampleSimpleDataTable = LazyJsonDeserializer.Deserialize<LazyJsonSampleSimpleDataTable>(json, deserializerOptions);
+            sampleSimpleDataTable = LazyJsonDeserializer.Deserialize<LazyJsonDeserializerSampleSimpleDataTable>(json, deserializerOptions);
 
             // Assert
             Assert.IsTrue(sampleSimpleDataTable.DataTableWithoutRows.TableName == "DataTableWithoutRows");
@@ -377,8 +377,8 @@ namespace Lazy.Vinke.Json.Tests
         public void TestDeserializerSampleSimpleDataSet()
         {
             // Arrange
-            LazyJsonSampleSimpleDataSet sampleSimpleDataSet = null;
-            String json = Encoding.UTF8.GetString(Properties.Resources.LazyJsonSampleSimpleDataSet);
+            LazyJsonDeserializerSampleSimpleDataSet sampleSimpleDataSet = null;
+            String json = Encoding.UTF8.GetString(Properties.Resources.LazyJsonDeserializerSampleSimpleDataSet);
 
             LazyJsonDeserializerOptions deserializerOptions = new LazyJsonDeserializerOptions();
             deserializerOptions.Item<LazyJsonDeserializerOptionsDataTable>()["DataTableWithSingleRow"].Columns["ColumnChar"].Set(typeof(Char));
@@ -388,7 +388,7 @@ namespace Lazy.Vinke.Json.Tests
             deserializerOptions.Item<LazyJsonDeserializerOptionsDateTime>().Format = TestStringFormat.DateTime.ISO8601Z;
 
             // Act
-            sampleSimpleDataSet = LazyJsonDeserializer.Deserialize<LazyJsonSampleSimpleDataSet>(json, deserializerOptions);
+            sampleSimpleDataSet = LazyJsonDeserializer.Deserialize<LazyJsonDeserializerSampleSimpleDataSet>(json, deserializerOptions);
 
             // Assert
             Assert.IsTrue(sampleSimpleDataSet.DataSet.DataSetName == "MyDataSet");

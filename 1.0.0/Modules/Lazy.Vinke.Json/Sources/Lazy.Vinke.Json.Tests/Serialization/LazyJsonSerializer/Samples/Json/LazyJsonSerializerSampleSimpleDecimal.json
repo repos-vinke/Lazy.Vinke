@@ -1,0 +1,11 @@
+{
+  "FloatValue": 1.2,
+  "FloatValueNullableNull": null,
+  "FloatValueNullableNotNull": 11.23,
+  "DoubleValue": 23.45,
+  "DoubleValueNullableNull": null,
+  "DoubleValueNullableNotNull": 234.453,
+  "DecimalValue": 567.891,
+  "DecimalValueNullableNull": null,
+  "DecimalValueNullableNotNull": 5672.8913
+}

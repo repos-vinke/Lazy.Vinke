@@ -1,4 +1,4 @@
-﻿// LazyJsonSampleSimpleDataTable.cs
+﻿// LazyJsonSerializerSampleSimpleDataTable.cs
 //
 // This file is integrated part of Lazy project
 // Licensed under "Gnu General Public License Version 3"
@@ -14,7 +14,7 @@ using Lazy.Vinke.Json;
 
 namespace Lazy.Vinke.Json.Tests
 {
-    public class LazyJsonSampleSimpleDataTable
+    public class LazyJsonSerializerSampleSimpleDataTable
     {
         public DataTable DataTableWithoutRows { get; set; }
 

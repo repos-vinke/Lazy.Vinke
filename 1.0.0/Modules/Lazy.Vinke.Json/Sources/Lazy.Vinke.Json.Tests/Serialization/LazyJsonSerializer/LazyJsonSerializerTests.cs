@@ -21,12 +21,12 @@ namespace Lazy.Vinke.Json.Tests
         public void TestSerializerSampleSimpleBoolean()
         {
             // Arrange
-            LazyJsonSampleSimpleBoolean sampleSimpleBoolean = new LazyJsonSampleSimpleBoolean();
+            LazyJsonSerializerSampleSimpleBoolean sampleSimpleBoolean = new LazyJsonSerializerSampleSimpleBoolean();
             sampleSimpleBoolean.BooleanValue = true;
             sampleSimpleBoolean.BooleanValueNullableNull = null;
             sampleSimpleBoolean.BooleanValueNullableNotNull = false;
 
-            String originalJson = Encoding.UTF8.GetString(Properties.Resources.LazyJsonSampleSimpleBoolean);
+            String originalJson = Encoding.UTF8.GetString(Properties.Resources.LazyJsonSerializerSampleSimpleBoolean);
 
             // Act
             String json = LazyJsonSerializer.Serialize(sampleSimpleBoolean);
@@ -39,7 +39,7 @@ namespace Lazy.Vinke.Json.Tests
         public void TestSerializerSampleSimpleDecimal()
         {
             // Arrange
-            LazyJsonSampleSimpleDecimal sampleSimpleDecimal = new LazyJsonSampleSimpleDecimal();
+            LazyJsonSerializerSampleSimpleDecimal sampleSimpleDecimal = new LazyJsonSerializerSampleSimpleDecimal();
             sampleSimpleDecimal.FloatValue = 1.2f;
             sampleSimpleDecimal.FloatValueNullableNull = null;
             sampleSimpleDecimal.FloatValueNullableNotNull = 11.23f;
@@ -50,7 +50,7 @@ namespace Lazy.Vinke.Json.Tests
             sampleSimpleDecimal.DecimalValueNullableNull = null;
             sampleSimpleDecimal.DecimalValueNullableNotNull = 5672.8913m;
 
-            String originalJson = Encoding.UTF8.GetString(Properties.Resources.LazyJsonSampleSimpleDecimal);
+            String originalJson = Encoding.UTF8.GetString(Properties.Resources.LazyJsonSerializerSampleSimpleDecimal);
 
             // Act
             String json = LazyJsonSerializer.Serialize(sampleSimpleDecimal);
@@ -63,7 +63,7 @@ namespace Lazy.Vinke.Json.Tests
         public void TestSerializerSampleSimpleInteger()
         {
             // Arrange
-            LazyJsonSampleSimpleInteger sampleSimpleInteger = new LazyJsonSampleSimpleInteger();
+            LazyJsonSerializerSampleSimpleInteger sampleSimpleInteger = new LazyJsonSerializerSampleSimpleInteger();
             sampleSimpleInteger.Int16Value = 1;
             sampleSimpleInteger.Int16ValueNullableNull = null;
             sampleSimpleInteger.Int16ValueNullableNotNull = 11;
@@ -74,7 +74,7 @@ namespace Lazy.Vinke.Json.Tests
             sampleSimpleInteger.Int64ValueNullableNull = null;
             sampleSimpleInteger.Int64ValueNullableNotNull = 33;
 
-            String originalJson = Encoding.UTF8.GetString(Properties.Resources.LazyJsonSampleSimpleInteger);
+            String originalJson = Encoding.UTF8.GetString(Properties.Resources.LazyJsonSerializerSampleSimpleInteger);
 
             // Act
             String json = LazyJsonSerializer.Serialize(sampleSimpleInteger);
@@ -87,7 +87,7 @@ namespace Lazy.Vinke.Json.Tests
         public void TestSerializerSampleSimpleString()
         {
             // Arrange
-            LazyJsonSampleSimpleString sampleSimpleString = new LazyJsonSampleSimpleString();
+            LazyJsonSerializerSampleSimpleString sampleSimpleString = new LazyJsonSerializerSampleSimpleString();
             sampleSimpleString.CharValue = 'A';
             sampleSimpleString.CharValueNull = '\0';
             sampleSimpleString.CharValueNullableNull = null;
@@ -97,7 +97,7 @@ namespace Lazy.Vinke.Json.Tests
             sampleSimpleString.StringValueWhiteSpace = " ";
             sampleSimpleString.StringValueEmpty = String.Empty;
 
-            String originalJson = Encoding.UTF8.GetString(Properties.Resources.LazyJsonSampleSimpleString);
+            String originalJson = Encoding.UTF8.GetString(Properties.Resources.LazyJsonSerializerSampleSimpleString);
 
             // Act
             String json = LazyJsonSerializer.Serialize(sampleSimpleString);
@@ -264,7 +264,7 @@ namespace Lazy.Vinke.Json.Tests
         public void TestSerializerSampleSimpleDataTable()
         {
             // Arrange
-            LazyJsonSampleSimpleDataTable sampleSimpleDataTable = new LazyJsonSampleSimpleDataTable();
+            LazyJsonSerializerSampleSimpleDataTable sampleSimpleDataTable = new LazyJsonSerializerSampleSimpleDataTable();
 
             sampleSimpleDataTable.DataTableWithoutRows = new DataTable("DataTableWithoutRows");
 
@@ -280,7 +280,7 @@ namespace Lazy.Vinke.Json.Tests
             sampleSimpleDataTable.DataTableWithMultipleRows.Rows.Add(3, "Row3", 'C', new DateTime(2025, 05, 25, 11, 55, 05, 000));
             sampleSimpleDataTable.DataTableWithMultipleRows.AcceptChanges();
 
-            String originalJson = Encoding.UTF8.GetString(Properties.Resources.LazyJsonSampleSimpleDataTable);
+            String originalJson = Encoding.UTF8.GetString(Properties.Resources.LazyJsonSerializerSampleSimpleDataTable);
 
             LazyJsonSerializerOptions serializerOptions = new LazyJsonSerializerOptions();
             serializerOptions.Item<LazyJsonSerializerOptionsDateTime>().Format = TestStringFormat.DateTime.ISO8601Z;
@@ -296,7 +296,7 @@ namespace Lazy.Vinke.Json.Tests
         public void TestSerializerSampleSimpleDataSet()
         {
             // Arrange
-            LazyJsonSampleSimpleDataSet sampleSimpleDataSet = new LazyJsonSampleSimpleDataSet();
+            LazyJsonSerializerSampleSimpleDataSet sampleSimpleDataSet = new LazyJsonSerializerSampleSimpleDataSet();
 
             sampleSimpleDataSet.DataSet = new DataSet("MyDataSet");
 
@@ -314,7 +314,7 @@ namespace Lazy.Vinke.Json.Tests
             sampleSimpleDataSet.DataSet.Tables["DataTableWithMultipleRows"].Rows.Add(3, "Row3", 'C', new DateTime(2025, 05, 25, 11, 55, 05, 000));
             sampleSimpleDataSet.DataSet.Tables["DataTableWithMultipleRows"].AcceptChanges();
 
-            String originalJson = Encoding.UTF8.GetString(Properties.Resources.LazyJsonSampleSimpleDataSet);
+            String originalJson = Encoding.UTF8.GetString(Properties.Resources.LazyJsonSerializerSampleSimpleDataSet);
 
             LazyJsonSerializerOptions serializerOptions = new LazyJsonSerializerOptions();
             serializerOptions.Item<LazyJsonSerializerOptionsDateTime>().Format = TestStringFormat.DateTime.ISO8601Z;

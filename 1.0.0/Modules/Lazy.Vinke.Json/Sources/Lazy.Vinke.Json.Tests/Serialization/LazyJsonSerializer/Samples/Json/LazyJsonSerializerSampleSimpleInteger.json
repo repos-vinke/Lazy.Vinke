@@ -1,0 +1,11 @@
+{
+  "Int16Value": 1,
+  "Int16ValueNullableNull": null,
+  "Int16ValueNullableNotNull": 11,
+  "Int32Value": 2,
+  "Int32ValueNullableNull": null,
+  "Int32ValueNullableNotNull": 22,
+  "Int64Value": 3,
+  "Int64ValueNullableNull": null,
+  "Int64ValueNullableNotNull": 33
+}
