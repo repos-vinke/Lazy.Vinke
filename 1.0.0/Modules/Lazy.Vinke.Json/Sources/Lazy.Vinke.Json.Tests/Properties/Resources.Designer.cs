@@ -279,5 +279,15 @@ namespace Lazy.Vinke.Json.Tests.Properties {
                 return ((byte[])(obj));
             }
         }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Byte[].
+        /// </summary>
+        public static byte[] LazyJsonWriterSample2MB {
+            get {
+                object obj = ResourceManager.GetObject("LazyJsonWriterSample2MB", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }
