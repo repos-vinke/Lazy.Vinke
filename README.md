@@ -1,7 +1,8 @@
 # Lazy.Vinke
 Simple library for lazy developers
 
-# Environment Structure
+### Environment Structure
+
 - Lazy								<- Product Name
 	- Default						<- Environment Name (Free for choice)
 		- Debug						<- Runtime debug folder (Must be 'Debug')
