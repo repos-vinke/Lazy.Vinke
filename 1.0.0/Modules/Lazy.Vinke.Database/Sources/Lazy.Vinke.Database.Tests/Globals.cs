@@ -14,6 +14,6 @@ public static class Globals
 
     public static class SqlServer
     {
-        public static string ConnectionString = "Server=.\\SQLExpress;Database=lazy;User Id=lazy;Password=lazy;Encrypt=no";
+        public static string ConnectionString = "Server=localhost;Database=lazy;User Id=lazy;Password=lazy;Encrypt=no";
     }
 }
