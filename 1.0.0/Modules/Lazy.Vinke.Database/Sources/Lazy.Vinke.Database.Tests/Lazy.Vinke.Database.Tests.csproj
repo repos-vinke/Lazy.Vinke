@@ -26,6 +26,7 @@
 		<PackageReference Include="Lazy.Vinke.Database" Version="1.0.0" />
 		<PackageReference Include="Lazy.Vinke.Database.MySql" Version="1.0.0" />
 		<PackageReference Include="Lazy.Vinke.Database.Postgre" Version="1.0.0" />
+		<PackageReference Include="Lazy.Vinke.Database.SqlServer" Version="1.0.0" />
 	</ItemGroup>
 
 </Project>

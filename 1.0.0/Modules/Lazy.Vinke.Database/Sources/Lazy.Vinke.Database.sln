@@ -13,11 +13,17 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lazy.Vinke.Database.Tests", "Lazy.Vinke.Database.Tests\Lazy.Vinke.Database.Tests.csproj", "{B69B8BC5-4C6D-491C-B047-BCBBBE7A3CAF}"
 	ProjectSection(ProjectDependencies) = postProject
 		{07DBD31F-3AC7-4225-8A3F-927B90DE5710} = {07DBD31F-3AC7-4225-8A3F-927B90DE5710}
+		{3AF8956E-B6BE-4392-97A0-69908F5A08F3} = {3AF8956E-B6BE-4392-97A0-69908F5A08F3}
 		{417FD98A-159B-4768-965A-3D6F02DEA68D} = {417FD98A-159B-4768-965A-3D6F02DEA68D}
 		{AADFA6C9-42AE-4C07-8AC7-BCC81347E2F9} = {AADFA6C9-42AE-4C07-8AC7-BCC81347E2F9}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lazy.Vinke.Database.Postgre", "Lazy.Vinke.Database.Postgre\Lazy.Vinke.Database.Postgre.csproj", "{07DBD31F-3AC7-4225-8A3F-927B90DE5710}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lazy.Vinke.Database.Postgre", "Lazy.Vinke.Database.Postgre\Lazy.Vinke.Database.Postgre.csproj", "{07DBD31F-3AC7-4225-8A3F-927B90DE5710}"
+	ProjectSection(ProjectDependencies) = postProject
+		{417FD98A-159B-4768-965A-3D6F02DEA68D} = {417FD98A-159B-4768-965A-3D6F02DEA68D}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lazy.Vinke.Database.SqlServer", "Lazy.Vinke.Database.SqlServer\Lazy.Vinke.Database.SqlServer.csproj", "{3AF8956E-B6BE-4392-97A0-69908F5A08F3}"
 	ProjectSection(ProjectDependencies) = postProject
 		{417FD98A-159B-4768-965A-3D6F02DEA68D} = {417FD98A-159B-4768-965A-3D6F02DEA68D}
 	EndProjectSection
@@ -44,6 +50,10 @@ Global
 		{07DBD31F-3AC7-4225-8A3F-927B90DE5710}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{07DBD31F-3AC7-4225-8A3F-927B90DE5710}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{07DBD31F-3AC7-4225-8A3F-927B90DE5710}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3AF8956E-B6BE-4392-97A0-69908F5A08F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AF8956E-B6BE-4392-97A0-69908F5A08F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AF8956E-B6BE-4392-97A0-69908F5A08F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AF8956E-B6BE-4392-97A0-69908F5A08F3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
