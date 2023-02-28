@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lazy.Vinke.Windows", "Lazy.Vinke.Windows\Lazy.Vinke.Windows.csproj", "{18C077D0-1547-42A0-B82D-73870FFBC127}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lazy.Vinke.Windows.Forms", "Lazy.Vinke.Windows.Forms\Lazy.Vinke.Windows.Forms.csproj", "{79CD55DB-847A-4611-A44A-D75B8BAD9FD8}"
+	ProjectSection(ProjectDependencies) = postProject
+		{18C077D0-1547-42A0-B82D-73870FFBC127} = {18C077D0-1547-42A0-B82D-73870FFBC127}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{18C077D0-1547-42A0-B82D-73870FFBC127}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18C077D0-1547-42A0-B82D-73870FFBC127}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18C077D0-1547-42A0-B82D-73870FFBC127}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18C077D0-1547-42A0-B82D-73870FFBC127}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79CD55DB-847A-4611-A44A-D75B8BAD9FD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79CD55DB-847A-4611-A44A-D75B8BAD9FD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79CD55DB-847A-4611-A44A-D75B8BAD9FD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79CD55DB-847A-4611-A44A-D75B8BAD9FD8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E906C1CD-5A3F-48D4-AD6B-1BC256F9039A}
+	EndGlobalSection
+EndGlobal

@@ -20,3 +20,7 @@ cd ..\..\..\
 cd .\Modules\Lazy.Vinke.Database\Sources\
 call .\Lazy.Vinke.Database.Builder.Release.bat
 cd ..\..\..\
+
+cd .\Modules\Lazy.Vinke.Windows\Sources\
+call .\Lazy.Vinke.Windows.Builder.Release.bat
+cd ..\..\..\
