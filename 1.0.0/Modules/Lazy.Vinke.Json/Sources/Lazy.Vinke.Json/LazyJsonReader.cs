@@ -67,7 +67,7 @@ namespace Lazy.Vinke.Json
                     if (index >= json.Length && jsonComments.IsInBlock == true && jsonComments.IsInBlockComplete == false)
                     {
                         lazyJson.ReaderResult.Success = false;
-                        lazyJson.ReaderResult.ErrorList.Add(String.Format(Properties.Resources.LazyJsonReaderUnexpectedCharacter, line, "*/", String.Empty));
+                        lazyJson.ReaderResult.ErrorList.Add(String.Format(Properties.LazyResourcesJson.LazyJsonReaderUnexpectedCharacter, line, "*/", String.Empty));
                     }
                 }
                 else if (json[index] == '[')
@@ -138,7 +138,7 @@ namespace Lazy.Vinke.Json
                     lazyJson.Root = new LazyJsonNull();
 
                     lazyJson.ReaderResult.Success = false;
-                    lazyJson.ReaderResult.ErrorList.Add(String.Format(Properties.Resources.LazyJsonReaderUnexpectedCharacter, line, "//", json[index]));
+                    lazyJson.ReaderResult.ErrorList.Add(String.Format(Properties.LazyResourcesJson.LazyJsonReaderUnexpectedCharacter, line, "//", json[index]));
                     index = json.Length; // Exit
 
                     break;
@@ -161,7 +161,7 @@ namespace Lazy.Vinke.Json
                     if (index >= json.Length && jsonComments.IsInBlock == true && jsonComments.IsInBlockComplete == false)
                     {
                         lazyJson.ReaderResult.Success = false;
-                        lazyJson.ReaderResult.ErrorList.Add(String.Format(Properties.Resources.LazyJsonReaderUnexpectedCharacter, line, "*/", String.Empty));
+                        lazyJson.ReaderResult.ErrorList.Add(String.Format(Properties.LazyResourcesJson.LazyJsonReaderUnexpectedCharacter, line, "*/", String.Empty));
                     }
                 }
                 else
@@ -169,7 +169,7 @@ namespace Lazy.Vinke.Json
                     lazyJson.Root = new LazyJsonNull();
 
                     lazyJson.ReaderResult.Success = false;
-                    lazyJson.ReaderResult.ErrorList.Add(String.Format(Properties.Resources.LazyJsonReaderUnexpectedCharacter, line, "//", json[index]));
+                    lazyJson.ReaderResult.ErrorList.Add(String.Format(Properties.LazyResourcesJson.LazyJsonReaderUnexpectedCharacter, line, "//", json[index]));
                     index = json.Length; // Exit
 
                     break;
@@ -221,7 +221,7 @@ namespace Lazy.Vinke.Json
             else
             {
                 jsonReaderResult.Success = false;
-                jsonReaderResult.ErrorList.Add(String.Format(Properties.Resources.LazyJsonReaderUnexpectedCharacter, line, "/", index < json.Length ? json[index] : String.Empty));
+                jsonReaderResult.ErrorList.Add(String.Format(Properties.LazyResourcesJson.LazyJsonReaderUnexpectedCharacter, line, "/", index < json.Length ? json[index] : String.Empty));
                 index = json.Length; // Exit
             }
         }
@@ -253,7 +253,7 @@ namespace Lazy.Vinke.Json
                     if (index >= json.Length)
                     {
                         jsonReaderResult.Success = false;
-                        jsonReaderResult.ErrorList.Add(String.Format(Properties.Resources.LazyJsonReaderInvalidArrayItem, line, String.Empty));
+                        jsonReaderResult.ErrorList.Add(String.Format(Properties.LazyResourcesJson.LazyJsonReaderInvalidArrayItem, line, String.Empty));
                     }
                 }
                 else
@@ -305,7 +305,7 @@ namespace Lazy.Vinke.Json
                     else
                     {
                         jsonReaderResult.Success = false;
-                        jsonReaderResult.ErrorList.Add(String.Format(Properties.Resources.LazyJsonReaderInvalidArrayItem, line, json[index]));
+                        jsonReaderResult.ErrorList.Add(String.Format(Properties.LazyResourcesJson.LazyJsonReaderInvalidArrayItem, line, json[index]));
                         index = json.Length; // Exit
                     }
 
@@ -325,7 +325,7 @@ namespace Lazy.Vinke.Json
                             if (index >= json.Length)
                             {
                                 jsonReaderResult.Success = false;
-                                jsonReaderResult.ErrorList.Add(String.Format(Properties.Resources.LazyJsonReaderUnexpectedCharacter, line, ", | ]", String.Empty));
+                                jsonReaderResult.ErrorList.Add(String.Format(Properties.LazyResourcesJson.LazyJsonReaderUnexpectedCharacter, line, ", | ]", String.Empty));
                             }
                         }
                         else if (json[index] == ',' || json[index] == ']')
@@ -335,7 +335,7 @@ namespace Lazy.Vinke.Json
                         else
                         {
                             jsonReaderResult.Success = false;
-                            jsonReaderResult.ErrorList.Add(String.Format(Properties.Resources.LazyJsonReaderUnexpectedCharacter, line, ", | ]", json[index]));
+                            jsonReaderResult.ErrorList.Add(String.Format(Properties.LazyResourcesJson.LazyJsonReaderUnexpectedCharacter, line, ", | ]", json[index]));
                             index = json.Length; // Exit
                         }
                     }
@@ -376,7 +376,7 @@ namespace Lazy.Vinke.Json
                     if (index >= json.Length)
                     {
                         jsonReaderResult.Success = false;
-                        jsonReaderResult.ErrorList.Add(String.Format(Properties.Resources.LazyJsonReaderUnexpectedCharacter, line, " \" | } ", String.Empty));
+                        jsonReaderResult.ErrorList.Add(String.Format(Properties.LazyResourcesJson.LazyJsonReaderUnexpectedCharacter, line, " \" | } ", String.Empty));
                     }
                 }
                 else if (json[index] == '\"')
@@ -392,7 +392,7 @@ namespace Lazy.Vinke.Json
                     else
                     {
                         jsonReaderResult.Success = false;
-                        jsonReaderResult.ErrorList.Add(String.Format(Properties.Resources.LazyJsonReaderObjectPropertyDuplicated, line, jsonProperty.Name));
+                        jsonReaderResult.ErrorList.Add(String.Format(Properties.LazyResourcesJson.LazyJsonReaderObjectPropertyDuplicated, line, jsonProperty.Name));
                         index = json.Length; // Exit
                     }
 
@@ -412,7 +412,7 @@ namespace Lazy.Vinke.Json
                             if (index >= json.Length)
                             {
                                 jsonReaderResult.Success = false;
-                                jsonReaderResult.ErrorList.Add(String.Format(Properties.Resources.LazyJsonReaderUnexpectedCharacter, line, ", | }", String.Empty));
+                                jsonReaderResult.ErrorList.Add(String.Format(Properties.LazyResourcesJson.LazyJsonReaderUnexpectedCharacter, line, ", | }", String.Empty));
                             }
                         }
                         else if (json[index] == ',' || json[index] == '}')
@@ -422,7 +422,7 @@ namespace Lazy.Vinke.Json
                         else
                         {
                             jsonReaderResult.Success = false;
-                            jsonReaderResult.ErrorList.Add(String.Format(Properties.Resources.LazyJsonReaderUnexpectedCharacter, line, ", | }", json[index]));
+                            jsonReaderResult.ErrorList.Add(String.Format(Properties.LazyResourcesJson.LazyJsonReaderUnexpectedCharacter, line, ", | }", json[index]));
                             index = json.Length; // Exit
                         }
                     }
@@ -441,7 +441,7 @@ namespace Lazy.Vinke.Json
                 else
                 {
                     jsonReaderResult.Success = false;
-                    jsonReaderResult.ErrorList.Add(String.Format(Properties.Resources.LazyJsonReaderUnexpectedCharacter, line, " \" ", String.Empty));
+                    jsonReaderResult.ErrorList.Add(String.Format(Properties.LazyResourcesJson.LazyJsonReaderUnexpectedCharacter, line, " \" ", String.Empty));
                     index = json.Length; // Exit
                 }
             }
@@ -480,7 +480,7 @@ namespace Lazy.Vinke.Json
                         if (index >= json.Length)
                         {
                             jsonReaderResult.Success = false;
-                            jsonReaderResult.ErrorList.Add(String.Format(Properties.Resources.LazyJsonReaderUnexpectedCharacter, line, " : ", String.Empty));
+                            jsonReaderResult.ErrorList.Add(String.Format(Properties.LazyResourcesJson.LazyJsonReaderUnexpectedCharacter, line, " : ", String.Empty));
                         }
                     }
                     else if (json[index] == ':')
@@ -491,7 +491,7 @@ namespace Lazy.Vinke.Json
                     else
                     {
                         jsonReaderResult.Success = false;
-                        jsonReaderResult.ErrorList.Add(String.Format(Properties.Resources.LazyJsonReaderInvalidObjectPropertyValue, line, json[index]));
+                        jsonReaderResult.ErrorList.Add(String.Format(Properties.LazyResourcesJson.LazyJsonReaderInvalidObjectPropertyValue, line, json[index]));
                         index = json.Length; // Exit
                     }
                 }
@@ -514,7 +514,7 @@ namespace Lazy.Vinke.Json
                             if (index >= json.Length)
                             {
                                 jsonReaderResult.Success = false;
-                                jsonReaderResult.ErrorList.Add(String.Format(Properties.Resources.LazyJsonReaderUnexpectedCharacter, line, " : ", String.Empty));
+                                jsonReaderResult.ErrorList.Add(String.Format(Properties.LazyResourcesJson.LazyJsonReaderUnexpectedCharacter, line, " : ", String.Empty));
                             }
                         }
                         else if (json[index] == '[')
@@ -565,7 +565,7 @@ namespace Lazy.Vinke.Json
                         else
                         {
                             jsonReaderResult.Success = false;
-                            jsonReaderResult.ErrorList.Add(String.Format(Properties.Resources.LazyJsonReaderInvalidObjectPropertyValue, line, json[index]));
+                            jsonReaderResult.ErrorList.Add(String.Format(Properties.LazyResourcesJson.LazyJsonReaderInvalidObjectPropertyValue, line, json[index]));
                             index = json.Length; // Exit
                         }
                     }
@@ -573,13 +573,13 @@ namespace Lazy.Vinke.Json
                 else
                 {
                     jsonReaderResult.Success = false;
-                    jsonReaderResult.ErrorList.Add(String.Format(Properties.Resources.LazyJsonReaderInvalidObjectPropertyValue, line, String.Empty));
+                    jsonReaderResult.ErrorList.Add(String.Format(Properties.LazyResourcesJson.LazyJsonReaderInvalidObjectPropertyValue, line, String.Empty));
                 }
             }
             else
             {
                 jsonReaderResult.Success = false;
-                jsonReaderResult.ErrorList.Add(String.Format(Properties.Resources.LazyJsonReaderInvalidObjectPropertyValue, line, String.Empty));
+                jsonReaderResult.ErrorList.Add(String.Format(Properties.LazyResourcesJson.LazyJsonReaderInvalidObjectPropertyValue, line, String.Empty));
             }
         }
 
@@ -606,7 +606,7 @@ namespace Lazy.Vinke.Json
             else
             {
                 jsonReaderResult.Success = false;
-                jsonReaderResult.ErrorList.Add(String.Format(Properties.Resources.LazyJsonReaderUnexpectedCharacter, line, " \" ", String.Empty));
+                jsonReaderResult.ErrorList.Add(String.Format(Properties.LazyResourcesJson.LazyJsonReaderUnexpectedCharacter, line, " \" ", String.Empty));
             }
         }
 
@@ -634,7 +634,7 @@ namespace Lazy.Vinke.Json
                 if (jsonReaderOptions.CaseSensitive == true && token != "null")
                 {
                     jsonReaderResult.Success = false;
-                    jsonReaderResult.ErrorList.Add(String.Format(Properties.Resources.LazyJsonReaderUnexpectedToken, line, "null", token));
+                    jsonReaderResult.ErrorList.Add(String.Format(Properties.LazyResourcesJson.LazyJsonReaderUnexpectedToken, line, "null", token));
                     index = json.Length; // Exit
                 }
             }
@@ -645,7 +645,7 @@ namespace Lazy.Vinke.Json
                 if (jsonReaderOptions.CaseSensitive == true && token != "true")
                 {
                     jsonReaderResult.Success = false;
-                    jsonReaderResult.ErrorList.Add(String.Format(Properties.Resources.LazyJsonReaderUnexpectedToken, line, "true", token));
+                    jsonReaderResult.ErrorList.Add(String.Format(Properties.LazyResourcesJson.LazyJsonReaderUnexpectedToken, line, "true", token));
                     index = json.Length; // Exit
                 }
             }
@@ -656,7 +656,7 @@ namespace Lazy.Vinke.Json
                 if (jsonReaderOptions.CaseSensitive == true && token != "false")
                 {
                     jsonReaderResult.Success = false;
-                    jsonReaderResult.ErrorList.Add(String.Format(Properties.Resources.LazyJsonReaderUnexpectedToken, line, "false", token));
+                    jsonReaderResult.ErrorList.Add(String.Format(Properties.LazyResourcesJson.LazyJsonReaderUnexpectedToken, line, "false", token));
                     index = json.Length; // Exit
                 }
             }
@@ -665,7 +665,7 @@ namespace Lazy.Vinke.Json
                 jsonToken = new LazyJsonNull();
 
                 jsonReaderResult.Success = false;
-                jsonReaderResult.ErrorList.Add(String.Format(Properties.Resources.LazyJsonReaderUnexpectedToken, line, "null|true|false", token));
+                jsonReaderResult.ErrorList.Add(String.Format(Properties.LazyResourcesJson.LazyJsonReaderUnexpectedToken, line, "null|true|false", token));
                 index = json.Length; // Exit
             }
         }
@@ -698,7 +698,7 @@ namespace Lazy.Vinke.Json
                 jsonToken = new LazyJsonNull();
 
                 jsonReaderResult.Success = false;
-                jsonReaderResult.ErrorList.Add(String.Format(Properties.Resources.LazyJsonReaderUnexpectedToken, line, "0-9", index < json.Length ? json[index] : String.Empty));
+                jsonReaderResult.ErrorList.Add(String.Format(Properties.LazyResourcesJson.LazyJsonReaderUnexpectedToken, line, "0-9", index < json.Length ? json[index] : String.Empty));
                 index = json.Length; // Exit
             }
         }
@@ -738,7 +738,7 @@ namespace Lazy.Vinke.Json
                     jsonToken = new LazyJsonNull();
 
                     jsonReaderResult.Success = false;
-                    jsonReaderResult.ErrorList.Add(String.Format(Properties.Resources.LazyJsonReaderUnexpectedToken, line, "0-9", index < json.Length ? json[index] : String.Empty));
+                    jsonReaderResult.ErrorList.Add(String.Format(Properties.LazyResourcesJson.LazyJsonReaderUnexpectedToken, line, "0-9", index < json.Length ? json[index] : String.Empty));
                     index = json.Length; // Exit
                 }
             }

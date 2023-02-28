@@ -230,16 +230,16 @@ namespace Lazy.Vinke.Database
             #region Validations
 
             if (String.IsNullOrEmpty(tableName) == true)
-                throw new Exception(Properties.Resources.LazyDatabaseExceptionTableNameNullOrEmpty);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionTableNameNullOrEmpty);
 
             if (dataRow == null || dataRow.Table.Columns.Count == 0)
-                throw new Exception(Properties.Resources.LazyDatabaseExceptionDataRowNullOrColumnZeroLenght);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionDataRowNullOrColumnZeroLenght);
 
             if (dataRow.Table.PrimaryKey == null || dataRow.Table.PrimaryKey.Length == 0)
-                throw new Exception(Properties.Resources.LazyDatabaseExceptionDataTablePrimaryKeyNullOrZeroLenght);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionDataTablePrimaryKeyNullOrZeroLenght);
 
             if (returnFields == null || returnFields.Length == 0)
-                throw new Exception(Properties.Resources.LazyDatabaseExceptionReturnFieldsNullOrZeroLenght);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionReturnFieldsNullOrZeroLenght);
 
             #endregion Validations
 
@@ -334,19 +334,19 @@ namespace Lazy.Vinke.Database
             #region Validations
 
             if (String.IsNullOrEmpty(tableName) == true)
-                throw new Exception(Properties.Resources.LazyDatabaseExceptionTableNameNullOrEmpty);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionTableNameNullOrEmpty);
 
             if (dataTable == null || dataTable.Rows.Count == 0)
-                throw new Exception(Properties.Resources.LazyDatabaseExceptionDataTableNullOrRowsZeroLenght);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionDataTableNullOrRowsZeroLenght);
 
             if (dataTable.Columns.Count == 0)
-                throw new Exception(Properties.Resources.LazyDatabaseExceptionDataTableRowsColumnsZeroLenght);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionDataTableRowsColumnsZeroLenght);
 
             if (dataTable.PrimaryKey == null || dataTable.PrimaryKey.Length == 0)
-                throw new Exception(Properties.Resources.LazyDatabaseExceptionDataTablePrimaryKeyNullOrZeroLenght);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionDataTablePrimaryKeyNullOrZeroLenght);
 
             if (returnFields == null || returnFields.Length == 0)
-                throw new Exception(Properties.Resources.LazyDatabaseExceptionReturnFieldsNullOrZeroLenght);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionReturnFieldsNullOrZeroLenght);
 
             #endregion Validations
 
@@ -422,10 +422,10 @@ namespace Lazy.Vinke.Database
             #region Validations
 
             if (String.IsNullOrEmpty(tableName) == true)
-                throw new Exception(Properties.Resources.LazyDatabaseExceptionTableNameNullOrEmpty);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionTableNameNullOrEmpty);
 
             if (dataRow == null || dataRow.Table.Columns.Count == 0)
-                throw new Exception(Properties.Resources.LazyDatabaseExceptionDataRowNullOrColumnZeroLenght);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionDataRowNullOrColumnZeroLenght);
 
             #endregion Validations
 
@@ -481,13 +481,13 @@ namespace Lazy.Vinke.Database
             #region Validations
 
             if (String.IsNullOrEmpty(tableName) == true)
-                throw new Exception(Properties.Resources.LazyDatabaseExceptionTableNameNullOrEmpty);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionTableNameNullOrEmpty);
 
             if (dataTable == null || dataTable.Rows.Count == 0)
-                throw new Exception(Properties.Resources.LazyDatabaseExceptionDataTableNullOrRowsZeroLenght);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionDataTableNullOrRowsZeroLenght);
 
             if (dataTable.Columns.Count == 0)
-                throw new Exception(Properties.Resources.LazyDatabaseExceptionDataTableRowsColumnsZeroLenght);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionDataTableRowsColumnsZeroLenght);
 
             #endregion Validations
 
@@ -550,13 +550,13 @@ namespace Lazy.Vinke.Database
             #region Validations
 
             if (String.IsNullOrEmpty(tableName) == true)
-                throw new Exception(Properties.Resources.LazyDatabaseExceptionTableNameNullOrEmpty);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionTableNameNullOrEmpty);
 
             if (dataRow == null || dataRow.Table.Columns.Count == 0)
-                throw new Exception(Properties.Resources.LazyDatabaseExceptionDataRowNullOrColumnZeroLenght);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionDataRowNullOrColumnZeroLenght);
 
             if (dataRow.Table.PrimaryKey == null || dataRow.Table.PrimaryKey.Length == 0)
-                throw new Exception(Properties.Resources.LazyDatabaseExceptionDataTablePrimaryKeyNullOrZeroLenght);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionDataTablePrimaryKeyNullOrZeroLenght);
 
             #endregion Validations
 
@@ -616,25 +616,25 @@ namespace Lazy.Vinke.Database
             #region Validations
 
             if (String.IsNullOrEmpty(tableName) == true)
-                throw new Exception(Properties.Resources.LazyDatabaseExceptionTableNameNullOrEmpty);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionTableNameNullOrEmpty);
 
             if (nonKeyFields == null || nonKeyFields.Length == 0)
-                throw new Exception(Properties.Resources.LazyDatabaseExceptionNonKeyFieldsNullOrZeroLenght);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionNonKeyFieldsNullOrZeroLenght);
 
             if (nonKeyValues == null || nonKeyValues.Length == 0)
-                throw new Exception(Properties.Resources.LazyDatabaseExceptionNonKeyValuesNullOrZeroLenght);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionNonKeyValuesNullOrZeroLenght);
 
             if (nonKeyFields.Length != nonKeyValues.Length)
-                throw new Exception(Properties.Resources.LazyDatabaseExceptionNonKeyFieldsAndNonKeyValuesNotMatch);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionNonKeyFieldsAndNonKeyValuesNotMatch);
 
             if (keyFields == null || keyFields.Length == 0)
-                throw new Exception(Properties.Resources.LazyDatabaseExceptionKeyFieldsNullOrZeroLenght);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionKeyFieldsNullOrZeroLenght);
 
             if (keyValues == null || keyValues.Length == 0)
-                throw new Exception(Properties.Resources.LazyDatabaseExceptionKeyValuesNullOrZeroLenght);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionKeyValuesNullOrZeroLenght);
 
             if (keyFields.Length != keyValues.Length)
-                throw new Exception(Properties.Resources.LazyDatabaseExceptionKeyFieldsAndKeyValuesNotMatch);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionKeyFieldsAndKeyValuesNotMatch);
 
             #endregion Validations
 
@@ -681,16 +681,16 @@ namespace Lazy.Vinke.Database
             #region Validations
 
             if (String.IsNullOrEmpty(tableName) == true)
-                throw new Exception(Properties.Resources.LazyDatabaseExceptionTableNameNullOrEmpty);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionTableNameNullOrEmpty);
 
             if (dataTable == null || dataTable.Rows.Count == 0)
-                throw new Exception(Properties.Resources.LazyDatabaseExceptionDataTableNullOrRowsZeroLenght);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionDataTableNullOrRowsZeroLenght);
 
             if (dataTable.Columns.Count == 0)
-                throw new Exception(Properties.Resources.LazyDatabaseExceptionDataTableRowsColumnsZeroLenght);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionDataTableRowsColumnsZeroLenght);
 
             if (dataTable.PrimaryKey == null || dataTable.PrimaryKey.Length == 0)
-                throw new Exception(Properties.Resources.LazyDatabaseExceptionDataTablePrimaryKeyNullOrZeroLenght);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionDataTablePrimaryKeyNullOrZeroLenght);
 
             #endregion Validations
 
@@ -772,22 +772,22 @@ namespace Lazy.Vinke.Database
             #region Validations
 
             if (String.IsNullOrEmpty(tableName) == true)
-                throw new Exception(Properties.Resources.LazyDatabaseExceptionTableNameNullOrEmpty);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionTableNameNullOrEmpty);
 
             if (nonKeyFields == null || nonKeyFields.Length == 0)
-                throw new Exception(Properties.Resources.LazyDatabaseExceptionNonKeyFieldsNullOrZeroLenght);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionNonKeyFieldsNullOrZeroLenght);
 
             if (nonKeyValuesList == null || nonKeyValuesList.Count == 0)
-                throw new Exception(Properties.Resources.LazyDatabaseExceptionNonKeyValuesListNullOrZeroLenght);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionNonKeyValuesListNullOrZeroLenght);
 
             if (keyFields == null || keyFields.Length == 0)
-                throw new Exception(Properties.Resources.LazyDatabaseExceptionKeyFieldsNullOrZeroLenght);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionKeyFieldsNullOrZeroLenght);
 
             if (keyValuesList == null || keyValuesList.Count == 0)
-                throw new Exception(Properties.Resources.LazyDatabaseExceptionKeyValuesListNullOrZeroLenght);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionKeyValuesListNullOrZeroLenght);
 
             if (nonKeyValuesList.Count != keyValuesList.Count)
-                throw new Exception(Properties.Resources.LazyDatabaseExceptionNonKeyValuesListAndKeyValueListNotMatch);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionNonKeyValuesListAndKeyValueListNotMatch);
 
             #endregion Validations
 
@@ -861,13 +861,13 @@ namespace Lazy.Vinke.Database
             #region Validations
 
             if (String.IsNullOrEmpty(tableName) == true)
-                throw new Exception(Properties.Resources.LazyDatabaseExceptionTableNameNullOrEmpty);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionTableNameNullOrEmpty);
 
             if (dataRow == null || dataRow.Table.Columns.Count == 0)
-                throw new Exception(Properties.Resources.LazyDatabaseExceptionDataRowNullOrColumnZeroLenght);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionDataRowNullOrColumnZeroLenght);
 
             if (dataRow.Table.PrimaryKey == null || dataRow.Table.PrimaryKey.Length == 0)
-                throw new Exception(Properties.Resources.LazyDatabaseExceptionDataTablePrimaryKeyNullOrZeroLenght);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionDataTablePrimaryKeyNullOrZeroLenght);
 
             #endregion Validations
 
@@ -937,16 +937,16 @@ namespace Lazy.Vinke.Database
             #region Validations
 
             if (String.IsNullOrEmpty(tableName) == true)
-                throw new Exception(Properties.Resources.LazyDatabaseExceptionTableNameNullOrEmpty);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionTableNameNullOrEmpty);
 
             if (dataTable == null || dataTable.Rows.Count == 0)
-                throw new Exception(Properties.Resources.LazyDatabaseExceptionDataTableNullOrRowsZeroLenght);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionDataTableNullOrRowsZeroLenght);
 
             if (dataTable.Columns.Count == 0)
-                throw new Exception(Properties.Resources.LazyDatabaseExceptionDataTableRowsColumnsZeroLenght);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionDataTableRowsColumnsZeroLenght);
 
             if (dataTable.PrimaryKey == null || dataTable.PrimaryKey.Length == 0)
-                throw new Exception(Properties.Resources.LazyDatabaseExceptionDataTablePrimaryKeyNullOrZeroLenght);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionDataTablePrimaryKeyNullOrZeroLenght);
 
             #endregion Validations
 
@@ -1028,13 +1028,13 @@ namespace Lazy.Vinke.Database
             #region Validations
 
             if (String.IsNullOrEmpty(tableName) == true)
-                throw new Exception(Properties.Resources.LazyDatabaseExceptionTableNameNullOrEmpty);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionTableNameNullOrEmpty);
 
             if (dataRow == null || dataRow.Table.Columns.Count == 0)
-                throw new Exception(Properties.Resources.LazyDatabaseExceptionDataRowNullOrColumnZeroLenght);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionDataRowNullOrColumnZeroLenght);
 
             if (dataRow.Table.PrimaryKey == null || dataRow.Table.PrimaryKey.Length == 0)
-                throw new Exception(Properties.Resources.LazyDatabaseExceptionDataTablePrimaryKeyNullOrZeroLenght);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionDataTablePrimaryKeyNullOrZeroLenght);
 
             #endregion Validations
 
@@ -1084,25 +1084,25 @@ namespace Lazy.Vinke.Database
             #region Validations
 
             if (String.IsNullOrEmpty(tableName) == true)
-                throw new Exception(Properties.Resources.LazyDatabaseExceptionTableNameNullOrEmpty);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionTableNameNullOrEmpty);
 
             if (fields == null || fields.Length == 0)
-                throw new Exception(Properties.Resources.LazyDatabaseExceptionFieldsNullOrZeroLenght);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionFieldsNullOrZeroLenght);
 
             if (values == null || values.Length == 0)
-                throw new Exception(Properties.Resources.LazyDatabaseExceptionValuesNullOrZeroLenght);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionValuesNullOrZeroLenght);
 
             if (fields.Length != values.Length)
-                throw new Exception(Properties.Resources.LazyDatabaseExceptionFieldsAndValuesNotMatch);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionFieldsAndValuesNotMatch);
 
             if (keyFields == null || keyFields.Length == 0)
-                throw new Exception(Properties.Resources.LazyDatabaseExceptionKeyFieldsNullOrZeroLenght);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionKeyFieldsNullOrZeroLenght);
 
             if (keyValues == null || keyValues.Length == 0)
-                throw new Exception(Properties.Resources.LazyDatabaseExceptionKeyValuesNullOrZeroLenght);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionKeyValuesNullOrZeroLenght);
 
             if (keyFields.Length != keyValues.Length)
-                throw new Exception(Properties.Resources.LazyDatabaseExceptionKeyFieldsAndKeyValuesNotMatch);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionKeyFieldsAndKeyValuesNotMatch);
 
             #endregion Validations
 
@@ -1141,16 +1141,16 @@ namespace Lazy.Vinke.Database
             #region Validations
 
             if (String.IsNullOrEmpty(tableName) == true)
-                throw new Exception(Properties.Resources.LazyDatabaseExceptionTableNameNullOrEmpty);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionTableNameNullOrEmpty);
 
             if (dataTable == null || dataTable.Rows.Count == 0)
-                throw new Exception(Properties.Resources.LazyDatabaseExceptionDataTableNullOrRowsZeroLenght);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionDataTableNullOrRowsZeroLenght);
 
             if (dataTable.Columns.Count == 0)
-                throw new Exception(Properties.Resources.LazyDatabaseExceptionDataTableRowsColumnsZeroLenght);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionDataTableRowsColumnsZeroLenght);
 
             if (dataTable.PrimaryKey == null || dataTable.PrimaryKey.Length == 0)
-                throw new Exception(Properties.Resources.LazyDatabaseExceptionDataTablePrimaryKeyNullOrZeroLenght);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionDataTablePrimaryKeyNullOrZeroLenght);
 
             #endregion Validations
 
@@ -1212,22 +1212,22 @@ namespace Lazy.Vinke.Database
             #region Validations
 
             if (String.IsNullOrEmpty(tableName) == true)
-                throw new Exception(Properties.Resources.LazyDatabaseExceptionTableNameNullOrEmpty);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionTableNameNullOrEmpty);
 
             if (fields == null || fields.Length == 0)
-                throw new Exception(Properties.Resources.LazyDatabaseExceptionFieldsNullOrZeroLenght);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionFieldsNullOrZeroLenght);
 
             if (valuesList == null || valuesList.Count == 0)
-                throw new Exception(Properties.Resources.LazyDatabaseExceptionValuesListNullOrZeroLenght);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionValuesListNullOrZeroLenght);
 
             if (keyFields == null || keyFields.Length == 0)
-                throw new Exception(Properties.Resources.LazyDatabaseExceptionKeyFieldsNullOrZeroLenght);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionKeyFieldsNullOrZeroLenght);
 
             if (keyValuesList == null || keyValuesList.Count == 0)
-                throw new Exception(Properties.Resources.LazyDatabaseExceptionKeyValuesListNullOrZeroLenght);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionKeyValuesListNullOrZeroLenght);
 
             if (valuesList.Count != keyValuesList.Count)
-                throw new Exception(Properties.Resources.LazyDatabaseExceptionValuesListAndKeyValueListNotMatch);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionValuesListAndKeyValueListNotMatch);
 
             #endregion Validations
 
@@ -1292,13 +1292,13 @@ namespace Lazy.Vinke.Database
             #region Validations
 
             if (String.IsNullOrEmpty(tableName) == true)
-                throw new Exception(Properties.Resources.LazyDatabaseExceptionTableNameNullOrEmpty);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionTableNameNullOrEmpty);
 
             if (dataRow == null || dataRow.Table.Columns.Count == 0)
-                throw new Exception(Properties.Resources.LazyDatabaseExceptionDataRowNullOrColumnZeroLenght);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionDataRowNullOrColumnZeroLenght);
 
             if (dataRow.Table.PrimaryKey == null || dataRow.Table.PrimaryKey.Length == 0)
-                throw new Exception(Properties.Resources.LazyDatabaseExceptionDataTablePrimaryKeyNullOrZeroLenght);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionDataTablePrimaryKeyNullOrZeroLenght);
 
             #endregion Validations
 
@@ -1354,16 +1354,16 @@ namespace Lazy.Vinke.Database
             #region Validations
 
             if (String.IsNullOrEmpty(tableName) == true)
-                throw new Exception(Properties.Resources.LazyDatabaseExceptionTableNameNullOrEmpty);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionTableNameNullOrEmpty);
 
             if (dataTable == null || dataTable.Rows.Count == 0)
-                throw new Exception(Properties.Resources.LazyDatabaseExceptionDataTableNullOrRowsZeroLenght);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionDataTableNullOrRowsZeroLenght);
 
             if (dataTable.Columns.Count == 0)
-                throw new Exception(Properties.Resources.LazyDatabaseExceptionDataTableRowsColumnsZeroLenght);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionDataTableRowsColumnsZeroLenght);
 
             if (dataTable.PrimaryKey == null || dataTable.PrimaryKey.Length == 0)
-                throw new Exception(Properties.Resources.LazyDatabaseExceptionDataTablePrimaryKeyNullOrZeroLenght);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionDataTablePrimaryKeyNullOrZeroLenght);
 
             #endregion Validations
 
@@ -1430,22 +1430,22 @@ namespace Lazy.Vinke.Database
             #region Validations
 
             if (String.IsNullOrEmpty(tableName) == true)
-                throw new Exception(Properties.Resources.LazyDatabaseExceptionTableNameNullOrEmpty);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionTableNameNullOrEmpty);
 
             if (keyFields == null || keyFields.Length == 0)
-                throw new Exception(Properties.Resources.LazyDatabaseExceptionKeyFieldsNullOrZeroLenght);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionKeyFieldsNullOrZeroLenght);
 
             if (keyValues == null || keyValues.Length == 0)
-                throw new Exception(Properties.Resources.LazyDatabaseExceptionKeyValuesNullOrZeroLenght);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionKeyValuesNullOrZeroLenght);
 
             if (keyFields.Length != keyValues.Length)
-                throw new Exception(Properties.Resources.LazyDatabaseExceptionKeyFieldsAndKeyValuesNotMatch);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionKeyFieldsAndKeyValuesNotMatch);
 
             if (String.IsNullOrEmpty(incrementField) == true)
-                throw new Exception(Properties.Resources.LazyDatabaseExceptionIncrementFieldNullOrEmpty);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionIncrementFieldNullOrEmpty);
 
             if (range < 1)
-                throw new Exception(Properties.Resources.LazyDatabaseExceptionIncrementRangeLowerThanOne);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionIncrementRangeLowerThanOne);
 
             #endregion Validations
 

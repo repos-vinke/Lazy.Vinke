@@ -54,10 +54,10 @@ namespace Lazy.Vinke.Database.MySql
             #region Validations
 
             if (String.IsNullOrEmpty(this.ConnectionString) == true)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionConnectionStringNullOrEmpty);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionConnectionStringNullOrEmpty);
 
             if (this.mySqlConnection != null && this.mySqlConnection.State == ConnectionState.Open)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionConnectionAlreadyOpen);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionConnectionAlreadyOpen);
 
             #endregion Validations
 
@@ -81,7 +81,7 @@ namespace Lazy.Vinke.Database.MySql
             #region Validations
 
             if (this.mySqlConnection == null || this.mySqlConnection.State == ConnectionState.Closed)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionConnectionAlreadyClosed);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionConnectionAlreadyClosed);
 
             #endregion Validations
 
@@ -117,10 +117,10 @@ namespace Lazy.Vinke.Database.MySql
             #region Validations
 
             if (this.mySqlConnection == null || this.mySqlConnection.State == ConnectionState.Closed)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionConnectionNotOpen);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionConnectionNotOpen);
 
             if (this.mySqlTransaction != null)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionTransactionAlreadyStarted);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionTransactionAlreadyStarted);
 
             #endregion Validations
 
@@ -135,10 +135,10 @@ namespace Lazy.Vinke.Database.MySql
             #region Validations
 
             if (this.mySqlConnection == null || this.mySqlConnection.State == ConnectionState.Closed)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionConnectionNotOpen);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionConnectionNotOpen);
 
             if (this.mySqlTransaction == null)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionTransactionNotInitialized);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionTransactionNotInitialized);
 
             #endregion Validations
 
@@ -154,10 +154,10 @@ namespace Lazy.Vinke.Database.MySql
             #region Validations
 
             if (this.mySqlConnection == null || this.mySqlConnection.State == ConnectionState.Closed)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionConnectionNotOpen);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionConnectionNotOpen);
 
             if (this.mySqlTransaction == null)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionTransactionNotInitialized);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionTransactionNotInitialized);
 
             #endregion Validations
 
@@ -177,19 +177,19 @@ namespace Lazy.Vinke.Database.MySql
             #region Validations
 
             if (this.mySqlConnection == null || this.mySqlConnection.State == ConnectionState.Closed)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionConnectionNotOpen);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionConnectionNotOpen);
 
             if (String.IsNullOrEmpty(sql) == true)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionSqlNullOrEmpty);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionSqlNullOrEmpty);
 
             if ((values != null && values.Length >= 0) && parameters == null)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionValuesAndParametersNotMatch);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionValuesAndParametersNotMatch);
 
             if ((parameters != null && parameters.Length >= 0) && values == null)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionValuesAndParametersNotMatch);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionValuesAndParametersNotMatch);
 
             if (values != null && parameters != null && (values.Length != parameters.Length))
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionValuesAndParametersNotMatch);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionValuesAndParametersNotMatch);
 
             #endregion Validations
 
@@ -228,19 +228,19 @@ namespace Lazy.Vinke.Database.MySql
             #region Validations
 
             if (this.mySqlConnection == null || this.mySqlConnection.State == ConnectionState.Closed)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionConnectionNotOpen);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionConnectionNotOpen);
 
             if (String.IsNullOrEmpty(sql) == true)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionSqlNullOrEmpty);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionSqlNullOrEmpty);
 
             if ((values != null && values.Length >= 0) && parameters == null)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionValuesAndParametersNotMatch);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionValuesAndParametersNotMatch);
 
             if ((parameters != null && parameters.Length >= 0) && values == null)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionValuesAndParametersNotMatch);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionValuesAndParametersNotMatch);
 
             if (values != null && parameters != null && (values.Length != parameters.Length))
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionValuesAndParametersNotMatch);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionValuesAndParametersNotMatch);
 
             #endregion Validations
 
@@ -286,19 +286,19 @@ namespace Lazy.Vinke.Database.MySql
             #region Validations
 
             if (this.mySqlConnection == null || this.mySqlConnection.State == ConnectionState.Closed)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionConnectionNotOpen);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionConnectionNotOpen);
 
             if (String.IsNullOrEmpty(sql) == true)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionSqlNullOrEmpty);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionSqlNullOrEmpty);
 
             if ((values != null && values.Length >= 0) && parameters == null)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionValuesAndParametersNotMatch);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionValuesAndParametersNotMatch);
 
             if ((parameters != null && parameters.Length >= 0) && values == null)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionValuesAndParametersNotMatch);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionValuesAndParametersNotMatch);
 
             if (values != null && parameters != null && (values.Length != parameters.Length))
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionValuesAndParametersNotMatch);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionValuesAndParametersNotMatch);
 
             #endregion Validations
 
@@ -345,22 +345,22 @@ namespace Lazy.Vinke.Database.MySql
             #region Validations
 
             if (this.mySqlConnection == null || this.mySqlConnection.State == ConnectionState.Closed)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionConnectionNotOpen);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionConnectionNotOpen);
 
             if (String.IsNullOrEmpty(sql) == true)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionSqlNullOrEmpty);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionSqlNullOrEmpty);
 
             if (String.IsNullOrEmpty(tableName) == true)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionTableNameNullOrEmpty);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionTableNameNullOrEmpty);
 
             if ((values != null && values.Length >= 0) && parameters == null)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionValuesAndParametersNotMatch);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionValuesAndParametersNotMatch);
 
             if ((parameters != null && parameters.Length >= 0) && values == null)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionValuesAndParametersNotMatch);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionValuesAndParametersNotMatch);
 
             if (values != null && parameters != null && (values.Length != parameters.Length))
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionValuesAndParametersNotMatch);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionValuesAndParametersNotMatch);
 
             #endregion Validations
 
@@ -407,22 +407,22 @@ namespace Lazy.Vinke.Database.MySql
             #region Validations
 
             if (this.mySqlConnection == null || this.mySqlConnection.State == ConnectionState.Closed)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionConnectionNotOpen);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionConnectionNotOpen);
 
             if (String.IsNullOrEmpty(sql) == true)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionSqlNullOrEmpty);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionSqlNullOrEmpty);
 
             if (String.IsNullOrEmpty(tableName) == true)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionTableNameNullOrEmpty);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionTableNameNullOrEmpty);
 
             if ((values != null && values.Length >= 0) && parameters == null)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionValuesAndParametersNotMatch);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionValuesAndParametersNotMatch);
 
             if ((parameters != null && parameters.Length >= 0) && values == null)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionValuesAndParametersNotMatch);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionValuesAndParametersNotMatch);
 
             if (values != null && parameters != null && (values.Length != parameters.Length))
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionValuesAndParametersNotMatch);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionValuesAndParametersNotMatch);
 
             #endregion Validations
 
@@ -469,19 +469,19 @@ namespace Lazy.Vinke.Database.MySql
             #region Validations
 
             if (this.mySqlConnection == null || this.mySqlConnection.State == ConnectionState.Closed)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionConnectionNotOpen);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionConnectionNotOpen);
 
             if (String.IsNullOrEmpty(procedureName) == true)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionProcedureNameNullOrEmpty);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionProcedureNameNullOrEmpty);
 
             if ((values != null && values.Length >= 0) && parameters == null)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionValuesAndParametersNotMatch);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionValuesAndParametersNotMatch);
 
             if ((parameters != null && parameters.Length >= 0) && values == null)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionValuesAndParametersNotMatch);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionValuesAndParametersNotMatch);
 
             if (values != null && parameters != null && (values.Length != parameters.Length))
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionValuesAndParametersNotMatch);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionValuesAndParametersNotMatch);
 
             #endregion Validations
 
@@ -521,7 +521,7 @@ namespace Lazy.Vinke.Database.MySql
         public override DataTable Select(String tableName, DataRow dataRow, DataRowState dataRowState, String[] returnFields)
         {
             if (this.mySqlConnection == null || this.mySqlConnection.State == ConnectionState.Closed)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionConnectionNotOpen);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionConnectionNotOpen);
 
             return base.Select(tableName, dataRow, dataRowState, returnFields);
         }
@@ -539,22 +539,22 @@ namespace Lazy.Vinke.Database.MySql
             #region Validations
 
             if (this.mySqlConnection == null || this.mySqlConnection.State == ConnectionState.Closed)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionConnectionNotOpen);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionConnectionNotOpen);
 
             if (String.IsNullOrEmpty(tableName) == true)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionTableNameNullOrEmpty);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionTableNameNullOrEmpty);
 
             if (keyFields == null || keyFields.Length == 0)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionKeyFieldsNullOrZeroLenght);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionKeyFieldsNullOrZeroLenght);
 
             if (keyValues == null || keyValues.Length == 0)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionKeyValuesNullOrZeroLenght);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionKeyValuesNullOrZeroLenght);
 
             if (keyFields.Length != keyValues.Length)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionKeyFieldsAndKeyValuesNotMatch);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionKeyFieldsAndKeyValuesNotMatch);
 
             if (returnFields == null || returnFields.Length == 0)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionReturnFieldsNullOrZeroLenght);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionReturnFieldsNullOrZeroLenght);
 
             #endregion Validations
 
@@ -604,7 +604,7 @@ namespace Lazy.Vinke.Database.MySql
         public override DataTable SelectAll(String tableName, DataTable dataTable, DataRowState dataRowState, String[] returnFields)
         {
             if (this.mySqlConnection == null || this.mySqlConnection.State == ConnectionState.Closed)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionConnectionNotOpen);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionConnectionNotOpen);
 
             return base.SelectAll(tableName, dataTable, dataRowState, returnFields);
         }
@@ -622,19 +622,19 @@ namespace Lazy.Vinke.Database.MySql
             #region Validations
 
             if (this.mySqlConnection == null || this.mySqlConnection.State == ConnectionState.Closed)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionConnectionNotOpen);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionConnectionNotOpen);
 
             if (String.IsNullOrEmpty(tableName) == true)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionTableNameNullOrEmpty);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionTableNameNullOrEmpty);
 
             if (keyFields == null || keyFields.Length == 0)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionKeyFieldsNullOrZeroLenght);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionKeyFieldsNullOrZeroLenght);
 
             if (keyValuesList == null || keyValuesList.Count == 0)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionKeyValuesListNullOrZeroLenght);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionKeyValuesListNullOrZeroLenght);
 
             if (returnFields == null || returnFields.Length == 0)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionReturnFieldsNullOrZeroLenght);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionReturnFieldsNullOrZeroLenght);
 
             #endregion Validations
 
@@ -657,7 +657,7 @@ namespace Lazy.Vinke.Database.MySql
                 #region Validations
 
                 if (keyFields.Length != keyValuesList[listIndex].Length)
-                    throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionKeyFieldsAndKeyValuesNotMatch);
+                    throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionKeyFieldsAndKeyValuesNotMatch);
 
                 #endregion Validations
 
@@ -692,7 +692,7 @@ namespace Lazy.Vinke.Database.MySql
         public override Int32 Insert(String tableName, DataRow dataRow, DataRowState dataRowState)
         {
             if (this.mySqlConnection == null || this.mySqlConnection.State == ConnectionState.Closed)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionConnectionNotOpen);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionConnectionNotOpen);
 
             return base.Insert(tableName, dataRow, dataRowState);
         }
@@ -709,19 +709,19 @@ namespace Lazy.Vinke.Database.MySql
             #region Validations
 
             if (this.mySqlConnection == null || this.mySqlConnection.State == ConnectionState.Closed)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionConnectionNotOpen);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionConnectionNotOpen);
 
             if (String.IsNullOrEmpty(tableName) == true)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionTableNameNullOrEmpty);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionTableNameNullOrEmpty);
 
             if (fields == null || fields.Length == 0)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionFieldsNullOrZeroLenght);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionFieldsNullOrZeroLenght);
 
             if (values == null || values.Length == 0)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionValuesNullOrZeroLenght);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionValuesNullOrZeroLenght);
 
             if (fields.Length != values.Length)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionFieldsAndValuesNotMatch);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionFieldsAndValuesNotMatch);
 
             #endregion Validations
 
@@ -765,7 +765,7 @@ namespace Lazy.Vinke.Database.MySql
         public override Int32 InsertAll(String tableName, DataTable dataTable, DataRowState dataRowState)
         {
             if (this.mySqlConnection == null || this.mySqlConnection.State == ConnectionState.Closed)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionConnectionNotOpen);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionConnectionNotOpen);
 
             return base.InsertAll(tableName, dataTable, dataRowState);
         }
@@ -782,16 +782,16 @@ namespace Lazy.Vinke.Database.MySql
             #region Validations
 
             if (this.mySqlConnection == null || this.mySqlConnection.State == ConnectionState.Closed)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionConnectionNotOpen);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionConnectionNotOpen);
 
             if (String.IsNullOrEmpty(tableName) == true)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionTableNameNullOrEmpty);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionTableNameNullOrEmpty);
 
             if (fields == null || fields.Length == 0)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionFieldsNullOrZeroLenght);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionFieldsNullOrZeroLenght);
 
             if (valuesList == null || valuesList.Count == 0)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionValuesListNullOrZeroLenght);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionValuesListNullOrZeroLenght);
 
             #endregion Validations
 
@@ -809,7 +809,7 @@ namespace Lazy.Vinke.Database.MySql
                 #region Validations
 
                 if (fields.Length != values.Length)
-                    throw new Exception(Properties.Resources.LazyDatabaseExceptionFieldsAndValuesNotMatch);
+                    throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionFieldsAndValuesNotMatch);
 
                 #endregion Validations
 
@@ -840,7 +840,7 @@ namespace Lazy.Vinke.Database.MySql
         public override Int32 Indate(String tableName, DataRow dataRow, DataRowState dataRowState)
         {
             if (this.mySqlConnection == null || this.mySqlConnection.State == ConnectionState.Closed)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionConnectionNotOpen);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionConnectionNotOpen);
 
             return base.Indate(tableName, dataRow, dataRowState);
         }
@@ -857,7 +857,7 @@ namespace Lazy.Vinke.Database.MySql
         public override Int32 Indate(String tableName, String[] nonKeyFields, Object[] nonKeyValues, String[] keyFields, Object[] keyValues)
         {
             if (this.mySqlConnection == null || this.mySqlConnection.State == ConnectionState.Closed)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionConnectionNotOpen);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionConnectionNotOpen);
 
             return base.Indate(tableName, nonKeyFields, nonKeyValues, keyFields, keyValues);
         }
@@ -872,7 +872,7 @@ namespace Lazy.Vinke.Database.MySql
         public override Int32 IndateAll(String tableName, DataTable dataTable, DataRowState dataRowState)
         {
             if (this.mySqlConnection == null || this.mySqlConnection.State == ConnectionState.Closed)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionConnectionNotOpen);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionConnectionNotOpen);
 
             return base.IndateAll(tableName, dataTable, dataRowState);
         }
@@ -889,7 +889,7 @@ namespace Lazy.Vinke.Database.MySql
         public override Int32 IndateAll(String tableName, String[] nonKeyFields, List<Object[]> nonKeyValuesList, String[] keyFields, List<Object[]> keyValuesList)
         {
             if (this.mySqlConnection == null || this.mySqlConnection.State == ConnectionState.Closed)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionConnectionNotOpen);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionConnectionNotOpen);
 
             return base.IndateAll(tableName, nonKeyFields, nonKeyValuesList, keyFields, keyValuesList);
         }
@@ -904,7 +904,7 @@ namespace Lazy.Vinke.Database.MySql
         public override Int32 Update(String tableName, DataRow dataRow, DataRowState dataRowState)
         {
             if (this.mySqlConnection == null || this.mySqlConnection.State == ConnectionState.Closed)
-                throw new Exception(Properties.Resources.LazyDatabaseExceptionConnectionNotOpen);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionConnectionNotOpen);
 
             return base.Update(tableName, dataRow, dataRowState);
         }
@@ -923,28 +923,28 @@ namespace Lazy.Vinke.Database.MySql
             #region Validations
 
             if (this.mySqlConnection == null || this.mySqlConnection.State == ConnectionState.Closed)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionConnectionNotOpen);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionConnectionNotOpen);
 
             if (String.IsNullOrEmpty(tableName) == true)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionTableNameNullOrEmpty);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionTableNameNullOrEmpty);
 
             if (fields == null || fields.Length == 0)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionFieldsNullOrZeroLenght);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionFieldsNullOrZeroLenght);
 
             if (values == null || values.Length == 0)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionValuesNullOrZeroLenght);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionValuesNullOrZeroLenght);
 
             if (fields.Length != values.Length)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionFieldsAndValuesNotMatch);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionFieldsAndValuesNotMatch);
 
             if (keyFields == null || keyFields.Length == 0)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionKeyFieldsNullOrZeroLenght);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionKeyFieldsNullOrZeroLenght);
 
             if (keyValues == null || keyValues.Length == 0)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionKeyValuesNullOrZeroLenght);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionKeyValuesNullOrZeroLenght);
 
             if (keyFields.Length != keyValues.Length)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionKeyFieldsAndKeyValuesNotMatch);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionKeyFieldsAndKeyValuesNotMatch);
 
             #endregion Validations
 
@@ -998,7 +998,7 @@ namespace Lazy.Vinke.Database.MySql
         public override Int32 UpdateAll(String tableName, DataTable dataTable, DataRowState dataRowState)
         {
             if (this.mySqlConnection == null || this.mySqlConnection.State == ConnectionState.Closed)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionConnectionNotOpen);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionConnectionNotOpen);
 
             return base.UpdateAll(tableName, dataTable, dataRowState);
         }
@@ -1017,25 +1017,25 @@ namespace Lazy.Vinke.Database.MySql
             #region Validations
 
             if (this.mySqlConnection == null || this.mySqlConnection.State == ConnectionState.Closed)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionConnectionNotOpen);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionConnectionNotOpen);
 
             if (String.IsNullOrEmpty(tableName) == true)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionTableNameNullOrEmpty);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionTableNameNullOrEmpty);
 
             if (fields == null || fields.Length == 0)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionFieldsNullOrZeroLenght);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionFieldsNullOrZeroLenght);
 
             if (valuesList == null || valuesList.Count == 0)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionValuesListNullOrZeroLenght);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionValuesListNullOrZeroLenght);
 
             if (keyFields == null || keyFields.Length == 0)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionKeyFieldsNullOrZeroLenght);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionKeyFieldsNullOrZeroLenght);
 
             if (keyValuesList == null || keyValuesList.Count == 0)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionKeyValuesListNullOrZeroLenght);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionKeyValuesListNullOrZeroLenght);
 
             if (valuesList.Count != keyValuesList.Count)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionValuesListAndKeyValueListNotMatch);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionValuesListAndKeyValueListNotMatch);
 
             #endregion Validations
 
@@ -1050,10 +1050,10 @@ namespace Lazy.Vinke.Database.MySql
                 #region Validations
 
                 if (keyFields.Length != keyValuesList[listIndex].Length)
-                    throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionKeyFieldsAndKeyValuesNotMatch);
+                    throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionKeyFieldsAndKeyValuesNotMatch);
 
                 if (fields.Length != valuesList[listIndex].Length)
-                    throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionFieldsAndValuesNotMatch);
+                    throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionFieldsAndValuesNotMatch);
 
                 #endregion Validations
 
@@ -1097,7 +1097,7 @@ namespace Lazy.Vinke.Database.MySql
         public override Int32 Upsert(String tableName, DataRow dataRow, DataRowState dataRowState)
         {
             if (this.mySqlConnection == null || this.mySqlConnection.State == ConnectionState.Closed)
-                throw new Exception(Properties.Resources.LazyDatabaseExceptionConnectionNotOpen);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionConnectionNotOpen);
 
             return base.Upsert(tableName, dataRow, dataRowState);
         }
@@ -1114,7 +1114,7 @@ namespace Lazy.Vinke.Database.MySql
         public override Int32 Upsert(String tableName, String[] fields, Object[] values, String[] keyFields, Object[] keyValues)
         {
             if (this.mySqlConnection == null || this.mySqlConnection.State == ConnectionState.Closed)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionConnectionNotOpen);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionConnectionNotOpen);
 
             return base.Upsert(tableName, fields, values, keyFields, keyValues);
         }
@@ -1129,7 +1129,7 @@ namespace Lazy.Vinke.Database.MySql
         public override Int32 UpsertAll(String tableName, DataTable dataTable, DataRowState dataRowState)
         {
             if (this.mySqlConnection == null || this.mySqlConnection.State == ConnectionState.Closed)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionConnectionNotOpen);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionConnectionNotOpen);
 
             return base.UpsertAll(tableName, dataTable, dataRowState);
         }
@@ -1146,7 +1146,7 @@ namespace Lazy.Vinke.Database.MySql
         public override Int32 UpsertAll(String tableName, String[] fields, List<Object[]> valuesList, String[] keyFields, List<Object[]> keyValuesList)
         {
             if (this.mySqlConnection == null || this.mySqlConnection.State == ConnectionState.Closed)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionConnectionNotOpen);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionConnectionNotOpen);
 
             return base.UpsertAll(tableName, fields, valuesList, keyFields, keyValuesList);
         }
@@ -1161,7 +1161,7 @@ namespace Lazy.Vinke.Database.MySql
         public override Int32 Delete(String tableName, DataRow dataRow, DataRowState dataRowState)
         {
             if (this.mySqlConnection == null || this.mySqlConnection.State == ConnectionState.Closed)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionConnectionNotOpen);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionConnectionNotOpen);
 
             return base.Delete(tableName, dataRow, dataRowState);
         }
@@ -1178,19 +1178,19 @@ namespace Lazy.Vinke.Database.MySql
             #region Validations
 
             if (this.mySqlConnection == null || this.mySqlConnection.State == ConnectionState.Closed)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionConnectionNotOpen);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionConnectionNotOpen);
 
             if (String.IsNullOrEmpty(tableName) == true)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionTableNameNullOrEmpty);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionTableNameNullOrEmpty);
 
             if (keyFields == null || keyFields.Length == 0)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionKeyFieldsNullOrZeroLenght);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionKeyFieldsNullOrZeroLenght);
 
             if (keyValues == null || keyValues.Length == 0)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionKeyValuesNullOrZeroLenght);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionKeyValuesNullOrZeroLenght);
 
             if (keyFields.Length != keyValues.Length)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionKeyFieldsAndKeyValuesNotMatch);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionKeyFieldsAndKeyValuesNotMatch);
 
             #endregion Validations
 
@@ -1230,7 +1230,7 @@ namespace Lazy.Vinke.Database.MySql
         public override Int32 DeleteAll(String tableName, DataTable dataTable, DataRowState dataRowState)
         {
             if (this.mySqlConnection == null || this.mySqlConnection.State == ConnectionState.Closed)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionConnectionNotOpen);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionConnectionNotOpen);
 
             return base.DeleteAll(tableName, dataTable, dataRowState);
         }
@@ -1247,16 +1247,16 @@ namespace Lazy.Vinke.Database.MySql
             #region Validations
 
             if (this.mySqlConnection == null || this.mySqlConnection.State == ConnectionState.Closed)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionConnectionNotOpen);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionConnectionNotOpen);
 
             if (String.IsNullOrEmpty(tableName) == true)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionTableNameNullOrEmpty);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionTableNameNullOrEmpty);
 
             if (keyFields == null || keyFields.Length == 0)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionKeyFieldsNullOrZeroLenght);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionKeyFieldsNullOrZeroLenght);
 
             if (keyValuesList == null || keyValuesList.Count == 0)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionKeyValuesListNullOrZeroLenght);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionKeyValuesListNullOrZeroLenght);
 
             #endregion Validations
 
@@ -1270,7 +1270,7 @@ namespace Lazy.Vinke.Database.MySql
                 #region Validations
 
                 if (keyFields.Length != keyValuesList[listIndex].Length)
-                    throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionKeyFieldsAndKeyValuesNotMatch);
+                    throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionKeyFieldsAndKeyValuesNotMatch);
 
                 #endregion Validations
 
@@ -1307,7 +1307,7 @@ namespace Lazy.Vinke.Database.MySql
         public override Int32[] IncrementRange(String tableName, String[] keyFields, Object[] keyValues, String incrementField, Int32 range)
         {
             if (this.mySqlConnection == null || this.mySqlConnection.State == ConnectionState.Closed)
-                throw new Exception(Lazy.Vinke.Database.Properties.Resources.LazyDatabaseExceptionConnectionNotOpen);
+                throw new Exception(Properties.LazyResourcesDatabase.LazyDatabaseExceptionConnectionNotOpen);
 
             return base.IncrementRange(tableName, keyFields, keyValues, incrementField, range);
         }

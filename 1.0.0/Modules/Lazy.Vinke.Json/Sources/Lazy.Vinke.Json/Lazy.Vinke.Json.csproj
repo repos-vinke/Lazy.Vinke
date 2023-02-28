@@ -21,17 +21,17 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="Properties\Resources.Designer.cs">
+	  <Compile Update="Properties\LazyResourcesJson.Designer.cs">
 	    <DesignTime>True</DesignTime>
 	    <AutoGen>True</AutoGen>
-	    <DependentUpon>Resources.resx</DependentUpon>
+	    <DependentUpon>LazyResourcesJson.resx</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
-	  <EmbeddedResource Update="Properties\Resources.resx">
+	  <EmbeddedResource Update="Properties\LazyResourcesJson.resx">
 	    <Generator>PublicResXFileCodeGenerator</Generator>
-	    <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+	    <LastGenOutput>LazyResourcesJson.Designer.cs</LastGenOutput>
 	  </EmbeddedResource>
 	</ItemGroup>
 
