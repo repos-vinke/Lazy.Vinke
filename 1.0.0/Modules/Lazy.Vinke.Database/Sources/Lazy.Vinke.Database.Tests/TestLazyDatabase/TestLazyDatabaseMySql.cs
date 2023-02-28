@@ -24,8 +24,8 @@ namespace Lazy.Vinke.Database.Tests
             // Arrange
             String sqlCreate = @"create table QueryExecuteTest (Id integer, Name varchar(32))";
             String sqlInsert = @"insert into QueryExecuteTest (Id, Name) values (1, 'Lazy'),(2, 'Vinke')";
-            String sqlUpdate = @"update QueryExecuteTest set Name = 'Database' where Id = 2";
-            String sqlDelete = @"delete from QueryExecuteTest where Id = 1";
+            String sqlUpdate = @"update QueryExecuteTest set Name = 'Database' where Id = :Id";
+            String sqlDelete = @"delete from QueryExecuteTest where Id = :Id";
             String sqlDrop = @"drop table if exists QueryExecuteTest";
 
             // Act
@@ -35,8 +35,8 @@ namespace Lazy.Vinke.Database.Tests
             database.QueryExecute(sqlCreate, null);
 
             Int32 rowsInserted = database.QueryExecute(sqlInsert, null);
-            Int32 rowsUpdated = database.QueryExecute(sqlUpdate, null);
-            Int32 rowsDeleted = database.QueryExecute(sqlDelete, null);
+            Int32 rowsUpdated = database.QueryExecute(sqlUpdate, new Object[] { 2 });
+            Int32 rowsDeleted = database.QueryExecute(sqlDelete, new Object[] { 1 });
 
             database.QueryExecute(sqlDrop, null);
             database.CloseConnection();
