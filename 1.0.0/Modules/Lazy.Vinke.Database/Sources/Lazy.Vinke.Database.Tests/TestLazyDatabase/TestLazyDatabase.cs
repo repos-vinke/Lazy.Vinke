@@ -17,5 +17,7 @@ namespace Lazy.Vinke.Database.Tests
     public abstract class TestLazyDatabase
     {
         public abstract void TestQueryExecute();
+
+        public abstract void TestQueryValue();
     }
 }
