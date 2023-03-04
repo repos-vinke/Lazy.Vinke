@@ -14,4 +14,4 @@ Simple library for lazy developers
 			- Client				<- Runtime client side (Must be 'Client')
 			- Server				<- Runtime server side (Must be 'Server')
 		- Repos						<- Repository collection folder (Free for choice - Prefer 'Repos')
-			- Lazy.Vinke			<- Repository folder (Clone to here)
+			- Lazy.Vinke			<- Repository folder (Clone Lazy here)
