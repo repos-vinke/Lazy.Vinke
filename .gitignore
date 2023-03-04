@@ -350,6 +350,6 @@ MigrationBackup/
 .ionide/
 
 # Lazy Vinke Custom
-!1.0.0/Dependencies/Both/[Bb]in/
-!1.0.0/Dependencies/Client/[Bb]in/
-!1.0.0/Dependencies/Server/[Bb]in/
+!1.0.0/Defaults/Both/[Bb]in/
+!1.0.0/Defaults/Client/[Bb]in/
+!1.0.0/Defaults/Server/[Bb]in/

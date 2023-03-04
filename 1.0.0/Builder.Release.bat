@@ -5,9 +5,12 @@
 echo Builder Release
 echo:
 
-echo Copying dependencies...
-xcopy /e /y .\Dependencies\ ..\..\..\Release\ >> nul
+echo Copying Defaults...
+xcopy /d /e /y .\Defaults\ ..\..\..\Release\ >> nul
 del ..\..\..\Release\.gitkeep >>nul 2>>&1
+del ..\..\..\Release\Both\.gitkeep >>nul 2>>&1
+del ..\..\..\Release\Client\.gitkeep >>nul 2>>&1
+del ..\..\..\Release\Server\.gitkeep >>nul 2>>&1
 echo:
 
 cd .\Modules\Lazy.Vinke\Sources\
