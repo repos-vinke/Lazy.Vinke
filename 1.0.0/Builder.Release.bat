@@ -4,10 +4,11 @@
 
 echo Builder Release
 echo:
+
 echo Copying dependencies...
-echo:
 xcopy /e /y .\Dependencies\ ..\..\..\Release\ >> nul
 del ..\..\..\Release\.gitkeep >>nul 2>>&1
+echo:
 
 cd .\Modules\Lazy.Vinke\Sources\
 call .\Lazy.Vinke.Builder.Release.bat

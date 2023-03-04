@@ -4,10 +4,11 @@
 
 echo Builder Debug
 echo:
+
 echo Copying dependencies...
-echo:
 xcopy /e /y .\Dependencies\ ..\..\..\Debug\ >> nul
 del ..\..\..\Debug\.gitkeep >>nul 2>>&1
+echo:
 
 cd .\Modules\Lazy.Vinke\Sources\
 call .\Lazy.Vinke.Builder.Debug.bat
