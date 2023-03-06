@@ -34,9 +34,13 @@ namespace Lazy.Vinke.Database
         }
 
         public LazyDatabase(String connectionString)
-            : base()
         {
             this.connectionString = connectionString;
+
+            this.CultureInfo = CultureInfo.InvariantCulture;
+            this.StringFormat = new LazyDatabaseStringFormat();
+
+            InitializeDatabaseStringFormat();
         }
 
         #endregion Constructors
