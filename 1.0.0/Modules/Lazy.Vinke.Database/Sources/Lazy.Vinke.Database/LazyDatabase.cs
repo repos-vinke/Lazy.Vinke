@@ -1545,6 +1545,8 @@ namespace Lazy.Vinke.Database
 
         public abstract Boolean InTransaction { get; }
 
+        public abstract Boolean IsConnectionOpen { get; }
+
         #endregion Properties
     }
 }

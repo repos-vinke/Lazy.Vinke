@@ -1382,6 +1382,11 @@ namespace Lazy.Vinke.Database.SqlServer
             get { return this.sqlConnection != null && this.sqlTransaction != null; }
         }
 
+        public override Boolean IsConnectionOpen
+        {
+            get { return this.sqlConnection != null && this.sqlConnection.State == ConnectionState.Open; }
+        }
+
         #endregion Properties
     }
 }

@@ -1379,6 +1379,11 @@ namespace Lazy.Vinke.Database.MySql
             get { return this.mySqlConnection != null && this.mySqlTransaction != null; }
         }
 
+        public override Boolean IsConnectionOpen
+        {
+            get { return this.mySqlConnection != null && this.mySqlConnection.State == ConnectionState.Open; }
+        }
+
         #endregion Properties
     }
 }

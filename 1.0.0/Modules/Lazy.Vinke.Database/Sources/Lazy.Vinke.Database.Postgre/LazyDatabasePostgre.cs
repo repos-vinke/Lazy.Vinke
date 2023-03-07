@@ -1391,6 +1391,11 @@ namespace Lazy.Vinke.Database.Postgre
             get { return this.npgSqlConnection != null && this.npgSqlTransaction != null; }
         }
 
+        public override Boolean IsConnectionOpen
+        {
+            get { return this.npgSqlConnection != null && this.npgSqlConnection.State == ConnectionState.Open; }
+        }
+
         #endregion Properties
     }
 }
