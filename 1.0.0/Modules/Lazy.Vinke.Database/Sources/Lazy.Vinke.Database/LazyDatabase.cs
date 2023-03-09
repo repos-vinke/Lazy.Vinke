@@ -73,6 +73,15 @@ namespace Lazy.Vinke.Database
         public abstract void RollbackTransaction();
 
         /// <summary>
+        /// Create new instance of this
+        /// </summary>
+        /// <returns></returns>
+        public virtual LazyDatabase CreateNew()
+        {
+            return (LazyDatabase)LazyActivator.Local.CreateInstance(this.GetType(), new Object[] { this.connectionString });
+        }
+
+        /// <summary>
         /// Execute a sql sentence
         /// </summary>
         /// <param name="sql">The sql sentence to be executed</param>
